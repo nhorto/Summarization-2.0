@@ -1,203 +1,485 @@
-Opening statement
-This session comprised a comprehensive review of data management, scheduling, reporting, detailing workflows, and systems integration in Tekla PowerFab, with emphasis on Trimble Connect as a data bridge, governance of imports/grades, and improving estimation and production alignment through structured processes.
+Tekla PowerFab Consulting — Topic‑Organized Session Summary
+(Prepared from the single‑day transcript; no external information added)
 
-ADMINISTRATION
-- What was reviewed / covered
-  - Meeting logistics and calendar planning, including whether to send a meeting time so participants’ calendars would reflect attendance.
-  - Agenda distribution concerns: who should receive the agenda and what components should be requested, including whether a previously discussed item had been sent to a participant.
-- Key findings / observations
-  - There were questions about calendar invites and how agenda items should be shared among participants.
-  - Update status discussions noted issues with the 2025 release, including service packs and lag in updates; some customers were experiencing update delays.
-  - Clients were described as being “already where you need to be” regarding 2025 readiness, but detailers would need to be upgraded to 2025.
-- Configurations / changes implemented
-  - A plan to send calendar invites and distribute agenda items was established as a concrete administrative action.
-- Decisions reached or recommendations
-  - Proceed with calendar invites to ensure participant visibility; continue monitoring 2025 readiness and communicate new or missing items back to the consultant.
-- Next steps
-  - Calendar invites to be created/distributed; maintain ongoing alignment on 2025 readiness and detailer upgrade; report back if new/missing items surface.
+Consultant on call: Ricky Horton
 
-PROJECT MANAGEMENT
-- What was reviewed / covered
-  - Trim Connect as a bridge between PowerFab packages; sharing of shapes, grades, finishes, and ABM settings; submittals surfaced via the connector; automated import from submittal lists; mismatch flagging when shapes/grades aren’t recognized.
-  - Status of 2025 integration and training plans for internal estimators, with emphasis on preconstruction involvement and knowledge transfer.
-- Key findings / observations
-  - The connector reduces email/data transfers by surfacing submittals in a list for import; mismatches are flagged to prompt changes before proceeding.
-  - There was emphasis on training internal estimators (and transferring knowledge from senior staff) to sustain accuracy after staffing changes.
-- Configurations / changes implemented
-  - Demonstrated a connector-driven workflow to surface submittals and enable import directly from the submittal list; discussed ABM parameter sharing via the connector.
-- Decisions / recommendations
-  - Push detailers to adopt the connector workflow to improve cross-team communication.
-  - Align 2025 Trimble Connect integration with Structures detailing to enable shared data (grades, shapes, finishes) with detailers.
-- Next steps
-  - Plan to tighten ABM sharing across teams; ensure 2025 Trimble Connect integration supports shared data; verify grade/shape sharing and finish data with detailers.
+Notes:
+- All content below is drawn verbatim or directly from the transcript. No assumptions or additions have been made.
+- Completed actions are written in past tense; current states and persistent configurations are written in present tense.
 
-PRODUCTION CONTROL
-- What was reviewed / covered
-  - Use of queues to track items through processes; reporting workflows (top ships, maintenance dropdown, 08 report by shapes); size list cross-sectional data and its limitations (no exceptions shown).
-  - Process around cross-sectional data to scan for dimensions (cross-sectional area, flange widths) and how reports align with collected data; automation and monthly distribution considerations.
-  - Validation and alignment of reporting outputs with data collection; automation for monthly distribution; auditing needs for size list and cross-section data.
-- Key findings / observations
-  - Reports can list relevant items and be automated for monthly alerts; some reports provide comprehensive data but don’t show exceptions.
-  - Cross-sectional data can be scanned for dimensions across pieces; some data outputs are comprehensive but lack exception visibility.
-- Configurations / changes implemented
-  - Recognized the need to formalize reporting workflows and establish automation for periodic distribution; plan to validate cross-sectional data against auditing needs.
-- Decisions / recommendations
-  - Formalize the top ships/maintenance/08 reporting workflow; implement automation for monthly distribution; ensure size list and cross-sectional data meet auditing expectations.
-- Next steps
-  - Formalize and automate the specified reporting workflows; verify data alignment and auditing readiness; ensure monthly distribution is established.
+-------------------------------------------------------------------------------
+1) Meeting scheduling & calendar coordination
+- Discussed setting a target date for an onsite visit. Tuesday was identified as a possible day; a Wednesday slot was also referenced.
+- Action recorded in transcript: Ricky was to send a calendar invitation to the client (Jimmy) so the meeting appears on his calendar and he can attend at the agreed time.
+- Owner / target per transcript: Ricky / before next business day (explicit in one of the follow‑up tables).
 
-DATA INTEGRATION / IT SECURITY
-- What was reviewed / covered
-  - Import permissions review; risk of adding grades or sizes on the fly during imports; discussion of training and controls to prevent improper changes.
-  - Trimble Connect data bridge as the data integration mechanism between PowerFab and the detailing/ABM workflows; 2025 capabilities to flag grade differences; review of access controls and data governance.
-- Key findings / observations
-  - On-the-fly data additions could introduce data integrity risks; unique grades to shapes and cross-linking between ASTM/ASME data were noted as possible concerns.
-  - Trimble Connect is central to sharing data with detailers; 2025 capabilities will enable more integrated data sharing and flagging of grade mismatches.
-- Configurations / changes implemented
-  - Initiated plans to tighten import permissions; prepared for 2025 Trimble Connect sharing and the data bridge between PowerFab and the detailer.
-- Decisions / recommendations
-  - Tighten import permissions; train users to manage grades/sizes properly; implement 2025 Trimble Connect data-sharing capabilities and the grade-difference flagging feature.
-- Next steps
-  - Review and strengthen import controls; finalize the 2025 Trimble Connect integration plan; validate grade mismatch flag setup.
+-------------------------------------------------------------------------------
+2) Work‑package visibility & Gantt chart integration
+- Client observed that work packages were not visible on the current schedule view.
+- Ricky confirmed work packages were required and would be used to populate a Gantt‑chart system for tracking next steps.
+- No work‑package items were observed on the schedule at the time of the call.
+- Next steps specified in transcript:
+  - Review the schedule to ensure work packages are displayed.
+  - Configure the Gantt‑chart module to pull data from the work‑package list.
+- Owner per transcript: Ricky / immediate.
 
-DETAILING STANDARDS
-- What was reviewed / covered
-  - Detailing configuration with Structures; sharing of grades/shapes via Trimble Connect; ensuring grades remain unique to shapes; examples of adding a grade to a callout and propagating to related shapes.
-  - Data organization and naming conventions; differences between plating vs material-range conventions; ability to share ABM settings via data exchange.
-- Key findings / observations
-  - The 2025 Structures workflow via Trimble Connect would allow sharing grades/shapes with detailers; ABM settings are reusable across teams; grades are unique to shapes and may require adding to other related shapes for consistency.
-  - There was emphasis on standardizing naming conventions and using a library/dictionary for naming (Tekla conventions) to maintain consistency.
-- Configurations / changes implemented
-  - Considered aligning Structures detailing with Trimble Connect for 2025 data sharing; discussed ABM parameter sharing as part of data exchange.
-- Decisions / recommendations
-  - Align 2025 Trimble Connect integration with Structures detailing; maintain grade uniqueness to shapes and ensure related shapes are updated consistently when changes occur.
-- Next steps
-  - Establish a naming standards library; ensure adherence to Tekla naming conventions; implement the Trimble Connect-based sharing plan for 2025.
+-------------------------------------------------------------------------------
+3) Invoicing status
+- Client asked: “Did you invoice us yet?”
+- Ricky stated invoicing would be delayed until after he leaves and reassured the client there were “no concerns” at this time.
 
-QA/QC / INSPECTIONS
-- What was reviewed / covered
-  - Logging of import/flagging events (rejections) to support auditability; cross-package mismatches and missing drawings trigger logs.
-  - QA data flow from labor and work packages into a QC-signed-off database; alignment with ISO/quality manual requirements.
-- Key findings / observations
-  - The import/flagging workflow provides traceability; gaps in QA data and the need to reduce manual reporting were noted.
-- Configurations / changes implemented
-  - Recognized the need to improve QA data integration and traceability within a centralized system; plan to streamline QA data capture.
-- Decisions / recommendations
-  - Continue improving data integrity by ensuring QA data is captured centrally and visible; consider reducing manual reporting burden.
-- Next steps
-  - Validate QA data integration, ensure QC time is properly represented in totals, and align with the master reporting views.
+-------------------------------------------------------------------------------
+4) Reporting tools, data extraction, and automation
+- Demonstrated report that lists all items and properties (size, shape, cross‑sectional area, flange widths, etc.). Navigation shown:
+  - Top‑Ships → Great Size → Maintenance drop‑down → Reports → Make Report.
+- Report behavior:
+  - Report does not show exceptions; it displays every component so users can scan for missing properties (cross‑sectional areas, flange widths, etc.).
+  - A “size list” report was mentioned that lists all components.
+- Suggested automation:
+  - Schedule the report to run once per month and email results to a designated recipient (proposed as monthly automation).
+  - Owner per transcript: Ricky / within two weeks (for establishing monthly scheduling).
+- Export instructions (later recurring guidance in transcript):
+  - From an SM plan: click plan → Estimating drop‑down → View Labor Details → right‑click → Dump to Excel.
+  - This was the explicit path shown to export labor detail for summation.
 
-MATERIALS DATA MANAGEMENT / SSPL / SSL / SSA
-- What was reviewed / covered
-  - SSPL/SSL/SSA as data designations; mapping SSL to SSA via ASCII/text-file workflows; SSPL inclusion and the risk of changing weight data across production, inventory, and payables.
-  - The SSPL/SSP data mapping in the context of purchasing and invoicing; potential temporary PO impacts during SSPL data changes.
-- Key findings / observations
-  - SSPL weight changes propagate through production, inventory, and purchasing/payables; weight data can alter many downstream records.
-  - The K value in text exports may be unused; potential workaround is to remove the K value from the export if not used.
-  - Differences between SSPL and existing data (e.g., carbon vs stainless) require careful versioning and possibly a bulk update approach rather than item-by-item changes.
-  - Weight data may vary by grade and supplier; density references (stainless ~0.31, carbon ~0.289 pounds per cubic inch) were discussed as inputs for conversions.
-- Configurations / changes implemented
-  - Planned text-file changes (SSL to SSA) and importing with SSL/SSA selection; explored bulk replacement, and discussed potential data-conversion workflows.
-- Decisions / recommendations
-  - Use a version-rate approach to apply SSPL changes efficiently; verify SSPL inclusion before bulk replacement; determine whether to standardize on a single weight metric and how to propagate changes across modules.
-- Next steps
-  - Complete SSPL inclusion checks; finalize the text-file mapping Pl. to SSPL; test SSA imports; implement the version-rate approach; monitor for conversion anomalies; coordinate with purchasing to manage procurement implications.
+-------------------------------------------------------------------------------
+5) Trimble Connect integration and Structures 2025 detailer workflow
+- Current detailing workflow uses Structures 2025.
+- Starting in 2025, users can share grades, shapes, and finishes with detailers via a Trimble Connect project (termed “the bridge between the two packages”):
+  - Client uploads data to a Trimble Connect project.
+  - Detailer links their model to the same Trimble Connect project, creating a bridge between the software packages.
+  - When a shape/grade is unrecognized in the receiving system, an import pop‑up alerts the user (“I don’t recognize this shape or grade”).
+  - If a detailer chooses a different grade than stored, the import is flagged; the user must change it before proceeding. The system lists all items that are wrong.
+- A “slight amount of set‑up” was stated to be required on the client side to enable the pop‑up/flagging screen; enabling the import‑screen pop‑up was explicitly mentioned.
+- Sharing options in the upper‑right “info sharing” drop‑down include: Shapes; Grades & sizes; Finishes; ABM (Advanced Bill of Materials) settings.
+- ABM section was described as revamped; users can define parameters and notify the detailer when a change falls outside defined parameters.
+- Owner / next step per transcript: Client (detailers) + Ricky / prior to next detailing cycle.
 
-ESTIMATING (STAINLESS CONVERSION / WEIGHT CALCULATIONS)
-- What was reviewed / covered
-  - Stainless conversion planning, starting from a baseline size and testing additional sizes to establish non-linear factors; density references for stainless and carbon; use of AI-assisted calculations (ChatGPT) as an aid.
-- Key findings / observations
-  - Stainless conversion is non-linear; multiple size tests are needed to form a defensible ballpark; density values are critical inputs (stainless ~0.31, carbon ~0.289 lb/in3).
-  - AI-assisted calculations can help but baselines must be preserved; a measured base size is recommended before expanding tests.
-  - Weight variability exists by grade and supplier; conversions must account for non-uniform factors.
-- Configurations / changes implemented
-  - Agreed to begin with one baseline size and extend tests to other sizes; plan to apply non-linear factors and document each tested size’s factor.
-- Decisions / recommendations
-  - Use density values as ground truth for weight conversions; avoid locking in a single linear factor; maintain a living library of conversion factors by size.
-- Next steps
-  - Execute baseline size test, add 1–2 more sizes for non-linear factor development, document results, and refine conversion factors iteratively.
+-------------------------------------------------------------------------------
+6) Connector (automatic submittal retrieval) and package import/reject workflow
+- A Connector feature pulls files directly into the client’s environment without email; files appear in a list view.
+- Connector behavior:
+  - Files appear automatically in a list.
+  - Connector delivers submittals linked to imported files.
+  - The user can import a package directly from the connector list.
+  - If a package lacks drawings or required data, the user can reject it; rejection creates a log entry in “Tech Structures” noting the reason (e.g., “no draws”).
+  - Videos demonstrating the connector operation are available and were offered.
+- Consultant recommendation (explicit): Deploy the Connector and test import/reject workflow — Owner: Client (validate files appear without email); Consultant to provide video resources.
 
-MATERIALS / WEIGHT MANAGEMENT / PRODUCTION IMPACT
-- What was reviewed / covered
-  - Weight-driven estimation considerations; variability in weight by material supplier/grade; strategies to set weights (keep as-is, zero, or high-side approach).
-  - Impacts on PO values, invoicing, and procurement when weight data changes; potential temporary PO changes during SSPL updates.
-- Key findings / observations
-  - Weight data changes propagate across production, inventory, and payables; inconsistent weight values can cause data integrity issues.
-  - Some shops may rely on high-side weight values to stabilize estimates during transitions; weight changes should be carefully versioned.
-- Configurations / changes implemented
-  - Planned a bulk-weight update approach (version-based) to minimize item-by-item edits.
-- Decisions / recommendations
-  - Decide whether to set weights to zero or to a high value; establish a version-rate approach; coordinate with purchasing and finance for temporary impacts.
-- Next steps
-  - Validate the chosen weight strategy; implement bulk SSPL weight changes with proper versioning; communicate procurement implications to stakeholders.
+-------------------------------------------------------------------------------
+7) Permissions, grade/shape creation controls, and grade usage rules
+- Issues identified:
+  - Duplicate grades being created.
+  - Grades being added to the “carving” instead of the intended stainless call‑out.
+  - Five‑plus users historically had permission to create grades; permissions were tightened.
+- Permissions change:
+  - Creating grades was moved to a “special” permission type (explicitly mentioned).
+- Grade/shape rules (explicit):
+  - Adding grades or sizes is easy (one‑at‑a‑time) on the imports screen; this ease can lead to unintended additions if users are not knowledgeable.
+  - Grades are unique to each shape: adding a grade to Channels does not make it available for Beams or Angles automatically; it must be added to each shape individually.
+- Process demonstrated for assigning a grade:
+  1. Assign the new grade (example: 836) — it appears at the top of the list.
+  2. Manually remove the grade from the abbreviation field where it is not needed.
+- Most standard sizes were stated as already present; adding a grade applies to all sizes within that specific call‑out only.
+- Action per transcript: Grade cleanup (review existing grades for duplicates and remove unwanted entries from abbreviations) — Owner: Client team / ongoing.
 
-ESTIMATING
-- What was reviewed / covered
-  - Employment of macro-level adjustments, weight-based extrapolations, and data consolidation across sizes; discussion of density-based inputs for weight calculations.
-- Key findings / observations
-  - Time studies and weight/size properties drive extrapolation; cross-sectional properties determine labor-time contributions; updating sizes may require recalibration of times.
-- Configurations / changes implemented
-  - Initiated data consolidation efforts, global edits, and extrapolation adjustments; planned to propagate updates via bulk conversions.
-- Decisions / recommendations
-  - Maintain non-linear conversion logic; ensure data completeness for each size; verify that weights propagate to estimating and labor standards accurately.
-- Next steps
-  - Complete the data validation and propagate updated times; test across multiple sizes; align with SSPL/SSA changes and purchasing impacts.
+-------------------------------------------------------------------------------
+8) ASCII export/import workflow for angles and SSL/SSA conversion
+- Steps demonstrated (explicit transcript instructions):
+  1. Export shape data: Export → Export to ASCII.
+  2. Open the exported text file; make controlled find‑and‑replace edits.
+     - Example: find “L” and replace with “SSL” or vice versa, but caution: do not blindly replace every occurrence of “L” (some are comments).
+     - The consultant instructed to navigate to “shapes included” line before applying replacements.
+  3. Save and close the edited ASCII file.
+  4. Import the edited file back into Tekla.
+- Specific use case: change grade designation from “L” to “SSL” (or SSL to SSA). Ricky cautioned about replacing every “L” and noted comments in the file that are harmless.
+- Shape Maintenance follow‑up:
+  - Use Shape Maintenance drop‑down to verify and adjust new SSL grade.
+  - View dimension grade usage via “shape grade size maintenance.”
+- Recommendation in transcript when historical purchase/inventory must be preserved:
+  - Rename the existing grade (e.g., to “SSA” or “SSA old”) and create a new SSL grade so purchase history is preserved; this avoids losing cost/purchase records.
+- K‑value behavior:
+  - The K‑value may be present in angle definitions but is informational and not used in default calculations; the consultant suggested removing the K‑value from the text file as the easiest fix because K is not transferred by import.
+- Owner / next step per transcript: Client (Mark/Gavin/Alan) to perform ASCII export/edit/import; Ricky offered to export cleaned files and email them to the client.
 
-PURCHASING
-- What was reviewed / covered
-  - Material data impacts on purchasing and payables; SSPL imports affecting purchasing data; potential temporary PO changes; vendor pricing dynamics and centralization ideas.
-- Key findings / observations
-  - SSPL changes affect purchasing data and vendor payments; moving to a centralized purchasing model could improve pricing leverage.
-  - There was discussion of consolidating purchasing with one buyer; price competition among vendors was viewed as beneficial.
-- Configurations / changes implemented
-  - Considered renaming or separating SSA/SSAL/SSL designations to preserve historical data while adopting SSPL going forward.
-- Decisions / recommendations
-  - Evaluate procurement governance changes; pursue centralized purchasing; ensure vendor communications remain controlled and auditable.
-- Next steps
-  - Coordinate with procurement to implement centralized purchasing if beneficial; monitor PO changes and ensure alignment with SSPL data updates.
+-------------------------------------------------------------------------------
+9) Gate‑distance correction via Excel / CSV workflow
+- To remove a gate distance value of 0.25 globally:
+  - Export the line‑item list as a CSV/text file (column separators).
+  - Zero‑out the gate‑distance column in Excel.
+  - Save the edited file in CSV format (ensure extension accepted by import routine).
+  - Rename the file appropriately before import to preserve original as a backup.
+- Ricky confirmed deleting the .25 globally was safe because that value only occurred in the current document.
+- Owner per transcript: Client to perform export, edit, and re‑import.
 
-IT SECURITY / DATA INTEGRATION (summary of key points)
-- Data governance and integration were repeatedly emphasized: tighten permissions; plan 2025 Trimble Connect integration; flag grade mismatches; ensure SSPL inclusion; consider data mapping between SSPL/SSL/SSA and procurement/ERP.
+-------------------------------------------------------------------------------
+10) ChatGPT used for text‑file cleaning
+- The consultant used ChatGPT (paid version referenced elsewhere in transcript) to clean an angle CSV that contained formatting issues preventing import.
+- After ChatGPT cleanup, the file imported and populated weight and cross‑sectional area attributes correctly.
+- Ricky offered to email the cleaned file to the client for validation.
 
-POWERFAB GO
-- The transcript contained limited explicit content specific to PowerFab Go beyond mobility discussions; a distinct PowerFab Go topic was not elaborated with concrete actions in this day’s sessions.
+-------------------------------------------------------------------------------
+11) Service pack, performance, and hardware variability
+- Observed issue: an application lag (“there was a lag… it would come up with that then check on not responding”).
+- Cause and resolution: a recently released service pack caused the lag; the vendor fixed it (explicit in transcript).
+- Performance variability was attributed more to shop hardware than software settings: some shops are “mega slow,” others “super fast.”
+- Network considerations and server location:
+  - Discussions of Wi‑Fi, 5G (described as “pretty slow” in one test), shared vs. dedicated connections, and server mirroring; a Mexico server location was mentioned.
+- Action per transcript: Monitor post‑update lag/performance issues and report to vendor if persisted — Owner: Client / ongoing.
 
-SCHEDULING / CAPACITY
-- What was reviewed / covered
-  - Scheduling discipline, master schedules, and capacity planning; locking the current week while keeping following weeks flexible; dead time to protect the overall plan; integration of project planning with shop/field execution.
-- Key findings / observations
-  - Scheduling discipline was stressed to front-load information and reveal staffing/throughput gaps earlier; there were concerns about “dead time” and the need to protect the schedule.
-- Configurations / changes implemented
-  - Proposed locking the current week and maintaining flexibility for future weeks; plans to integrate master schedule with work packages.
-- Decisions / recommendations
-  - Emphasize master schedule as the planning reference; maintain dead time as a protective measure; ensure field/sh shop data flow feeds the schedule accurately.
-- Next steps
-  - Continue refining the locked-week approach; monitor staffing impacts on throughput; keep the master schedule as the primary planning reference.
+-------------------------------------------------------------------------------
+12) Stainless‑steel conversion, densities, weight values, and Global Edit usage
+- Explicit density / weight figures and conversion details stated in transcript:
+  - Stainless density used in design software: 0.31 (unit in transcript: “.31”).
+  - Harmony density: 0.28 (explicit).
+  - Type 304 stainless weight referenced as ≈495 lb/ft³ (Ricky’s recollection).
+  - Quarter‑inch plate weights (explicit mentions):
+    - Stainless quarter‑inch plate: 11.6 lb/ft² (“11.6 lbs per square foot”).
+    - Carbon quarter‑inch plate: 10.2 lb/ft² (implied when the consultant compared carbon vs stainless; the transcript stated “10.2 lb/ft² (implied)”—the 10.2 value was present in transcript context).
+  - Multiple inconsistent figures were spoken for tube weights (examples: 8.953, 9.9336, 8.81) — all were captured exactly in the transcript.
+- Global Edit workflow described (explicit steps):
+  1. Pull a carbon‑steel plate (PL) entry that has time data into the editing dialog.
+  2. Use Global Edit to copy the definition to the stainless‑steel plate family (SSPL).
+  3. Confirm the operation (OK); “Now it’s updating it.”
+- Behavior noted:
+  - System will not automatically convert weight unless the user requests it (“it’s not doing the conversion unless you want it to”).
+  - There is a tool to “take the whole database of the card and say convert this and it will convert it for you,” but the client indicated “that won’t do that one” (explicit limitation).
+  - After Global Edit, stainless‑plate entries contained times derived from carbon‑plate data modified by the chosen extrapolation factor.
+- Explicit examples and observations:
+  - When testing density in Global Edit, a part weight changed “from 1.9 to 5 … because of the 490 lbs per cubic foot” example was shown.
+  - The consultant tested a target weight of 0.651 for a 1×1×1/8 element (the transcript included “should calculate to 0.651”).
+- Action items per transcript:
+  - Verify current SSPL weight values (stainless vs carbon) — Owner: Client / immediate.
+  - Export current plate size data and perform bulk convert (Pl. → SSPL) using Global Editor — Owner: Consultant / after verification.
+  - Conduct a sandbox test to observe impact on PAS, inventory, and PO before production rollout — Owner: Consultant & Client IT.
 
-SCHEDULING / CAPACITY (second related session)
-- This topic echoed a similar focus on daily planning, field vs. shop data alignment, and ensuring scheduling reflects real-time throughput and staffing realities.
+-------------------------------------------------------------------------------
+13) Extrapolation factors and labor standards for stainless
+- Extrapolation factors were described as multipliers that make time grow or shrink; possible bases include cross‑sectional area, length, weight, or any user‑defined attribute.
+- Examples discussed:
+  - If an operation is driven by length, the standard length is used to make the time grow or shrink accordingly.
+  - The factor ensures different thicknesses receive different times (e.g., 1‑inch vs 1/8‑inch plates).
+- Practical process for stainless plates:
+  1. Select a carbon‑steel plate with times.
+  2. Global Edit → Send to SSPL.
+  3. Confirm and let the system populate times for stainless based on the extrapolation factor.
+- Owner / next step: Establish extrapolation factor consistent with client’s chosen base (area, weight or length) — Owner: Consultant & Client.
 
-IT INFRASTRUCTURE / NETWORK
-- What was reviewed / covered
-  - On-site IT readiness, wifi extension considerations, device management (tablets), camera/printing requirements, and on-site IT resource planning.
-  - Past IT limitations (downtime, paper-dependent processes) contrasted with current capabilities (facial recognition for safety checks; digital workflows).
-- Key findings / observations
-  - There was a need for on-site IT support and a plan to compile an IT issues list; concerns about network reliability during migration were raised.
-- Configurations / changes implemented
-  - Plans to deploy an on-site IT resource and to address device management and network stability.
-- Decisions / recommendations
-  - Prioritize on-site IT support; address connectivity risks (e.g., consider Starlink as a contingency); standardize devices (iPads/Android) and improve charging/storage logistics.
-- Next steps
-  - Assign an on-site IT resource; finalize the IT issues list; implement summer adjustments (device housing, charging) and shop displays (TVs) for real-time status.
+-------------------------------------------------------------------------------
+14) Populating sizes for estimating and maintenance navigation
+- Observations:
+  - New channel sizes added do not automatically appear in estimating; user must manually add them in Maintenance → Estimating.
+  - In Maintenance/Estimating tab, users can click Add at the bottom to bring new channel sizes from the Shapr‑E size database into the estimating list.
+  - Notification occurs showing added time values (example: “1.66 minutes” observed for a channel cut).
+- Default times:
+  - Times displayed for cuts (e.g., 1.66 minutes) are default Tekla/PowerFab times; shops maintain their own table of operation times (e.g., “Lone Row” may have customized times).
+- Location of formulas:
+  - Mathematical formulas that convert properties into cut‑time reside in Maintenance → Estimating and also in the Labor Standards area at the bottom of the interface.
+- Action per transcript:
+  - Add new channel sizes manually through Maintenance → Estimating to ensure cut‑time values appear — Owner: Client / immediate.
 
-QA / INSPECTIONS (summary)
-- QA/QC topics focused on logging, traceability, and alignment between QA time and overall estimates; no explicit new QA/QC process changes were enacted, but the need to reconcile QA time within totals and reporting was highlighted.
+-------------------------------------------------------------------------------
+15) Default labor times in client database and example PX edits
+- Transcript quoted out‑of‑the‑box/default times and changes:
+  - Unload (handling): 12 min (default).
+  - Move (general): 12 min and another reference to 18 min (multiple references in transcript).
+  - Cut time had been changed to 6 min (explicit).
+  - A demonstrated change increased unload time by 10% from 12 → 13.2 min.
+  - Load time example: increase from 14 → 16 min (explicit in transcript).
+  - Move time example: increase from 18 → 19.8 min (explicit).
+- Procedure demonstrated for PX edits:
+  1. Open Labor Standards → select the PX (e.g., PX18) on the right‑hand labor standards panel.
+  2. Edit the time value (e.g., unload from 12 to 13.2).
+  3. Use “Pull over” to propagate the edited value to selected operations while excluding unrelated columns (e.g., W1240).
+- Consultant recommendation (explicit):
+  - To react to shop performance quickly, adjust weld times and re‑run the estimate (Ricky: “is what I do a lot”).
+- Action items per transcript:
+  - Perform a labor‑code audit and update times where defaults remain — Owner: Client (with consultant support).
+  - Apply example 10% handling adjustments as a test — Owner: Consultant (demo) / Client to re‑run estimates.
 
-DETAILING STANDARDS / ADDITIONAL NOTES
-- Several notes emphasized the balance between standardization and customization; the need to document decisions and deviations; and the importance of a unified data backbone to reduce miscommunication.
+-------------------------------------------------------------------------------
+16) Handling, “Get Piece” logic, and equipment‑specific handling
+- “Get Piece” / Move operation:
+  - The “Get Piece” entry represents movement within the shop (yard to machine, cut, etc.). It can be customized and will carry lessons forward.
+- The system’s current handling extrapolation was described as length‑driven in many cases; the client stated they “care more about weight” in some use cases.
+- Equipment impact:
+  - Example: ACPC vs saw — straight cuts are more efficient on the saw; ACPC may have drastically different handling.
+  - Unique handling times can be attached to specific operations if required.
+- Practical adjustments:
+  - For heavy projects the client said handling categories (move, load/unload, handling) were changed weekly, and the question was raised whether all three should be changed together; transcript recorded client practice to change them as a group when needed.
+- Action items per transcript:
+  - Document average handling times for saw vs ACPC and adjust parameters accordingly — Owner: Client Estimators / Consultant to follow up.
 
-CLOSING SUMMARY
-- The day produced a comprehensive map of active topics: Trimble Connect as a cross-package data bridge; formalizing reporting and automation; tightening import permissions; aligning detailing with 2025 capabilities; weight/SSPL/SSL/SSA data governance; and strengthening scheduling, data ownership, and shop/field alignment. Explicit next steps across topics included setting up calendar invites, formalizing reporting and automation, planning 2025 Trimble Connect integration, implementing SSPL-related data changes with proper versioning, validating weight conversion approaches, and ensuring on-site IT readiness. The session underscored a path toward tighter data governance, more automated workflows, and closer coordination among administration, project management, production control, detailing, and purchasing.
+-------------------------------------------------------------------------------
+17) Spot checks, time studies, and data collection strategy
+- Goal stated: perform “a lot of spot checks and time studies on certain projects” and obtain a distinct data set for each setup, then make adjustments.
+- Complexity noted: many shapes may each have 20 different dimensions (or “hundreds”), making the effort intense.
+- Sampling approach described: sample representative items (e.g., 1st, 5th, 15th shape) to see correlation and extrapolate.
+- Action items per transcript:
+  - Plan and execute spot checks/time studies to build a data set and refine estimating values — Owner: Client & Consultant / ongoing.
 
-Optional closing note
-- The session presented a broad, action-oriented agenda to advance Trimble Connect integration, data stewardship, and cross-functional workflow improvements within Tekla PowerFab, while maintaining a clear focus on concrete next steps and owner responsibilities.
+-------------------------------------------------------------------------------
+18) HSS / Tube handling, size thresholds, and fabrication workarounds
+- HSS/Tubes observations:
+  - The client had turned off or not activated HSS in their environment in some contexts.
+  - A configuration can automatically convert TS objects to HSS during take‑off (consultant said “would be a good idea”).
+  - The team discussed a practical limit: the largest common stainless tube encountered was 8×8 in; for tubes beyond practical sizes, plate‑weld construction would be used.
+  - Client hard limit on cutting: “I can’t cut anything over 2030.” (No unit provided; statement included as explicit transcript text).
+- Size list notes:
+  - HSSR list contained sizes such as 1.9 in (1½ in reference). No exact 2 in entry; some sizes appeared inconsistent (5 in example).
+- Action items per transcript:
+  - Implement a flagging mechanism to alert when tube exceeds defined size threshold (e.g., >2 in) — Ricky committed to “find a way to do that.”
+  - Validate HSS library activation and ensure expected HSS shapes exist — Owner: Client / immediate.
+
+-------------------------------------------------------------------------------
+19) Hole‑count extrapolation issue for tubes and HSS
+- Root cause identified for tubes receiving zero time: extrapolation factor was tied to “number of holes in a standard clip”; for the reviewed tubes the clip‑hole count was zero, causing zero time to be allocated (“That’s why we got no time”).
+- Consultant recommended:
+  - Change extrapolation/stripolation factors to be based on actual holes in the clip.
+  - Edit HSS tube entries to reflect correct hole counts and standard clip of two (explicitly: “every single tube has holes and standard clip of two”).
+  - Repass the plan so corrected values populate HSS.
+- Action items per transcript:
+  - Edit HSS file to replace zero‑hole entries, set standard clip to two, repass take‑off — Owner: Client & Consultant.
+
+-------------------------------------------------------------------------------
+20) QC (quality‑control) time, flags, and schedule visibility
+- QC time was not estimated by default on the schedule; QC entries in schedule were zero unless applied when a material check was required.
+- Transcript specifics:
+  - Client expected approximately 5 hours of QC time; they observed QC utilization of almost 30 hours in one instance and reported totals reaching ≈140 hours when QC is included.
+  - Workflow: QC checks were flagged; the flag is dropped once the short (≈5 minute) QC check is performed.
+- Concern: missing QC hours in schedule cause discrepancies between estimated and actual hours; client expressed the need to add QC as an “extra” item for reconciliation.
+- Action items per transcript:
+  - Gather and consolidate QC‑related hour data and add to totals — Owner: Client team / end of week.
+
+-------------------------------------------------------------------------------
+21) Mobile devices, tablets, and drawing distribution
+- Tablet usage:
+  - 9‑inch tablets used in shops; larger 28‑inch touch displays used by QC staff.
+  - Drawing revisions update instantly on tablets when revision is imported.
+  - Rolling chargers and refrigerated storage were used to keep devices functional in extreme heat; a freezer was purchased for shipping/receiving.
+- Adoption stats cited:
+  - ~80% adopt tablets immediately; 10‑15% adopt after a few weeks; ~5% never adopt.
+- Recommendation (explicit): provide a mix of device sizes — larger touch screens for QC and smaller tablets for field staff.
+
+-------------------------------------------------------------------------------
+22) Robotic welding, vision systems, and high‑volume automation
+- Robotic welding was described as feasible for simple repetitive parts; vision systems (Lincoln) improved detection vs earlier versions (AVV).
+- Robot workflow:
+  - Robot pulls geometry directly from the model, loads into database, and executes welds autonomously.
+  - For simple parts robot can perform 100% welds; for complex structural parts human finish is required.
+- Implementation note: Successful robotic programs require persistent operational effort; many shops buy equipment but do not invest in making it work.
+- Transcript: consultant praised robotic performance and cited examples of very high production during competitions.
+
+-------------------------------------------------------------------------------
+23) Connector/Trimble and communication/audit trail benefits
+- Using the Connector and Trimble Connect sharing increases clarity between the client and detailers:
+  - Flags mismatches in grade/shape.
+  - Rejections create entries with reasons in Tech Structures, providing an audit trail.
+- Consultant emphasized this made communication smoother and provided clearer issue resolution.
+
+-------------------------------------------------------------------------------
+24) Export / Vista ERP / PO workflow and procurement notes (explicit)
+- Tekla↔Vista data exchange was described as export driven; Vista is the origin point for job numbers and POs in their workflow.
+- Specifics:
+  - Job number comes from Vista; Tekla estimate cannot be loaded into the database until a Vista job number exists.
+  - PO generation was Vista‑centric; the PO had to be entered in Tekla to match Vista’s PO numbering (a manual duplicate entry was confirmed in transcript: “You’re doing it twice…that sucks.”).
+  - PO numbering was reconfigured to match Vista’s new six‑digit scheme (e.g., “400,000”); historical 3‑4 digit PO numbers changed.
+  - Some items exported from Tekla to Vista and vice versa; however, most workflows relied on file exports rather than live integration.
+- Risks / pain points explicitly stated:
+  - Lack of real‑time integration between systems (“program’s not talking to each other”).
+  - Manual duplicate PO entry and potential for transcription errors.
+- Action items per transcript:
+  - Validate export integrity and confirm PO synchronization procedure — Owner: Client & Consultant.
+  - Document job creation sequence (job in Vista then set up project in Tekla) — Owner: Consultant.
+
+-------------------------------------------------------------------------------
+25) Procurement & vendor management observations (explicit)
+- Organizational procurement:
+  - There was no dedicated procurement programmer; a single warehouse contact handled procurement funneling.
+  - Consolidation to one purchaser was discussed to achieve better pricing and reduce duplicated small purchases.
+- Vendor comments:
+  - Relationship notes (Ryerson, Brown Steel acquisition by Delta) and negotiation stance were recorded.
+- Action per transcript:
+  - Consider consolidating purchasing under a single point of contact — Owner: client leadership / ongoing.
+
+-------------------------------------------------------------------------------
+26) Post‑mortem processes, project close‑out and estimator vs shop feedback
+- The team conducts project close‑outs to compare actual labor vs estimate; however, database refresh with actual performance had not been consistently completed.
+- Consultant recommended:
+  - Estimators should spend time in the shop/field (explicit suggestion: “spend an hour or two in the shop… three weeks an hour or two in the field”) to better understand real production times.
+  - Establish trust‑and‑verify review for overruns and feed results back to database.
+- Action items per transcript:
+  - Reconcile estimates with actuals and update labor standards (post‑mortem) — Owner: Client & Consultant / ongoing.
+
+-------------------------------------------------------------------------------
+27) Labor‑coding, work packages and scheduling issues
+- Observations:
+  - Work packages were being used but not always reflected in schedule or resource planning.
+  - Scheduling lacked hooks to propagate labor overruns through schedule; new hires without experience caused tasks to take longer and labor hours were not updated.
+  - A master schedule approach is in use where the current week is locked and subsequent weeks are flexible (explicit in transcript).
+- Recommendations recorded in transcript:
+  - Establish pre‑construction client meetings to align scope and resource allocation.
+  - Reserve slots in the master schedule for under‑released work packages to avoid ad‑hoc insertions.
+- Action items per transcript:
+  - Improve contractor/scheduler communication and integrate work packages into Gantt chart (Ricky / immediate).
+
+-------------------------------------------------------------------------------
+28) Action items and explicit follow‑up list (compiled from transcript tables and statements)
+- The transcript contained multiple explicit action‑item tables. Items reproduced verbatim (owner/target as explicitly stated when present):
+
+  1. Calendar Invite
+     - Description: Send meeting invite to Jimmy for Tuesday/Wednesday session.
+     - Owner: Ricky.
+     - Target: Before next business day.
+
+  2. Work‑Package Visibility
+     - Description: Verify work packages appear on schedule and feed Gantt chart.
+     - Owner: Ricky.
+     - Target: Immediate.
+
+  3. Trimble Connect Setup
+     - Description: Configure project sharing for grades, shapes, and finishes.
+     - Owner: Client (detailers) + Ricky.
+     - Target: Prior to next detailing cycle.
+
+  4. Automated Report Scheduling
+     - Description: Establish monthly report generation & email distribution.
+     - Owner: Ricky.
+     - Target: Within two weeks.
+
+  5. Grade Cleanup
+     - Description: Review existing grades for duplicates and remove unwanted entries from abbreviations.
+     - Owner: Client team.
+     - Target: Ongoing.
+
+  6. Specification Review
+     - Description: Confirm any ASTM‑to‑ASME auto‑linking does not impact compliance.
+     - Owner: Client quality team.
+     - Target: Ongoing.
+
+  7. Connector Deployment & Testing
+     - Description: Deploy Connector for automatic submittal retrieval and test import/reject.
+     - Owner: Client.
+     - Target: Validate files appear in list without email.
+
+  8. Provide Connector Videos
+     - Description: Provide video resources demonstrating connector usage to the detailer team.
+     - Owner: Consultant.
+     - Target: Ensure team can view and follow.
+
+  9. Verify Trimble Connect flag / pop‑up
+     - Description: Ensure pop‑up screen is active to flag unrecognised shapes/grades.
+     - Owner: Client.
+     - Target: Ensure pop‑up is active.
+
+  10. Global Edit / SSPL conversion
+     - Description: Export current plate size data; perform bulk Pl. → SSPL replace using Global Editor; test in sandbox before production.
+     - Owner: Consultant & Client IT.
+     - Target: Prior to production rollout (sandbox test first).
+
+  11. Add new channel sizes to estimating
+     - Description: Manually add new channel sizes via Maintenance → Estimating and confirm cut‑time notifications.
+     - Owner: Client.
+     - Target: Immediate.
+
+  12. Spot checks / time studies
+     - Description: Perform spot checks and time studies to capture data sets per setup.
+     - Owner: Client & Consultant.
+     - Target: Ongoing / project dependent.
+
+  13. ASCII angle export/edit/import (SSL/SSA)
+     - Description: Export angle via ASCII, edit grade (find/replace), save and re‑import; if import fails, retain SSL configuration.
+     - Owner: Client (Mark/Gavin/Alan) with Consultant support.
+     - Target: Prior to next estimating cycle.
+
+  14. Gate‑distance removal via CSV/Excel
+     - Description: Export line items, zero‑out gate‑distance column in Excel, save as CSV, rename and re‑import.
+     - Owner: Client.
+     - Target: After session.
+
+  15. QC hours consolidation and flag workflow
+     - Description: Gather QC hour data (including ~5 hours) and reconcile totals; formalize flag‑based QC workflow.
+     - Owner: Client team.
+     - Target: End of week (explicitly stated elsewhere).
+
+  16. HSS hole‑count correction
+     - Description: Update HSS tubes to reflect correct clip hole counts (standard clip of two) and repass plan.
+     - Owner: Client & Consultant.
+     - Target: Immediate.
+
+  17. Labor‑code audit and propagation
+     - Description: Review labor codes, flag defaults, apply necessary PX/time edits (examples shown in transcript).
+     - Owner: Client with Consultant guidance.
+     - Target: As soon as possible.
+
+  18. Monitor post‑update lag/performance
+     - Description: Monitor for any post‑service pack lag; report to vendor if issues persist.
+     - Owner: Client.
+     - Target: Ongoing.
+
+  19. Verify detailer versions
+     - Description: Confirm all detailers are upgraded to version 2025 for Trimble/Structures compatibility.
+     - Owner: Client.
+     - Target: Record version numbers (explicit).
+
+  20. Provide cleaned CSV for stainless‑angles
+     - Description: Ricky to email cleaned stainless‑angle CSV to client.
+     - Owner: Ricky → Client.
+     - Target: Pending (explicit in transcript).
+
+- These items and owners were explicitly stated in the transcript; they are reproduced here without modification.
+
+-------------------------------------------------------------------------------
+29) Explicit numeric and technical facts captured verbatim (selected)
+- Densities / weights / conversion values:
+  - Stainless density used in design software: 0.31 (explicit).
+  - Harmony density: 0.28 (explicit).
+  - Type 304 stainless ≈ 495 lb/ft³ (Ricky’s statement).
+  - Quarter‑inch stainless plate: 11.6 lb/ft² (explicit).
+  - Quarter‑inch carbon plate: 10.2 lb/ft² (implied in transcript).
+- Estimating/default times:
+  - Channel cut example: 1.66 minutes (demonstrated).
+  - Default unload (handling): 12 min (transcript).
+  - Default move: 12 min and another reference to 18 min.
+  - Cut time modified to 6 min (explicit).
+  - Example handling increase: 10% change: unload 12 → 13.2 min; load 14 → 16 min; move 18 → 19.8 min (explicit demo).
+- Conversion / sample tube weights quoted in transcript: 8.953, 9.9336, 8.81 (all quoted as spoken; inconsistent numbers preserved).
+- Limitation: “I can’t cut anything over 2030.” (quoted exactly as in transcript; no unit stated).
+- Largest commonly used stainless tube observed: 8×8 in (explicit).
+
+-------------------------------------------------------------------------------
+30) Concerns, risks, and limitations identified explicitly in transcript
+- Duplicate grades and unintended additions from import screens pose risk to data integrity.
+- ASTM ↔ ASME auto‑linking for specs (e.g., grade 836) was noted to be minor but potentially affecting downstream reporting and validation.
+- Bulk conversion tools may not handle every case automatically (“that won’t do that one”).
+- Missing cross‑sectional area or flange width results in no cut time or zero coating calculations (explicit).
+- Lack of automation between Tekla and Vista results in duplicate manual PO entries and potential mismatch errors.
+- QC time not included in estimates/schedules unless manually applied leads to under‑reported hours.
+- Hardware/network variability and server/location concerns can cause application lag and slow performance.
+
+-------------------------------------------------------------------------------
+31) Explicit training, documentation, and process aids mentioned
+- Consultant suggested creating short videos / possibly a YouTube channel to answer recurring client questions (“Might as well make a YouTube channel and send it up there”).
+- Ricky offered to provide videos demonstrating Connector usage.
+- Consultant offered to email cleaned CSV files (angle/SSL) to client.
+- Consultant offered step‑by‑step guidance in tool use (labor edits, exports, ASCII export/import).
+
+-------------------------------------------------------------------------------
+32) Closing observations from transcript
+- The session covered a wide set of items: schedule coordination, work‑package visibility, reporting automation, Trimble Connect/Structures 2025 integration, grade/shape management and permissions, ASCII export/import for angle grade changes, Global Edit weight conversions and stainless plate population, labor standard maintenance and PX edits, handling/extrapolation logic, QC and time‑study processes, connector/submittal handling, and procurement/PO integration with Vista.
+- Multiple explicit action items and owners were recorded in the transcript (section 28 reproduces those verbatim).
+
+-------------------------------------------------------------------------------
+Appendix — Primary owners and stakeholders (as explicitly named)
+- Ricky Horton — consultant (explicit owner for calendar invite, report automation, SSPL Global Edit tasks, CSV/email of cleaned files, provision of connector videos).
+- Client (detailers / estimating team / project engineers / coordinators) — responsible for ASCII edits, grade cleanup, monthly validation, deploying Connector and validating imports, performing spot checks/time studies, and implementing QC hour consolidation as specified in transcript.
+- Gavin, Mark, Alan, Jared — named individuals (client side) referenced in transcript as intended recipients or participants for specific actions (e.g., training, ASCII import, validation); no additional responsibilities beyond those explicitly stated in the transcript were assigned here.
+- Client quality team — explicit owner for specification review.
+- Client IT / Project Lead / Purchasing / Warehouse contacts — referenced in transcript against PO, Vista integration, and procurement tasks.
+
+-------------------------------------------------------------------------------
+End of transcript‑derived summary.
+If you want, I can produce:
+- A prioritized action list drawn only from the explicit action items above;
+- A condensed one‑page checklist for the next onsite visit (calendar invite, files to bring, sandbox tests to run);
+- Or export the explicit step sequences for ASCII export/import and for labor PX edits as runnable checklists.

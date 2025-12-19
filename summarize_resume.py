@@ -1,28 +1,19 @@
 """
-Enhanced Multi-Document Summarization Script (v3)
--------------------------------------------------
-This script creates professional weekly consulting summary reports from transcript files.
+Resume Summarization Script
+---------------------------
+This script picks up where summarize_enhanced.py left off.
+It allows you to:
+1. Specify which days still need daily summaries
+2. Generate the master summary from all daily summaries
+3. Create the final Word document
 
-IMPROVEMENTS OVER V2:
-- Enhanced prompts for better narrative flow and professional tone
-- Automatic Word document (.docx) generation with formatting
-- Opening paragraph generation (thank you + week focus)
-- Closing paragraph generation (summary + availability)
-- Better section organization matching consultant report style
+Usage:
+    python summarize_resume.py
 
-PIPELINE:
-1. Summarizes each transcript in transcripts/ folder into daily summaries
-2. Synthesizes all daily summaries into a master weekly report
-3. Generates formatted Word document in output/ folder
-
-ANTI-HALLUCINATION SAFEGUARDS:
-- Only uses information explicitly present in source text
-- No assumptions, guesses, or invented content
-- Critical instructions repeated in every LLM call
+Configure the DAYS_TO_PROCESS list below to specify which days need summaries.
 """
 
 import os
-from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import List
@@ -35,7 +26,18 @@ from langchain_openai import ChatOpenAI
 from openai import OpenAI
 
 # ---------------------------------------------------------------------------
-# Configuration
+# Configuration - EDIT THIS SECTION
+# ---------------------------------------------------------------------------
+
+# Specify which days still need daily summaries (leave empty if all daily summaries are done)
+# Example: ["Tuesday", "Wednesday"]
+DAYS_TO_PROCESS = ["Tuesday", "Wednesday"]
+
+# Set to True to skip daily summaries entirely and just create master summary + Word doc
+SKIP_DAILY_SUMMARIES = False
+
+# ---------------------------------------------------------------------------
+# Paths (same as main script)
 # ---------------------------------------------------------------------------
 
 BASE_DIR = Path(__file__).parent
@@ -46,188 +48,24 @@ DAILY_SUMMARIES_DIR = BASE_DIR / "summaries_daily"
 MASTER_SUMMARY_DIR = BASE_DIR / "summaries_master"
 OUTPUT_DIR = BASE_DIR / "output"
 
+# ---------------------------------------------------------------------------
 # Model & API
+# ---------------------------------------------------------------------------
+
 load_dotenv()
 
-# OpenAI settings (used for final synthesis: daily summaries, master summary, opening/closing)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL_NAME = os.getenv("OPENAI_MODEL_NAME", "gpt-4o-mini")
 
-# Cerebras settings (used for fast chunk processing of raw transcripts)
 CEREBRAS_API_KEY = os.getenv("CEREBRAS_API_KEY")
 CEREBRAS_MODEL_NAME = os.getenv("CEREBRAS_MODEL_NAME", "gpt-oss-120b")
 CEREBRAS_BASE_URL = "https://api.cerebras.ai/v1"
 
-# Chunking parameters
 CHUNK_CHAR_LENGTH = 15000
 CHUNK_CHAR_OVERLAP = 800
 
-
 # ---------------------------------------------------------------------------
-# Utilities
-# ---------------------------------------------------------------------------
-
-def ensure_dirs() -> None:
-    DAILY_SUMMARIES_DIR.mkdir(parents=True, exist_ok=True)
-    MASTER_SUMMARY_DIR.mkdir(parents=True, exist_ok=True)
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    PROCESSED_TRANSCRIPTS_DIR.mkdir(parents=True, exist_ok=True)
-
-
-def load_cerebras_llm():
-    """Load Cerebras client for fast chunk processing."""
-    if not CEREBRAS_API_KEY:
-        raise RuntimeError("CEREBRAS_API_KEY is not set in the environment.")
-    return OpenAI(
-        api_key=CEREBRAS_API_KEY,
-        base_url=CEREBRAS_BASE_URL,
-    )
-
-
-def load_openai_llm():
-    """Load OpenAI client for final synthesis tasks."""
-    if not OPENAI_API_KEY:
-        raise RuntimeError("OPENAI_API_KEY is not set in the environment.")
-    return ChatOpenAI(model=OPENAI_MODEL_NAME)
-
-
-def read_srt(path: Path) -> str:
-    """Extract text from .srt file, skipping index and timestamp lines."""
-    lines: List[str] = []
-    with path.open("r", encoding="utf-8", errors="ignore") as f:
-        for raw in f:
-            line = raw.strip()
-            if not line or line.isdigit() or "-->" in line:
-                continue
-            lines.append(line)
-    return "\n".join(lines)
-
-
-def read_vtt(path: Path) -> str:
-    """Extract text from .vtt (WebVTT) file, skipping headers and timestamps."""
-    lines: List[str] = []
-    with path.open("r", encoding="utf-8", errors="ignore") as f:
-        for raw in f:
-            line = raw.strip()
-            if (
-                not line
-                or line.startswith("WEBVTT")
-                or line.startswith("NOTE")
-                or line.startswith("STYLE")
-                or line.startswith("REGION")
-                or "-->" in line
-                or line.isdigit()
-            ):
-                continue
-            lines.append(line)
-    return "\n".join(lines)
-
-
-def read_txt(path: Path) -> str:
-    with path.open("r", encoding="utf-8", errors="ignore") as f:
-        return f.read()
-
-
-def load_transcript(path: Path) -> str:
-    if path.suffix.lower() == ".srt":
-        return read_srt(path)
-    if path.suffix.lower() == ".vtt":
-        return read_vtt(path)
-    return read_txt(path)
-
-
-def process_transcripts() -> List[Path]:
-    """
-    Convert raw .srt/.vtt files into clean daily .txt files in PROCESSED_TRANSCRIPTS_DIR.
-    Files sharing the same base filename (stem) are combined into one daily transcript.
-    """
-    if not TRANSCRIPTS_DIR.exists():
-        print(f"⚠️  Transcripts directory does not exist: {TRANSCRIPTS_DIR}")
-        return []
-
-    raw_files = sorted(
-        [p for p in TRANSCRIPTS_DIR.iterdir() if p.suffix.lower() in {".srt", ".vtt"}]
-    )
-
-    if not raw_files:
-        print("⚠️  No .srt or .vtt transcript files found to process.")
-        return []
-
-    # Start fresh each run so processed folder tracks the current raw inputs
-    for existing in PROCESSED_TRANSCRIPTS_DIR.glob("*.txt"):
-        try:
-            existing.unlink()
-        except OSError as exc:
-            print(f"   ⚠️  Could not remove previous processed file {existing.name}: {exc}")
-
-    grouped_files = defaultdict(list)
-    for file_path in raw_files:
-        grouped_files[file_path.stem].append(file_path)
-
-    processed_paths: List[Path] = []
-
-    print("\nStep 0: Normalizing transcripts (.srt/.vtt -> daily .txt)\n")
-    for stem in sorted(grouped_files.keys()):
-        day_files = sorted(grouped_files[stem])
-        combined_sections: List[str] = []
-
-        for file_path in day_files:
-            try:
-                text = load_transcript(file_path).strip()
-            except Exception as exc:
-                print(f"   ❌ Error reading {file_path.name}: {exc}")
-                continue
-
-            if not text:
-                print(f"   ⚠️  {file_path.name} contained no usable text, skipping.")
-                continue
-
-            combined_sections.append(text)
-
-        if not combined_sections:
-            print(f"   ⚠️  No clean transcript content for {stem}, skipping output file.")
-            continue
-
-        combined_text = "\n\n".join(combined_sections)
-        out_path = PROCESSED_TRANSCRIPTS_DIR / f"{stem}.txt"
-        try:
-            with out_path.open("w", encoding="utf-8") as f:
-                f.write(combined_text)
-            processed_paths.append(out_path)
-            print(f"   ✅ {out_path.name} created from {[p.name for p in day_files]}")
-        except Exception as exc:
-            print(f"   ❌ Could not write processed transcript {out_path.name}: {exc}")
-
-    if not processed_paths:
-        print("⚠️  No processed transcripts were created.")
-
-    return processed_paths
-
-
-def chunk_text(text: str, length: int = CHUNK_CHAR_LENGTH, overlap: int = CHUNK_CHAR_OVERLAP) -> List[str]:
-    """Simple character-based chunking with overlap."""
-    text = text.strip()
-    if not text:
-        return []
-
-    chunks: List[str] = []
-    start = 0
-    n = len(text)
-
-    while start < n:
-        end = min(start + length, n)
-        chunk = text[start:end].strip()
-        if chunk:
-            chunks.append(chunk)
-        if end == n:
-            break
-        start = max(0, end - overlap)
-
-    return chunks
-
-
-# ---------------------------------------------------------------------------
-# Enhanced Prompts
+# Prompts (copied from main script)
 # ---------------------------------------------------------------------------
 
 DAILY_SYSTEM_PROMPT = """You are a professional Tekla PowerFab consultant creating a detailed topic-organized summary from a single day's consulting session transcript.
@@ -445,11 +283,115 @@ Report content:
 
 
 # ---------------------------------------------------------------------------
+# Utilities
+# ---------------------------------------------------------------------------
+
+def ensure_dirs() -> None:
+    DAILY_SUMMARIES_DIR.mkdir(parents=True, exist_ok=True)
+    MASTER_SUMMARY_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    PROCESSED_TRANSCRIPTS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def load_cerebras_llm():
+    if not CEREBRAS_API_KEY:
+        raise RuntimeError("CEREBRAS_API_KEY is not set in the environment.")
+    return OpenAI(
+        api_key=CEREBRAS_API_KEY,
+        base_url=CEREBRAS_BASE_URL,
+    )
+
+
+def load_openai_llm():
+    if not OPENAI_API_KEY:
+        raise RuntimeError("OPENAI_API_KEY is not set in the environment.")
+    return ChatOpenAI(model=OPENAI_MODEL_NAME)
+
+
+def read_srt(path: Path) -> str:
+    lines: List[str] = []
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for raw in f:
+            line = raw.strip()
+            if not line or line.isdigit() or "-->" in line:
+                continue
+            lines.append(line)
+    return "\n".join(lines)
+
+
+def read_vtt(path: Path) -> str:
+    lines: List[str] = []
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for raw in f:
+            line = raw.strip()
+            if (
+                not line
+                or line.startswith("WEBVTT")
+                or line.startswith("NOTE")
+                or line.startswith("STYLE")
+                or line.startswith("REGION")
+                or "-->" in line
+                or line.isdigit()
+            ):
+                continue
+            lines.append(line)
+    return "\n".join(lines)
+
+
+def read_txt(path: Path) -> str:
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        return f.read()
+
+
+def load_transcript(path: Path) -> str:
+    if path.suffix.lower() == ".srt":
+        return read_srt(path)
+    if path.suffix.lower() == ".vtt":
+        return read_vtt(path)
+    return read_txt(path)
+
+
+def chunk_text(text: str, length: int = CHUNK_CHAR_LENGTH, overlap: int = CHUNK_CHAR_OVERLAP) -> List[str]:
+    text = text.strip()
+    if not text:
+        return []
+
+    chunks: List[str] = []
+    start = 0
+    n = len(text)
+
+    while start < n:
+        end = min(start + length, n)
+        chunk = text[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        if end == n:
+            break
+        start = max(0, end - overlap)
+
+    return chunks
+
+
+def find_transcript_for_day(day_name: str) -> Path | None:
+    """Find the processed transcript file for a given day name."""
+    # First check processed transcripts
+    for ext in [".txt"]:
+        for p in PROCESSED_TRANSCRIPTS_DIR.glob(f"*{day_name}*{ext}"):
+            return p
+
+    # If no processed transcript, look for raw transcript
+    for ext in [".srt", ".vtt"]:
+        for p in TRANSCRIPTS_DIR.glob(f"*{day_name}*{ext}"):
+            return p
+
+    return None
+
+
+# ---------------------------------------------------------------------------
 # LLM Call Helpers
 # ---------------------------------------------------------------------------
 
 def call_cerebras(llm, system_prompt: str, user_prompt: str) -> str:
-    """Call Cerebras LLM for fast chunk processing."""
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
@@ -462,7 +404,6 @@ def call_cerebras(llm, system_prompt: str, user_prompt: str) -> str:
 
 
 def call_openai(llm, system_prompt: str, user_prompt: str) -> str:
-    """Call OpenAI LLM for final synthesis tasks."""
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
@@ -472,11 +413,7 @@ def call_openai(llm, system_prompt: str, user_prompt: str) -> str:
 
 
 def summarize_transcript_file(path: Path, cerebras_llm, openai_llm) -> str:
-    """
-    Create a topic-based daily summary for a single transcript file.
-
-    Uses Cerebras for fast chunk processing, OpenAI for final synthesis.
-    """
+    """Create a topic-based daily summary for a single transcript file."""
     raw = load_transcript(path)
     chunks = chunk_text(raw)
     if not chunks:
@@ -484,7 +421,6 @@ def summarize_transcript_file(path: Path, cerebras_llm, openai_llm) -> str:
 
     partial_summaries: List[str] = []
 
-    # Use Cerebras for fast chunk-by-chunk processing
     for i, chunk in enumerate(chunks, start=1):
         print(f"    - [Cerebras] Summarizing chunk {i}/{len(chunks)} for {path.name}...")
         user_prompt = DAILY_USER_PROMPT_TEMPLATE.format(transcript_chunk=chunk)
@@ -494,7 +430,6 @@ def summarize_transcript_file(path: Path, cerebras_llm, openai_llm) -> str:
     if len(partial_summaries) == 1:
         return partial_summaries[0]
 
-    # Use OpenAI for final synthesis of chunk summaries into daily summary
     merged_text = "\n\n---\n\n".join(partial_summaries)
     print(f"    - [OpenAI] Creating final daily summary for {path.name}...")
     user_prompt = DAILY_USER_PROMPT_TEMPLATE.format(transcript_chunk=merged_text)
@@ -503,7 +438,7 @@ def summarize_transcript_file(path: Path, cerebras_llm, openai_llm) -> str:
 
 
 def create_master_summary(openai_llm, daily_summary_paths: List[Path]) -> str:
-    """Create a weekly master summary from multiple daily summary files using OpenAI."""
+    """Create a weekly master summary from multiple daily summary files."""
     texts: List[str] = []
     for p in daily_summary_paths:
         with p.open("r", encoding="utf-8", errors="ignore") as f:
@@ -518,13 +453,11 @@ def create_master_summary(openai_llm, daily_summary_paths: List[Path]) -> str:
 
 
 def generate_opening_paragraph(openai_llm, report_content: str) -> str:
-    """Generate professional opening paragraph using OpenAI."""
     user_prompt = OPENING_USER_PROMPT_TEMPLATE.format(report_content=report_content[:3000])
     return call_openai(openai_llm, OPENING_SYSTEM_PROMPT, user_prompt).strip()
 
 
 def generate_closing_paragraph(openai_llm, report_content: str) -> str:
-    """Generate professional closing paragraph using OpenAI."""
     sample_content = report_content[:2000] + "\n...\n" + report_content[-1000:]
     user_prompt = CLOSING_USER_PROMPT_TEMPLATE.format(report_content=sample_content)
     return call_openai(openai_llm, CLOSING_SYSTEM_PROMPT, user_prompt).strip()
@@ -535,39 +468,31 @@ def generate_closing_paragraph(openai_llm, report_content: str) -> str:
 # ---------------------------------------------------------------------------
 
 def create_word_document(content: str, opening: str, closing: str, output_path: Path) -> None:
-    """Generate formatted Word document from report content."""
     doc = Document()
 
-    # Set default font
     style = doc.styles['Normal']
     font = style.font
     font.name = 'Calibri'
     font.size = Pt(11)
 
-    # Add date at the top
     date_paragraph = doc.add_paragraph()
     date_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
     date_run = date_paragraph.add_run(datetime.now().strftime("%B %d, %Y"))
     date_run.font.size = Pt(11)
 
-    # Add opening paragraph
-    doc.add_paragraph()  # Blank line
+    doc.add_paragraph()
     opening_para = doc.add_paragraph(opening)
     opening_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
-    # Add blank line before content
     doc.add_paragraph()
 
-    # Process the main content
     lines = content.split('\n')
     for line in lines:
         line = line.strip()
         if not line:
             continue
 
-        # Check if this is a major section header (ALL CAPS or Title Case with no bullet)
         if line.isupper() or (line[0].isupper() and not line.startswith('•') and not line.startswith('-')):
-            # Add some space before major headers (except the first one)
             if len(doc.paragraphs) > 3:
                 doc.add_paragraph()
 
@@ -578,29 +503,24 @@ def create_word_document(content: str, opening: str, closing: str, output_path: 
             heading_run.font.bold = True
             heading_run.font.color.rgb = RGBColor(0, 0, 0)
 
-        # Check if this is a bullet point
         elif line.startswith('•') or line.startswith('-') or line.startswith('*'):
             bullet_text = line.lstrip('•-*').strip()
             para = doc.add_paragraph(bullet_text, style='List Bullet')
             para.paragraph_format.left_indent = Inches(0.25)
             para.paragraph_format.space_after = Pt(6)
 
-        # Regular paragraph
         else:
             para = doc.add_paragraph(line)
             para.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
-    # Add closing paragraph
-    doc.add_paragraph()  # Blank line
+    doc.add_paragraph()
     closing_para = doc.add_paragraph(closing)
     closing_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
-    # Add signature line
     doc.add_paragraph()
     signature = doc.add_paragraph("Sincerely,")
     signature.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
-    # Save document
     doc.save(output_path)
 
 
@@ -612,21 +532,13 @@ def main() -> None:
     ensure_dirs()
 
     print("=" * 70)
-    print(" Enhanced Tekla Consulting Summarization (v3)")
+    print(" Resume Summarization Script")
     print("=" * 70)
-    print(f"Transcripts directory:      {TRANSCRIPTS_DIR}")
-    print(f"Processed transcripts dir:  {PROCESSED_TRANSCRIPTS_DIR}")
-    print(f"Daily summaries directory:  {DAILY_SUMMARIES_DIR}")
-    print(f"Master summaries directory: {MASTER_SUMMARY_DIR}")
-    print(f"Output directory:           {OUTPUT_DIR}")
+    print(f"\nDays to process: {DAYS_TO_PROCESS if DAYS_TO_PROCESS else 'None (skipping to master summary)'}")
+    print(f"Skip daily summaries: {SKIP_DAILY_SUMMARIES}")
     print()
 
-    processed_transcripts = process_transcripts()
-    if not processed_transcripts:
-        print("❌ Unable to continue without processed daily transcripts.")
-        return
-
-    # Load both LLMs
+    # Load LLMs
     print("Loading LLMs...")
     print(f"  → Cerebras ({CEREBRAS_MODEL_NAME}) for fast chunk processing")
     print(f"  → OpenAI ({OPENAI_MODEL_NAME}) for final synthesis")
@@ -634,36 +546,53 @@ def main() -> None:
     openai_llm = load_openai_llm()
     print()
 
-    transcript_files = processed_transcripts
+    # Step 1: Process remaining daily summaries (if any)
+    if not SKIP_DAILY_SUMMARIES and DAYS_TO_PROCESS:
+        print("Step 1: Creating daily summaries for remaining days\n")
 
-    # Step 1: Create daily summaries
-    daily_summary_paths: List[Path] = []
+        for day_name in DAYS_TO_PROCESS:
+            print(f"▶ Looking for {day_name} transcript...")
 
-    print("Step 1: Creating daily topic-based summaries\n")
-    for path in transcript_files:
-        print(f"▶ Processing transcript: {path.name}")
-        try:
-            summary_text = summarize_transcript_file(path, cerebras_llm, openai_llm)
-            if not summary_text:
-                print(f"   ⚠️  Empty summary for {path.name}, skipping.")
+            transcript_path = find_transcript_for_day(day_name)
+            if not transcript_path:
+                print(f"   ⚠️  No transcript found for {day_name}, skipping.")
                 continue
 
-            out_name = f"{path.stem}_summary.txt"
-            out_path = DAILY_SUMMARIES_DIR / out_name
-            with out_path.open("w", encoding="utf-8") as f:
-                f.write(summary_text)
-            print(f"   ✅ Saved daily summary -> {out_path}")
-            daily_summary_paths.append(out_path)
-        except Exception as e:
-            print(f"   ❌ Error summarizing {path.name}: {e}")
-        print()
+            print(f"   Found: {transcript_path.name}")
+
+            try:
+                summary_text = summarize_transcript_file(transcript_path, cerebras_llm, openai_llm)
+                if not summary_text:
+                    print(f"   ⚠️  Empty summary for {day_name}, skipping.")
+                    continue
+
+                # Use the stem to create consistent naming
+                out_name = f"{transcript_path.stem}_summary.txt"
+                out_path = DAILY_SUMMARIES_DIR / out_name
+                with out_path.open("w", encoding="utf-8") as f:
+                    f.write(summary_text)
+                print(f"   ✅ Saved daily summary -> {out_path}")
+            except Exception as e:
+                print(f"   ❌ Error summarizing {day_name}: {e}")
+            print()
+    else:
+        print("Step 1: Skipping daily summaries (already complete or skip flag set)\n")
+
+    # Step 2: Gather all daily summaries
+    print("Step 2: Gathering all daily summaries\n")
+    daily_summary_paths = sorted(DAILY_SUMMARIES_DIR.glob("*_summary.txt"))
 
     if not daily_summary_paths:
-        print("⚠️  No daily summaries were created; skipping master summary.")
+        print("❌ No daily summaries found. Cannot create master summary.")
         return
 
-    # Step 2: Create master summary (OpenAI)
-    print("\nStep 2: Creating weekly master summary from daily summaries\n")
+    print(f"   Found {len(daily_summary_paths)} daily summaries:")
+    for p in daily_summary_paths:
+        print(f"      - {p.name}")
+    print()
+
+    # Step 3: Create master summary
+    print("Step 3: Creating weekly master summary from all daily summaries\n")
     try:
         master_text = create_master_summary(openai_llm, daily_summary_paths)
         master_out_path = MASTER_SUMMARY_DIR / "master_summary.txt"
@@ -674,8 +603,8 @@ def main() -> None:
         print(f"❌ Error creating master summary: {e}")
         return
 
-    # Step 3: Generate opening paragraph (OpenAI)
-    print("\nStep 3: Generating opening paragraph\n")
+    # Step 4: Generate opening paragraph
+    print("\nStep 4: Generating opening paragraph\n")
     try:
         opening_text = generate_opening_paragraph(openai_llm, master_text)
         print(f"✅ Opening paragraph generated")
@@ -683,8 +612,8 @@ def main() -> None:
         print(f"❌ Error generating opening: {e}")
         opening_text = ""
 
-    # Step 4: Generate closing paragraph (OpenAI)
-    print("\nStep 4: Generating closing paragraph\n")
+    # Step 5: Generate closing paragraph
+    print("\nStep 5: Generating closing paragraph\n")
     try:
         closing_text = generate_closing_paragraph(openai_llm, master_text)
         print(f"✅ Closing paragraph generated")
@@ -692,8 +621,8 @@ def main() -> None:
         print(f"❌ Error generating closing: {e}")
         closing_text = ""
 
-    # Step 5: Create Word document
-    print("\nStep 5: Creating Word document\n")
+    # Step 6: Create Word document
+    print("\nStep 6: Creating Word document\n")
     try:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         docx_path = OUTPUT_DIR / f"Weekly_Consulting_Summary_{timestamp}.docx"

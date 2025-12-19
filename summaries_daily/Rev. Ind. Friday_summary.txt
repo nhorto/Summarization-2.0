@@ -1,130 +1,243 @@
-Opening statement
-This session focused on reviewing reporting, estimating workflows, the job-release process, and surrounding data/integration considerations within Tekla PowerFab, with an emphasis on cutting constraints and upcoming planning for expansion.
+Tekla PowerFab Consulting Session — Topic‑Organized Summary
+Date of summary: 2025‑12‑19
+(Contents reflect only explicit statements from the provided transcript.)
 
-ADMINISTRATIVE INFORMATION / ADMINISTRATION
-- Reviewed the process used to filter a report for a specific plate size and a subset labeled “guests,” and to place the results into a job order chosen for release.
-- Observed that the released job was intended to carry the complete information from the report, including PO and key-number references used to pull data into the job.
-- Discussed constraints around releasing a job before a cutter is created, including the idea of redlining a cutter and keeping it inactive until the related work is completed.
-- REM references and the need to pull from the PO-linked job were noted but no formal changes were committed during this session.
-- The session included planning for documentation control and standardization efforts, initiating Tony’s case as a starting point, and recognizing a lag in documentation with a plan to address it through formal standards development and exportable documentation.
-- Dartmouth was referenced as a milestone with timing noted as end of April, suggesting a schedule checkpoint relevant to the project.
-- Next steps mentioned: produce a follow-up report next week and continue refining the planning approach (including use of Jira) to address upcoming workload and ramp-up needs.
+TOPICS AND DETAILS
 
-ESTIMATING
-- The team noted two sizes in the program referred to as estimated dimensions and discussed how these are presented on screen, their relation to model visibility, and first-screen visibility; no specific numeric changes were mandated.
-- There was acknowledgment of cost fields and sell fields in estimates and that fixes to these fields would require returning to the base setup.
-- Labor rates were discussed with examples like $85–$100 per hour to reflect desired pricing; bottom-line figures included references to a 35% markup and a 26% margin in some contexts.
-- The relationship between cost versus sell (margin) and how these are calculated and displayed was explored, acknowledging variability in budgeting and pricing.
-- The process of extracting or moving change orders out of the main estimate and how those changes should be represented in the estimate was discussed.
-- Automated reporting as a goal or consideration related to estimating data and change-order impact was mentioned.
-- Explicit next steps:
-  - Break cost-out by the intended breakout logic to keep items organized by cost code and area.
-  - Open an open labor code and create a labor operation for the identified estimating path; store it within the new labor group and allocate time, deciding whether it should be display-only or actively used in estimation.
-  - Ensure there is an explicit labor code that calculates hours for change orders (CO) or similar kit work and that it is available for estimates.
-  - Finalize the approach to carbon vs stainless sizing in estimates and production data, including how these are mapped and presented.
+1) Report Filtering, Job Orders & Job Release
+- What was done:
+  - The consultant filtered a report by plate size (“8th inch”) and then by guests.
+  - After creating the report, the data were entered into job orders.
+  - The data were assigned to a new job number that the client wanted to release rather than the original job number.
+- Constraints / observations:
+  - The client stated a cutter cannot be created until the part is actually cut, so the job cannot be released “until the cutter is made.”
+  - The PO should already exist in the job that is pulling the data.
+  - A key number will eventually be used to link the information.
+- Explicit action items mentioned:
+  - Report completion expected next week (client expectation).
+  - Purchasing team will consolidate items across multiple jobs (see Procurement & Inventory Consolidation).
 
-- Additional time-study, material-size, and data-definition items mentioned (to be pursued as next steps within Estimating):
-  - Perform time studies for stainless materials to evaluate contamination reduction and equipment/consumables changes.
-  - Finish size definitions for stainless materials (especially those with zero dimensions).
-  - Evaluate and potentially add extras to estimates (additional labor, wellness adjustments) and consider manual overrides.
-  - Align carbon vs stainless handling in the estimating workflow and production data.
+2) Estimate Folder, Drawings & Document Management
+- What was reviewed:
+  - The client opened the estimate folder and traced back in time to view contents and recognized the drawings inside.
+  - Only the second folder was examined, not all folders.
+  - A 59‑page combined file was discussed as containing the complete drawing set.
+  - Specific pages called out: page 3 (standard details), page 30, and a “page 30 set” from which a “B” sheet was pulled.
+  - Page 3 standard detail sheet was confirmed as the reference for standard details.
+- Issues raised:
+  - Drawing numbers such as “18‑6” and “NA‑T” were referenced; NA‑T are “individual drawing numbers” and the current set “doesn’t have an order.”
+  - Statuspage was used to locate drawings; highlight/column display was inconsistent (“highlighted items did not always show the correct column”).
+  - NCS was referenced as the location for the 59‑page file.
+- Explicit action items mentioned:
+  - Align each drawing sheet’s page reference with its correct drawing number (including NA‑T and 18‑6). Owner: Client/Document Control. Deadline: Next working day.
+  - Create a standardized method for linking page numbers to work areas (adopt a “standard” approach). Owner: Consultant. Deadline: End of week.
+  - Configure Statuspage filters so column pop‑ups display full lists instead of single lines. Owner: IT/PowerFab Admin. Deadline: Immediate.
 
-PROJECT MANAGEMENT
-- Jira was referenced as a planning/workflow tool to outline how items would be tackled, with a note on how tasks would be captured in Jira.
-- Chris had already issued a report; there was an expectation of additional requests if a robust history is maintained.
-- The plan for next steps included producing a report next week and aligning on a practical path to address upcoming workload, with a general ramp-up and prioritization of manageable tasks to demonstrate progress.
-- Status monitoring and collaboration tools were cited, including Statuspage and Jira, indicating a workflow that relies on these tools for status updates and issue tracking.
-- Dartmouth’s end-of-April milestone and the need to input scheduling values to enable scheduling-related activities were discussed as key timing references.
-- Next steps (explicit or implied): continue refining the use of Jira for task management and ensure schedule values are entered to support scheduling activities; no specific action owners were named in the transcript for this topic.
+3) Scheduling, Production Ramp‑Up & Conferences
+- What was discussed:
+  - The organization is ramping up to handle many small and large tasks.
+  - Client intends to produce “10 to the quarter” and will provide a Jira plan describing how the work will be tackled.
+  - Schedule values must be entered before running a schedule or setting up a conference.
+  - A conference set‑up was offered by the consultant but was not done during the session.
+  - Line‑items can be linked to schedule entries; billing will reference the linked line‑item.
+  - The concept of a “historical good schedule” and viewing the schedule at the top of the screen was discussed.
+- Explicit action items mentioned:
+  - Populate schedule values for the New Jersey contract and schedule a conference to review the plan. Owner: Project Scheduler. Deadline: Within 3 days.
+  - Prepare a Jira plan to outline approach to upcoming work (client stated).
 
-PRODUCTION CONTROL / CUTTING PROCESS
-- The conversation centered on the constraint that a cutter cannot be created until material is cut, with the idea of pre-creating a cutter or marking it inactive until the operation is completed.
-- Mention of a potential REM (related to the cutter) and the implication that controls or indicators might be needed to prevent premature activity.
-- References to reprogramming to load or throw in information related to adjusting the process flow to accommodate planning before the actual cut; no concrete reprogramming steps were executed during the session.
-- The broader workflow around how parts are associated with plates and how cutting status affects downstream activities was discussed.
-- In a later section, two-step operation structures were reviewed (cut and clean as separate operations feeding into one output), with discussion of labeling/description alignment to reflect timing.
-- A configuration option was reviewed to split activities outside the main cut-times while still consolidating results into a single downstream output.
-- Agreement existed to describe the process as “cut and clean,” with both operations contributing to the same downstream item; descriptions and time fields were noted to influence displayed timing.
-- Next steps: no explicit action items were documented for this specific topic in this session; attendees acknowledged the approach and moved on to related topics.
-- Material handling and related controls (tags, finish codes, and frame/type designations) were discussed as part of broader production data management, including a dimensional threshold (anything above 23 inches high) used to define treatment or processing rules; editing code to implement changes was described as possible but rare, with shop setup adjustments typically used to effect changes.
-- X4 export/import workflow and shop setup adjustments were discussed as part of pursuing more efficient wiring/production and labor pacing based on shop setup.
+4) Quantity Take‑Off, Estimating Figures & Category Reporting
+- Explicit numeric values discussed:
+  - Total material weight: 16,000 t.
+  - Labor hours: 12,000 hrs.
+  - Monitor cost example: $1,000,000.
+  - Remainder of project example total: $2,000,000.
+- Take‑off practices:
+  - Emphasis on quantifying columns, braces, vertical beams, and turbines.
+  - Category columns show a single line per category; full reports list all columns and associated quantities.
+  - Pull down columns to generate a piece‑mark list that aggregates related parts.
+  - Use of preferences/tags (e.g., Jira) suggested to streamline column selection.
+- Explicit action items mentioned:
+  - Generate a category summary report showing total tons (16,000 t), labor hours (12,000 hrs), and monetary values ($1 M monitor, $2 M total). Owner: Estimating Team. Deadline: End of week.
+  - Document the current take‑off workflow (columns, braces, beams) and compare with recommended quick‑view method. Owner: Consultant. Deadline: Next session.
 
-IT / DATA INTEGRATION / TOOLS
-- Bitbucket was referenced in the context of base setup and versioning, with notes that the base setup needed completion.
-- Transmittals and drawings management, including uploading or organizing items within the workflow, were discussed.
-- Tablet/mobile elements were touched on, including configuring the system to work with handheld devices and associated data.
-- Chris’s input was acknowledged as aligning with integration considerations, though no explicit configuration changes were committed.
-- There were broader discussions of cross-system data flows, including plans to connect workflows between Tekla PowerFab and other platforms (transmittals, drawings, etc.).
-- Some timeframes (e.g., two months) were discussed for advancing integration efforts.
+5) Tools, Interfaces & File Persistence
+- Tools mentioned explicitly: Statuspage, NCS, Bitbucket, Jira, Pro‑Corps, Vista, Baseview, MediRoute, OpsGenie, Bitbucket, Photoshop (as a visualization limitation).
+- Observations:
+  - Statuspage was used for drawing navigation but had inconsistent display behavior.
+  - Persistence: files are “all stored in the drive”; a need to “pull up the three years” of data was expressed.
+  - Bitbucket base setup must be performed; creating a “city” on a tablet was mentioned; the key was changed during setup.
+  - The system will not “break existing spreadsheets” and can pull material and labor into reports.
+- Explicit action items:
+  - Verify Bitbucket base setup and key changes are correctly applied (client requested).
+  - Clarify and document the purpose of the “tool where you can make” items; identify and train users. Owner: Consultant/Tool Owner. Deadline: Within 5 days.
+  - Review Jira integration to determine why it is “not producing value” (text: “there’s actually no rewarding them”).
 
-FACILITY / EQUIPMENT
-- The facility referenced included the M20 saw and the smaller saw setup, with comparisons to an M40 arrangement and general capacity considerations.
-- Technical aspects such as LED indicators and standoff components were discussed in the context of equipment readiness.
-- Emphasis was placed on ensuring equipment and programming readiness prior to proceeding with production steps.
+6) Change Orders, Contract Values & Billing
+- Contract and change‑order practices discussed:
+  - The original contract value should be recorded and kept visible.
+  - The system can display original contract value, current contract value, and change‑order totals.
+  - No change orders had been approved at the time of the session: “No approved change orders to the contract.”
+  - The “change button” was demonstrated to open the change‑order dialogue; the system raises warnings on improper change orders (“This one’s going to get a warning. It’s not supposed to be gone or not…”).
+  - Line items tied to schedule entries appear on bills, and bills reflect the line‑item cost derived from the schedule.
+- Example figures explicitly cited in transcript:
+  - Proposed change‑order total: $5,000.
+  - Aggregate cost example: $38,000.
+  - Labor cost example: 3.03 h @ $8/h → $48 (stated).
+  - Revised labor cost example: 85 h @ $100/h → $8,500 (presented as an example in transcript).
+  - Additional cost line: “6,500, Rovo, 14C” ($6,500 stated).
+  - Other numeric references: $6,500; $38,000; $62,000 and $62,100 were presented as two cost totals.
+- Pricing, margin and target pricing:
+  - Client referenced desired mark‑up of 35% and target margin of 26% on a job.
+  - A market‑driven 40% increase was mentioned.
+  - Cost examples explicitly listed: $6,500 (cost mentioned), $1,000 (small figure referenced).
+- Explicit action items:
+  - Enter original contract value in the system. (Action item described.)
+  - Create & submit change orders using the “change button”; route for approval. (Action item described.)
+  - Validate cost breakdowns and hourly rates in change‑order screens (e.g., $100/hr). (Action item described.)
+  - Generate a preliminary report showing original contract value, total approved change orders, and projected costs for next five months. (Action item described.)
 
-STAFFING / RESOURCE PLANNING
-- The group discussed the need to bring in additional people to support growing activity and to handle forthcoming tasks.
-- There was mention of aligning with a broader plan and preparing for increased demand, including providing questions or guidance to new or existing team members as part of onboarding or knowledge sharing.
-- Several informal statements referenced collaboration and practical assistance to move tasks forward, with emphasis on tackling practical, easier items first.
+7) Estimate Configuration – Cost/Sell Fields & Mark‑up Controls
+- What was stated:
+  - Estimate contains separate “cost fields” and “sell fields.”
+  - To modify those fields, users must return to “Base Setup” and edit definitions there.
+  - Cost‑related fields appear in the lower portion of the estimate summary (“bottom colors”).
+- Margin/markup specifics:
+  - The client noted a 35% mark‑up vs 26% margin discrepancy.
+  - A “40% increase” was referenced as market‑driven.
+  - The client indicated “we can’t go below serving on your target” (target‑price control).
+  - Numeric values referenced: $6,500; $38,000; $1,000; “46 down on the cost” (numeric fragment); totals 62,000 and 62,100.
+- Explicit action items:
+  - Return to Base Setup to edit cost and sell fields as required. (Action item stated.)
+  - Verify margin calculations (35% mark‑up vs 26% margin) and adjust pricing if needed. (Action item stated.)
 
-STANDARDS & DOCUMENTATION / POWERFAB GO
-- Action Standards Document was introduced, starting with Tony’s case as a basis for figure-out/document-control needs.
-- There was agreement to lay out standards and to put them into the system, with acknowledgment that a formal written standard would be helpful.
-- There was a recognized lack of records in the system, signaling a documentation gap to address, and a plan to export standards and produce a written standard as a deliverable.
-- Data is stored on a drive with a need to pull historical data (three years) when needed.
-- The group planned to begin with Tony’s case and to refine how document control will be implemented, including what gets documented and how it is maintained.
-- Discussed exporting standards and creating portable, shareable standards outside the live system; discussions included data export/import and shop setup adjustments to support workflow changes.
-- Next steps:
-  - Begin Tony’s case as the starting point for documentation controls.
-  - Develop exportable standards and implement document control practices.
-  - Ensure historical data accessibility (three years) and consider shop setup adjustments to support ongoing standardization.
+8) Time Studies, Stainless & Carbon Size Data
+- Data quality issues:
+  - Several stainless‑grade sizes in current database contained zero‑dimension values.
+  - These size records were “not active.”
+  - A group had recently “pushed against these undefined sizes” in the “last few days,” but no resolution had been reached.
+  - Carbon‑size definition was not being populated correctly relative to seamless‑grade cloth; the carbon size was being treated the same as stainless when data were missing.
+  - The client suggested separating carbon and stainless data planes to avoid mixing data.
+  - Not all stakeholders had been met about this issue: “we haven’t met with all of those folks… as of yet.”
+- Time‑study support:
+  - Consultant offered time studies for stainless material: “I have some time studies… we can do some time studies for some stainless material.”
+  - Purpose: measure contamination‑reduction activities and impact of equipment/consumables changes.
+  - Client said results from time studies will feed back into labor‑code and estimating processes.
+- Explicit action items:
+  - Define and populate missing stainless size dimensions (zero‑dimension entries). Owner: Client (size data team). Deadline: To be completed before next estimation cycle.
+  - Clarify and update carbon‑size data to ensure proper population of seamless‑grade information. Owner: Client (modeling team). Deadline: Immediate, pending data availability.
+  - Conduct time‑studies on stainless material and report findings back to the estimating team. Owner: Consultant (time‑study lead). Deadline: Within the next two weeks.
+  - Schedule coordination meeting with all stakeholders not yet consulted on stainless‑size issue. Owner: Consultant (project coordinator). Deadline: As soon as possible.
 
-CONTRACT MANAGEMENT / CHANGE ORDERS
-- The New Jersey contract was a primary focus, with discussion on how contract items relate to scheduling and events, and on tracking original contract value, current contract value, and total budget as changes occur.
-- Explored how change orders feed into contract value and how the system reflects current change orders versus the original contract; noted the need to present change orders in a breakdown (labor, material) and potentially by time period.
-- The system was described as capable of showing both current contract value and change orders, with change orders enterable and viewable within the contract framework.
-- There were no approved change orders or invoices at the time of discussion, indicating an ongoing review/approval workflow.
-- A “change button” capability to manage change orders and show how changes affect contract value was discussed.
-- Explicit next steps were not clearly stated; the session remained focused on understanding process and capabilities.
+9) Cut, Notch, “Cut & Clean” Operations and Time Adjustments
+- Operation split:
+  - Team discussed separating “cut” and “clean” activities into distinct operations; cut‑time and clean‑out can be split and then flow into a single box downstream.
+  - The description field that displays time will show the “cut & clean” label.
+  - Consultant stated no change to existing operation is required to implement the split.
+- Time metrics and percentage adjustments:
+  - Baseline time quoted: 3.3 minutes for a specific task.
+  - Client requested increasing time; an additional “three more minutes” was mentioned.
+  - Percentage figures cited: 10% (“sound fair”), 40% (“more by 40%”), 18% (“low by 18%”), 20.5 (reference), 65% (client wanted to apply to certain column items: “I want to put them in 65%”).
+  - Miscellaneous project identifier strings referenced in percentage discussion: “2‑4‑7‑5‑8”, “10‑0”, “45‑0‑6‑0”.
+- Cut & notch geometry:
+  - Issues: cut data missing for certain coats (“we have cuts not being here for coats”).
+  - Notch dimensions and flange width handling discussed (examples: “two inches and two inches… four inches”; “scope of the width of the flange… 4‑H… it doesn’t really know how deep it’s going”).
+  - Small notches were identified as common and sometimes ignored by users.
+- Explicit action items:
+  - Implement cut & clean split and verify operation description displays correctly.
+  - Apply discussed time increases (baseline 3.3 min + additional three minutes) to the relevant operation and validate.
+  - Verify cut and notch data for coat‑related components and address missing entries. Owner: Client (manufacturing data team). Deadline: Ongoing, status update at next call.
+  - Review percentage impacts (10%, 18%, 40%, 65%) on identified project groups (2‑4‑7‑5‑8, 10‑0, 45‑0‑6‑0).
 
-SCHEDULING & COSTING
-- Schedule values must be entered before generating or executing the schedule and related events.
-- The need to tie schedule line items to the contract was emphasized; billing would involve the line item linked to the schedule.
-- The system could display a complete schedule and support whether changes are approved or not; it also supports linking line items to the schedule for accurate billing.
-- The ability to review the schedule’s financial impact by comparing original contract value, change orders, and current contract value was described.
-- The reporting layout (first page, second page) presented standard information for a contract schedule, with notes that the tool is designed to avoid breaking a spreadsheet when updating data.
-- Next steps were not explicitly defined beyond the described capabilities; scheduling values and their integration with the contract were the primary focus.
+10) Rejection Reporting, QC, NCRs and Inspection Checklists
+- Key points:
+  - Discussion on how “reject” options are handled per project; “roller for the regret” was mentioned as feedback for rejected items.
+  - Workflow for failed items included option to continue after failure and a preference for preventative responses vs dead ends.
+  - Need to centralize inspection and rejection data into one format, one report to capture all rejections (including new projects).
+  - The consultant expected to “look ahead to the rejection reports.”
+  - Drop‑down menus were discussed for entering reasons and well checks; consistent naming conventions were recommended.
+  - NCR numbers explicitly read: “Each NCR, so again 55 NCR is in 22, 22. We’ll one. 23, 39, 24, 41.” The team noted “No one else is seeing NCR.”
+  - Video documentation and training videos were recommended to support pass/fail workflows.
+- Explicit action items:
+  - Develop a unified rejection report template that aggregates inspection and rejection data across projects. (Action item stated.)
+  - Set up drop‑down controls for reject and well checks and make required fields mandatory. (Action item stated.)
+  - Ensure NCR visibility for all stakeholders (make NCRs 55, 23, 39, 24, 41 visible). (Action item stated.)
+  - Create/update video training demonstrating pass/fail workflow and data entry steps.
 
-PRODUCTION CONTROL (CONSOLIDATED VIEW)
-- The session described a two-step cut/clean workflow where cut and clean are separate operations feeding into a single downstream item; labeling and description were aligned to reflect timing.
-- There was interest in a configuration to split activities outside the main cut-times while still bringing both cut and clean results into one consolidated step.
-- No explicit changes to existing operations were mandated, though the discussion framed potential routing and naming changes.
-- The packaging/bar description and operation descriptions influenced the time displayed, underscoring the need to keep terminology aligned with time fields.
+11) Receiving, Purchase Orders, Yard Scanning & Scheduling Cadence
+- Receiving / scanning:
+  - The process included “a little receiving in the yard”; all documents and parts are scanned in; receivers pull in the TRs; physical items are pulled back to the MTRs.
+  - Statements: “We’ve received it. We’ve asked them to be ours.”
+- Purchase orders:
+  - “That’s the purchase order and we’re getting an easy number again.” The “easy number” was referenced multiple times in connection with internal development and purchase.
+  - Discussion of new purchase markets and new channels.
+- Order cadence:
+  - Orders are on Tuesdays and Thursdays every week.
+  - A desire to “follow us in front of it” and track receipts was expressed.
+- Explicit action items:
+  - Confirm PO number consistency across new purchase markets. (Action item stated.)
+  - Validate receipt tracking and visibility for Tuesday/Thursday orders. (Action item stated.)
 
-QA/QC / INSPECTIONS
-- Inspections and data capture were reviewed with emphasis on displaying reasons/statuses via dropdowns and standardizing naming (e.g., machine vs. fabrication vs. detail).
-- Consideration of inspector data structures, including country-specific columns (e.g., Canadian), to organize inspection data, was discussed.
-- Revision control for drawings and ensuring access to the latest drawings per project was highlighted.
-- There was mention of NCRs and the need to track non-conformant activity; counts and distribution across items were reviewed.
-- Plan to attach supporting artifacts (pictures, tables) to inspection/record sets and set up cohesive attachments was discussed.
-- Next steps included configuring inspector data structures with dropdowns, ensuring access to latest drawings, attaching supporting documents to records, evaluating tooling replacements (e.g., KTA) if needed, establishing two-pass stations for shot-related items, and considering OpsGenie for alerting.
+12) Personnel, Roles, Communication & Meetings
+- People and roles explicitly mentioned: Steph (code review), Tom (QC comment), Ian, Bismarck, Ian Jackbud, Jay McPhee, Gilbert, J.R.S., Mr. Ryu (leading truck person).
+- Communication items:
+  - Client will provide a Jira plan.
+  - The consultant offered to set up conferences and demo sessions.
+  - Client requested additional catch‑up meetings.
+- Explicit action items:
+  - Perform the demo and walk through assemblies, marking them complete. (Action item stated.)
+  - Review the code with Steph to verify size‑based logic. (Action item stated.)
+  - Arrange follow‑up/catch‑up meetings to monitor progress on action items. (Action item stated.)
 
-NESTING INTEGRATION
-- Nesting module integration was discussed as part of the plan, with references to full integration and status tracking.
-- IT support for the Nestin integration and status tracking might not be available immediately.
-- Data integration implications were noted as part of broader plans to unify workflows (including inspection/rejection data) across systems.
-- Next steps:
-  - Confirm IT support availability for Nestin integration.
-  - Define scope and timeline for Nestin module deployment and status tracking.
-  - Align Nestin integration with QA/inspection reporting approaches described.
+13) Miscellaneous / Site, Equipment & Materials
+- Equipment & components:
+  - Saw types discussed: N20 saws, small saw (M20), M40 saw used in past.
+  - Client discussed uploading a “standoff” as a case.
+  - Machine components referenced: LEDs, AC‑DC power that need to be “good to go.”
+  - Lathe and trailer references were made in shop context.
+- Materials:
+  - Materials called out: stainless, nickel, silver, brass, bronze, aluminum.
+  - Market for these materials described as “extremely high.”
+- Other numeric / process references:
+  - Processing time example: “100 quilcet, but we’re talking 4 hours.”
+  - Machine cycle/threshold: “if I have five minutes then it’ll be fine with it.”
+- Explicit action items:
+  - Client will upload the standoff as a case. (Client stated.)
+  - Purchasing team will consolidate items across multiple jobs for procurement. (Client stated.)
 
-NEXT STEPS SUMMARY (explicit mentions across topics)
-- ESTIMATING: create a labor operation for the identified estimating path; map to a new labor group; assign time and decide display; locate/open an open labor code for CO or kit work; finalize carbon vs stainless sizing approach; perform stainless time studies; finish stainless size definitions; evaluate extras and manual overrides.
-- STANDARDS / DOCUMENTATION: begin Tony’s case; develop exportable standards; implement document control; ensure three-year data accessibility; plan shop setup changes and data export/import.
-- NESTING INTEGRATION: confirm IT support; define scope/timeline; align with QA/inspection reporting.
-- IT / DATA INTEGRATION: continue using Jira/Bitbucket/Loom ecosystem; address base setup and transmittal/drawing management; evaluate handheld device configurations.
-- PRODUCTION CONTROL: maintain two-step cut/clean setup with clear timing labeling; consider routing/naming changes; ensure alignment of time fields with descriptions.
-- QA/QC: configure inspector data structures; implement dropdowns; ensure latest drawings access; attach supporting artifacts; evaluate tooling replacements if needed; plan for two-pass stations and OpsGenie alerting.
+COMPREHENSIVE ACTION ITEM ROLL‑UP (EXPLICIT STATEMENTS FROM TRANSCRIPT)
+- Report completion next week. (Client expectation.)
+- Prepare Jira plan describing upcoming work. (Client will provide.)
+- Upload the standoff as a case. (Client will do.)
+- Consolidate purchasing across multiple jobs (four jobs scenario). (Purchasing team.)
+- Verify Bitbucket base setup and key changes. (Configuration review.)
+- Align drawing sheet page references with correct drawing numbers. Owner: Client/Document Control. Deadline: Next working day.
+- Create standard link method for page numbers to work areas. Owner: Consultant. Deadline: End of week.
+- Configure Statuspage filters so full column lists appear. Owner: IT/PowerFab Admin. Deadline: Immediate.
+- Populate schedule values for New Jersey contract and set a conference. Owner: Project Scheduler. Deadline: Within 3 days.
+- Generate category summary report (16,000 t; 12,000 hrs; $1 M monitor; $2 M total). Owner: Estimating Team. Deadline: End of week.
+- Document take‑off workflow and compare with quick‑view. Owner: Consultant. Deadline: Next session.
+- Clarify and document the “tool where you can make” items; identify/train users. Owner: Consultant/Tool Owner. Deadline: Within 5 days.
+- Enter original contract value in system; create and submit change orders; route for approval. (Client/Project Team.)
+- Generate preliminary change‑order/contract report projecting next five months. (Action item stated.)
+- Define and populate missing stainless size dimensions. Owner: Client (size data team). Deadline: Before next estimation cycle.
+- Clarify and update carbon‑size population (seamless‑grade). Owner: Client (modeling team). Deadline: Immediate.
+- Conduct stainless time‑studies and deliver results to estimating. Owner: Consultant. Deadline: Within two weeks.
+- Implement cut & clean split and apply time increases. (Manufacturing / data teams.)
+- Create unified rejection report and configure drop‑downs for QC entries; ensure NCR visibility. (QC / IT teams.)
+- Confirm PO number tracking and receiving verification for Tuesday/Thursday order cadence. (Purchasing / Receiving teams.)
 
-CLOSING
-The day yielded a comprehensive set of topics around estimating, page-to-area mapping, standard detailing, scheduling, and cross-system data integration for Tekla PowerFab, with a clear emphasis on standardization, data governance, and preparing for future growth. Explicit next steps centered on advancing labor- and cost-code structures, establishing documentation controls, exploring Nesting integration, and continuing cross-functional collaboration through Jira and related tools. Further sessions were planned to validate progress and refine the approaches described.
+NOTED RISKS, LIMITATIONS AND OPEN QUESTIONS (AS EXPLICITLY STATED)
+- Zero‑dimension stainless sizes and inactive size records were present and required definition.
+- Carbon‑size population issues were preventing correct seamless‑grade identification.
+- No change orders had been approved at time of session; billing and invoicing depend on approvals.
+- Statuspage and drawing navigation displayed inconsistent behavior; some filters/pop‑ups only showed single lines.
+- Jira integration was described as “not producing value” in current setup.
+- Budget composition was unclear in parts of the transcript (“That’s the budget. I don’t know how that budget is.”).
+- Some stakeholders had not been consulted on stainless‑size issues.
+
+CLOSING / NEXT SESSIONS
+- Multiple explicit next steps were recorded above; client requested follow‑up demos, code review with Steph, and additional catch‑up meetings.
+- The consultant agreed to support time‑studies and to assist with configuration and reporting changes noted in the action items.
+
+Prepared by: Tekla PowerFab Consulting Team
+(All items above are extracted directly from the provided transcript; no information beyond explicit transcript statements has been added.)

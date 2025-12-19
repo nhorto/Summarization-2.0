@@ -1,146 +1,287 @@
-Professional Topic-Based Consulting Summary
-Date: [Day of transcript]
-Focus: Data integration, labor data management, production planning, and related PowerFab workflows. The notes below reflect what was explicitly stated in the transcript, organized by consulting topic with concise findings, configurations, decisions, and next steps.
+Tekla PowerFab Consulting — Topic‑Organized Session Summary
+(All statements below are drawn directly from the session transcript. No assumptions or external information have been added.)
 
-ADMINISTRATIVE INFORMATION / ADMINISTRATION
-- Oracle database setup: The team discussed establishing a new Oracle database and getting it set up for ongoing work.
-- IT integration goal: There was an ongoing conversation about system integration and tying together on-premise servers and IT infrastructure, with the goal described as a more robust main office setup.
-- County software interaction: It was noted there would be interaction with county software in some capacity, with feed considerations discussed (specifics not clearly defined).
+1) Database, Server & IT Infrastructure
+- What was discussed / current state
+  - A new Oracle database had been provisioned and was to be set up during the session.
+  - The client planned a complete redo of servers (“the whole strip of service”). The new server room will be on‑premise in the same area as the current main office (“the sugar room on premise”) and was described as “a whole lot more beefy.”
+  - The original ITA/ITA key and “the original IT guy” (Keith) were mentioned as part of past integration and IT history. Keith had previously assembled the “Frankenstein” stack and had sent e‑mail about SP1 patch dates; the latest release noticed was v2035 (SP2).
+  - The client had a copy of a “blank database” and discussed restoring/cleaning the instance (disable sizes, clear what’s not needed). IT availability and restart coordination were noted as constraints; an IT call was implied necessary.
+  - A quick test to access port 307 was proposed; the transcript recorded attempts and a new port that was “not” communicating.
+- Key concerns / risks
+  - Server rebuild and migration were high‑impact items; IT responsiveness was flagged as a risk (“IT is probably restarting the server… IT is slow”).
+  - Patch and setting persistence: custom settings are repeatedly destroyed on updates and must be re‑applied.
+- Decisions / changes made during session
+  - Re‑instatement of maintenance coverage had been completed (maintenance had expired on 1/30/25 and was reinstated with a set price for 2025).
+- Explicit next steps / action items
+  - Configure the new Oracle database and integrate with PowerFab (action item recorded).
+  - Plan and schedule the server infrastructure overhaul; obtain the required key and move server‑based reports to the server (“I’ll get the key… put all of that on the server”).
+  - Coordinate an IT restart/port connectivity test (port 307 and the new port) and restore/verify the clean database instance; coordinate with IT for the restore and pruning.
 
- NEXT STEPS / ACTION ITEMS (explicit)
-- Proceed with set up of the new Oracle database to enable the planned data workflow.
-- Continue discussions to finalize on-premises server integration and robust IT-infrastructure alignment.
-- Clarify the role and feed expectations for county software integration.
+2) Vista Integration, Labor Export & Excel Mapping
+- What was discussed / current state
+  - All labor data was exported to Vista via Excel. The export included employee number (example value referenced: “39,000”), hours worked, and a phase code (e.g., “third”).
+  - Export sheet processing: the Excel sheet was filtered, cascaded, and “read‑mapped” into Vista; Vista then pulled the 39,000 employee number and associated values.
+  - The client described a two‑system flow: a face‑recognition system captures identity and in/out times, and Tekla receives/holds production time; the face system was used to verify identity and then Tekla exports to Vista via the Excel method.
+  - TechLog2W was explicitly referenced for the export to Excel: “we submit the actual Excel sheet from this, from TechLog2W.”
+  - The client considered the Vista integration as intended to remove manual Excel manipulation, but observed it still required manual filtering and mapping (“creates double work”).
+- Key details preserved from transcript
+  - Employee number example: 39,000.
+  - Export format: Excel (filtered, cascaded, read‑mapped into Vista).
+  - Export source: TechLog2W (explicit).
+- Concerns / limitations
+  - The Excel export/import step remained a manual/costly step; management noted “double work” and questioned ROI of the current integration.
+  - Some data access/sharing questions were raised (“they wouldn’t want to give me some”).
+- Decisions / changes made
+  - No automation beyond existing Excel export was implemented during the session.
+- Explicit next steps / action items
+  - Validate the Excel labor‑export process and mapping into Vista (confirm employee numbers, hours, phase codes are correctly mapped).
+  - Evaluate feasibility of linking facial‑recognition data directly into Tekla to reduce manual handling (explore API options—task recorded).
+  - Clarify what reporting/data can be shared between systems and who owns the mapping logic.
 
-POWERFAB GO
-- Not discussed: The transcript contained no explicit items related to PowerFab Go.
+3) Time‑Capture, Face‑Recognition & Time‑Tracking Practice
+- What was discussed / current state
+  - Primary time‑capture method: face‑recognition entry at the gate/monitor. The system captured employee identity and timestamps and saved “in a year‑tracking and production” file that was verified against face records.
+  - Workflow included mapping face entries to project/workstation and splitting time across up to “five persons” per record if needed.
+  - The face system’s outputs were reconciled against Tekla production exports before creating the Excel sheet for Vista.
+  - Manual entry time frustrations were described: entering time in Tekla/EPM took “7 8 9 9 9 9 9 10 minutes” per entry for some users; an existing workaround was to have a paper sheet passed to “Nolan” who would enter all data (~5 minutes per entry).
+- Reporting tied to time capture
+  - Daily labor recap email included prior day hours, negative trend alerts, and percent complete metrics; weekly production‑schedule sheet was reviewed each Friday.
+- Concerns / limitations
+  - User interface (“a little clunky”) and Notes field clutter were flagged; desire for more fast/touch panel UI was expressed.
+  - The current process still required filtering and reformatting prior to export; errors could occur if wrong values were entered (example: “36 instead of 3 or 6”).
+- Decisions / changes made
+  - No technical changes were made to the face system during session; the client reiterated desire to automate the Excel re‑format step and reduce manual corrections.
+- Explicit next steps / action items
+  - Assess the feasibility of direct ingestion of face‑recognition data into Tekla to remove manual Excel steps.
+  - Define requirements for a custom export that contains only necessary columns and reduces human reformatting (consider Crystal Reports).
+  - Map and document the exact daily/weekly recap content and recipients (e.g., distribution to “Sarah” was discussed).
 
-PRODUCTION CONTROL / PRODUCTION PLANNING
-- Production Planner adoption: Production Planner was identified as the most efficient method for releasing work on PowerFab and for forecasting across the project set.
-- Current usage: Production Planner has not yet been used in full-scale production; steps were discussed to learn how to use it and to align Alan and others on the approach.
-- Rollout intent: The group expressed a desire to get Production Planner in place so work can be released and forecasted, with justification provided as part of the rollout.
-- Scheduling alignment: There was reference to reviewing production schedules and ensuring the rest of the route is set, indicating an intention to align planning with project sequences.
+4) Production Planning, Work Packages & Production Planner Usage
+- What was discussed / current state
+  - Work packages had been added to the Production Planner but the Production Binder was not yet used at “full‑scale.”
+  - The Production Planner was described as the most efficient tool for release work and forecasting; the client had not fully used it yet for large‑scale scheduling.
+  - Release workflow: the consultant and Alan outlined a process for releasing work in PowerFab and scheduling work package releases; Microsoft Project schedules were maintained “on the side” to forecast across platforms.
+  - Work packages were to be shipped/staged directly to site per area rather than “shake everything out.”
+- Specific operational elements
+  - One‑week work packages were discussed, with a “one week ahead” / “one week coming back” rotation for carts and assemblies.
+  - Cart quantity uncertainty: client asked if jobs used “three carts” or “fifty carts”; consultant noted expectation of “one e to 30 in rotation” (i.e., up to 30).
+  - For remote shops (Iowa, Texas), each location was described as having its own fabshop and rotation; New Mexico was identified as “the farthest one we’re gonna have to figure out.”
+- Concerns / limitations
+  - Production Planner had not been run as a long pilot yet; training and process documentation were required.
+- Decisions / changes made
+  - Agreed to begin a pilot use of Production Planner and to schedule release workflow testing between consultant and Alan.
+- Explicit next steps / action items
+  - Begin a pilot of the Production Planner to test release work and forecasting.
+  - Verify production routes, route setup, and codes used in the routes (“white topics” review).
+  - Establish carts and shipping plan for New Mexico; clarify cart rotation counts and labeling rules.
 
- NEXT STEPS / ACTION ITEMS (explicit)
-- Move toward implementing Production Planner as the primary path for releasing work and forecasting, including training on how to release work within PowerFab.
-- Continue discussions to finalize the rollout plan and align Alan and others on the approach.
-- Validate production schedules against project sequences and ensure route readiness for production planning.
+5) Estimating, Labor Rates, Percentages & Adjustment Workflow
+- What was discussed / current state
+  - The client had low confidence in current labor estimations; they reported the estimator’s rate limit was “vastly different” from expectations.
+  - Estimator default behavior: when a “start rebellion” (new estimate) is submitted, the default completion percentage is 98%; the estimator can then adjust it up or down.
+  - The client referenced a target of 75% (multiple contexts): the system or internal target had historically used 75% and the client wanted to align settings to a 75% target in some places.
+  - Efficiency math: example that if a job is at 90% efficiency the hours calculation divides by 0.9 to inflate hours. The practice of dividing by 0.9 was explicitly cited (“If it’s at 90% efficiency … the calculation of the hours divides by .9”).
+  - A recommended approach discussed later: enter the original estimate into the “Original Estimate” column (e.g., 30 h) and remove values from the Adjustment column so percent release and base hours reconcile correctly.
+- Specific numeric examples preserved
+  - Default estimator completion percentage: 98% (on new estimate submission).
+  - Client target for tweaking: 75% (referenced repeatedly).
+  - Efficiency divisor example: divide hours by 0.9 for 90% efficiency.
+  - Example original estimate/base hours: 30 h original, 16 h base; client wanted original estimate put into the base‑hours field to compute correct percent release and contingency (14 h).
+- Concerns / limitations
+  - Multiple jobs showed high variance (examples cited in transcript: 40% weight difference; various burn % values across jobs). The client saw “no pattern whatsoever” in several burn/tech/fit‑up comparisons.
+  - New estimators were unfamiliar with system usage; some estimators performed takeoffs outside Tekla and imported results manually.
+- Decisions / changes made during session
+  - The client agreed to change practice: put the original estimate into the base/original estimate field and clear the adjustment column; this was explicitly discussed and agreed (“That makes sense. Yeah, we’ll make that change.”)
+- Explicit next steps / action items
+  - Review and adjust estimator settings to align default completion percentages and rate limits to client expectations (investigate the 75% vs 98% references).
+  - Enter original estimate values into the base/original estimate column and remove the adjustment entries; run tests to confirm percent release behaves as expected.
+  - Provide estimator training on the estimator workflow, cycling feature, and base vs adjustment handling.
 
-LABOR MANAGEMENT / ESTIMATING
-- Labor codes and workflow: Emphasis on labor codes described as “six in one,” and the process of bringing an estimate into production with labor exported via time-tracking workflows tied to those labor codes.
-- Time-tracking exports: Hours and employee numbers are exported from time-tracking into Excel (Vista) with a workflow that includes project-specific phase codes, so data can be filtered and cascaded into the receiving system.
-- Direct vs indirect labor: Current process includes a direct vs indirect labor distinction, with discussion of how indirect labor applies to projects (e.g., codes like 1200); hours are allocated accordingly.
-- Daily labor reporting: A daily labor report was described as an automated recap sent from a daily meeting, summarizing hours used and trends (e.g., increases or negative trends) to help pre-empt issues.
-- PAM (project management) reporting cadence: Mention of a PAM report that can aggregate across projects; daily/weekly cadence described as part of labor and production governance (weekly sheet reviewed on Fridays).
-- Estimator rate limit concern: A concern was raised about the estimator’s rate limit being vastly different from expectations and whether adjustments or alternatives should be considered; discussions included adjusting percentages (e.g., 75%) and how defaults (e.g., 98%) interact with user expectations.
-- Default vs. future discussions: The default estimation behavior and subsequent adjustments were noted as items for future stakeholder discussions to align numbers with reality.
+6) Labor Export, Reporting & Daily/Weekly Recap
+- What was discussed / current state
+  - Daily labor recap emails were in use, showing hours used the previous day, negative trend alerts, and percent complete; weekly production schedule sheets were reviewed each Friday.
+  - A “PAM report” was mentioned as a potential consolidated view across projects but it was not confirmed whether it existed.
+  - The client receives a summary of labor entered the previous day and reviews percent complete and hours by sequence.
+- Concerns / limitations
+  - The export workflow required manual filtering, remapping and clean‑up before Vista import, producing duplicate manual work.
+- Explicit next steps / action items
+  - Confirm availability of a consolidated daily/weekly labor report (PAM or equivalent) and arrange distribution to stakeholders (e.g., Sarah).
+  - Document the daily/weekly recap fields and ensure automated generation where possible.
 
- NEXT STEPS / ACTION ITEMS (explicit)
-- The transcript indicates ongoing discussions on estmate/rate limits and default percentages to align with expectations; explicit next steps to finalize those discussions are implied but not enumerated in a single line per this topic.
+7) Wire Nesting, Material Specification & Nesting Library
+- What was discussed / current state
+  - The client requested the addition of wire sizes and gauges to the nesting library; wire dimensions should be kept in the same linear metric as existing round‑bar definitions.
+  - Wire purchase quantity example: Stephen and Michael could purchase up to 3,000 ft of wire for “schools” (phrase from transcript).
+  - Single conduit runs were currently being treated as “BON” (non‑nesting), leading to a “still not nesting” state — essentially a shipable output without nesting optimization.
+  - The client reported using chat‑generated nesting for wire with utilization dropping (~15% drop reflected; transcript recorded “utilization came down to like… 15% drop” and “0.04” in a separate mention).
+- Concerns / limitations
+  - Curved cuts on wire were not present in current workflows; some “little trick” had been developed for wire handling (“working so far”).
+- Explicit next steps / action items
+  - Add wire sizes/gauges to the nesting library, ensuring metric consistency with round‑bar. (Action item identified.)
+  - Review wire nesting utilization and consider rollout of the “wire trick” more broadly if validated.
 
-MATERIALS / PURCHASING (NESTING / WIRE)
-- Wire data planning: Plan to add wire sizes and gauges and keep those measurements in the same linear metric as round bar (consistent units).
-- Wire purchasing quantities: Discussion of how much wire is actually purchased (e.g., by length) and spool quantities; Stephen and Michael can buy up to 3,000-foot spools, with the final decision dependent on actual use.
-- Five minute strut: Brief topic area to be addressed, implying considerations about materials and stocking in relation to ordering/stocking.
+8) Cutting, Burn Rates, Plasma, CNC & Welding Throughput
+- What was discussed / current state
+  - Multiple cut technologies were discussed: plate plasma cutting, plasma shape cutting, softening, and torch/manual burn; the client said “plasma shape cutting… still sucked” for shapes.
+  - Specific machine/performance numbers cited explicitly:
+    - Machine’s weld capability ≈ 20 inches per minute for a two‑pass weld (applied up to half‑inch thickness).
+    - Another reference: machine can do 22 in/min (welding throughput).
+    - Estimating guideline used: 5 ft / hour baseline for a three‑day production window.
+    - Example feed rates: “10 inches per minute for quarter H.A.K.” (equated with 550 ft/hr in one place – transcript: “10 inches per minute for quarter H.A.K. (equivalent to 550 ft/hr)”).
+    - A possible processor speed setting recorded as “6‑3.”
+    - Several references to “5.5” and “69” (contextual values mentioned verbatim in transcript).
+  - Pass count discussion for welding:
+    - Quarter‑inch typically single pass.
+    - Half‑inch typically two passes (“it’s a two pass well for us… up to half‑inch”).
+    - 3/8‑inch likely requires more than one pass.
+  - Burn/perimeter length formulas and length formula edits were demonstrated (delete “Burn Man” entry, create new burn operation; revise length/perimeter formula to use parentheses and multiply by constants—e.g., “3 × 2 × (perimeter)”) — these maintenance steps were shown in the session.
+  - Start/stop time capture was described as “the awesome way to do it” for station timing, but a warning was given to watch schedule effects and double‑counting.
+- Concerns / limitations
+  - Piercing/time to move head/turn arcs and non‑cut head movement were not included in some automated speeds; the consultant cautioned that published machine numbers might be overly optimistic.
+  - ACPC (Azure ACPC time) integration had color codes and failure modes; if ACPC goes down the system “just goes past it” which was a concern.
+  - Variation between cutting machines: one machine on estimates was “twice as fast” as another; currently not tracked in the estimate.
+- Explicit next steps / action items
+  - Pull runtime reports from Land Tech / “land tech” to capture machine runtimes and validate burn rates.
+  - Edit operation formulas and create new burn entries where needed (demonstrated; to be applied).
+  - Run spot start/stop time studies for stations to capture real start/stop behavior and avoid double‑counting.
 
- NEXT STEPS / ACTION ITEMS (explicit)
-- Complete wiring/nesting data setup (wire sizes, gauges, and unit consistency) and finalize spool quantities expectations (e.g., spool sizes up to 3,000 feet).
+9) Coatings, Finish Families & Service‑Prep
+- What was discussed / current state
+  - Three coating families were configured/added: high‑solids, steel‑spark (steel spec), and Acropoxy (transcript also used “macro epoxy” in a later section).
+  - Container sizes were configured to match purchasable units; fields captured: cost per gallon and average cost (co‑average) for estimate calculations.
+  - The system now produced gallons required per job, total material cost, and summary including square‑foot inputs.
+  - Finish families entered included B2, SP3, SP6 and a “simple 1‑2‑6” family; additional complex paint routes (prep → intermediate → prime → finish) were created and can be marked up in EP and exported for inspection.
+  - The coating description did not carry through a “travel interval” (explicit).
+- Concerns / limitations
+  - The client warned that cost per gallon must be validated before bid submission; the system used co‑average that needs to be current.
+  - Difficulty obtaining “right specs” to populate the finish board was expressed.
+- Explicit next steps / action items
+  - Verify cost‑per‑gallon values before final bids.
+  - Validate the paint route and traveler outputs on the next live job; confirm inspection linkage.
+  - Add finish spec options to estimates and confirm how they appear on travelers.
 
-PRODUCTION REPORTING / SCHEDULES
-- Production schedules and project sequences: Production schedules were described as being present within each project sequence; emphasis on reviewing these schedules and ensuring alignment with project plans.
-- Daily updates and routing: The team discussed the need to pull and review daily updates and to share or route reports as needed (e.g., sending information to Sarah or other stakeholders).
+10) Assemblies, Revit/IFC/KISS/Excel Workflows & P1000 / R1 / R2
+- What was discussed / current state
+  - Revit families were being used to design unit components; Revit → IFC exchange frequently stripped metadata (“I lose all of my metadata… exported model is just a body shape”).
+  - The client planned to create a stencil spreadsheet (Excel) containing the required parameter fields (quantity, drawing number, description, grade, length) to import into PowerFab. The Excel/KISS import path was the preferred approach.
+  - P1000 was repeatedly referenced as the primary assembly/part number (many statements: “P1000… a few one thousand… the actual P1000 number”).
+  - R1 and R2 components were discussed: each must keep consistent labeling; they cannot be interchanged without consistent labeling, though the transcript noted they “could technically change those.”
+  - TR1 was described as a “single‑tiered, trippy support.”
+  - Thousands of trapeze supports and LED 400 were cited as components worth modeling.
+- Concerns / limitations
+  - IFC export from Revit removed needed metadata; the client intended to rely on Excel/KISS as the reliable import mechanism.
+  - Revit families were described as “messy” and “hard to handle” in current workflow; a Revit plug‑in or EcoStructure family approach was discussed as a potential avenue.
+- Explicit next steps / action items
+  - Produce an Excel export template (version one) that includes required fields and the additional column for rod piece‑marking; client offered to send screenshots for column layout.
+  - Create a VOM in Revit and demonstrate the import table fields that will be used; then use Excel/KISS import to PowerFab.
+  - Finalize P1000 & R1/R2 naming convention: keep assembly‑specific labels and implement piece‑mark suffix convention (e.g., R1 + last three digits) per transcript discussion.
 
- TIME-TRACKING / DATA EXPORT
-- Time-tracking export workflow: The current workflow involves exporting time-tracking data to Excel with fields such as employee number, hours, and phase codes for each project.
-- Data filtering and cascading: There was focus on ensuring data can be filtered and cascaded correctly so it can be fed into other systems or reporting tools across projects.
+11) Splices, Labor Kits & Material Breakdowns
+- What was discussed / current state
+  - Column splices were present on a labor kit and users could “use this splice,” but the transcript recorded “most people don’t use it—they don’t put any material in themselves, and they don’t put labor to it.”
+  - The current view “doesn’t give you a breakdown of what it is,” which the client wanted cleaned up.
+  - Splice operations were tracked as 12 hours when splicing pieces together; splice time covered both shop and field prep; the splice entry had to be selected explicitly.
+- Explicit next steps / action items
+  - Review and clean up event breakdowns for column splices and labor kit entries.
+  - Ensure that splices display a clear material and labor breakdown in the model/report.
 
-PEOPLE / ACCESS CONTROL
-- Facial-recognition time capture: A face-recognition system was described as part of the time-capture / workforce-hours workflow, with references to employees and supervision interfaces tied to project work hours.
+12) Quality Control (QC), Inspection & QC Bucket Usage
+- What was discussed / current state
+  - Each project had a separate, empty bucket added for QC purposes. QC dollars were tracked on a completely separate code for each project (QC code example referenced as 011400).
+  - QC person still provided a thumbs‑up inspection report; however, responsibility had shifted so “the quality guy is not responsible anymore; it’s just the bidder that’s responsible.”
+  - QC sampling approach described: first‑article inspection and periodic sampling (every 10% sampling was referenced as a concept).
+  - The client asked whether marking an assembly complete could be treated as a QC inspection and whether inspection records could be filled within the system; the system allowed marking completion even if inspection had not been performed.
+- Explicit next steps / action items
+  - Formalize QC sampling plan (first‑article + periodic sample, e.g., every 10%).
+  - Configure inspection reports to be linked to service‑prep and assemblies and confirm how the inspection data travels with the job.
 
- NEXT STEPS / ACTION ITEMS (explicit)
-- Continue refining time-tracking data flows and ensure alignment with Vista integration and other reporting tools.
-- Validate and tighten the mapping from time-tracking exports to project schedules and reporting.
+13) Material Handling, Packaging, Carts & Shipping Logistics
+- What was discussed / current state
+  - Packaging approach: a “card” concept that contained all required parts/traps and was labelled for easier movement; the client wanted packaging to be “easy to move.”
+  - Carts: question whether jobs used 3 carts or 50; consultant suggested a rotation up to “one e to 30 in rotation” (i.e., up to 30 carts).
+  - Pre‑fab parts were described as “the first set of parts you used to ship out of the job scene”; pre‑fab activity was a major early step.
+  - For multi‑location coordination: Iowa and Texas have their own fabshops and rotation; New Mexico required a shipping plan and cost recovery.
+  - Asset tracking: field crews were removing assets and they “disappear”; a token‑based return tracking concept was discussed to capture receipt dates and prompt returns.
+- Explicit next steps / action items
+  - Define cart labeling and rotation policy (R1 + last three digits label convention was discussed).
+  - Create a shipping & cost‑recovery plan for New Mexico.
+  - Implement an asset checkout/return token workflow to track carts and assemblies deployed to the field.
 
-NEXT STEPS / DECISIONS MEEDED (explicitly mentioned across topics)
-- Confirm and link procedures and flow charts to ERP/PowerFab upgrade plan, and finalize the storage/location of procedures next week.
-- Complete PDE associations in project release forms and ensure PDE usage is clearly documented in releases where applicable.
-- Align material codes and area-of-work mapping across views (PX/back view) and standardize when to use home material versus line-item material entries.
-- Simplify labor groups to a standard structure, incorporate burn, and address union loading in a consistent manner.
-- Continue training for new estimators (training plans, on-site support, and hands-on practice) and define a clear path for their ongoing development.
-- Address burn/run-time discrepancies and ensure estimates reflect latest project data in conjunction with field feedback.
-- Maintain ongoing integration efforts and leverage field access discussions to improve data capture and workflow alignment.
+14) Facilities, Capacity & Site Planning
+- What was discussed / current state
+  - A new facility plan was discussed: 65,000 sq ft of space with “one bay for tanks” and “one bay for spatial work”; “seven of our guys” would be assigned.
+  - Data‑center skids were mentioned alongside a figure of 40 billion (explicit quoted phrase: “data‑center skids were mentioned with a figure of 40 billion”).
+  - The client reported a $700,000 spend on “selling our beams” (statement quoted verbatim).
+  - Multiple facilities were discussed (Denver, Great Falls, Casper, Gilbert, Phoenix, etc.). Great Falls had overhead cranes but little work; Casper and other locations were to be analyzed for capabilities.
+- Concerns / limitations
+  - Many facilities lacked full structural capability; some sites were “not really set up to do structural.”
+- Explicit next steps / action items
+  - Continue collecting capability data for each facility (equipment, personnel, throughput).
+  - Confirm footprint and resource planning for proposed 65,000 sq ft facility.
 
-OPTIONAL CLOSING STATEMENT (optional)
-- The session yielded actionable paths to better align labor grouping, production control, and data integration, with concrete next steps to refine estimates and improve shop-floor data visibility. Further alignment on PDE usage, labor grouping, and burn/run-time modeling was identified as a priority for the upcoming session.
+15) Licensing, Module Access & Multi‑Database Considerations
+- What was discussed / current state
+  - The client requested “all of their modules” and discussed licensing constraints (“some of them are not giving you access because the license process is too low”).
+  - Statement: “the system can point to only one database at a time” (single database pointer per site was explicitly stated).
+  - For separate experimental environments or different databases, a separate server instance/IP would be required.
+- Explicit next steps / action items
+  - Confirm licensing allocations and which modules were to be provisioned for users.
+  - Assess the feasibility of a separate server instance for testing/isolated database work.
 
-DETAILING STANDARDS / IMPLEMENTATION OPTIONS
-- While not detailing specific PowerFab detailing standards, there was substantial discussion about how data (time, labor, and purchasing information) flows through the system and how reporting could be customized, indicating areas where detailing standards and process documentation could be strengthened during any implementation or upgrade.
-- Actionable items and next steps across this topic include pulling runtime reports, standardizing labor-group mappings and descriptions, and planning for training and on-site support to accelerate estimator onboarding.
+16) Reporting, Exports & Archive Management
+- What was discussed / current state
+  - The client valued visibility to import logs and asked to place reports on the server to avoid being overridden by updates; the consultant agreed to do so and to obtain a key for server‑based deployment (“I’ll get the key”).
+  - A historical weekly report process previously performed by “Fred Dutton” had lapsed after Fred stopped working there.
+  - The client wanted an ability to “dump it all in one swoop into Excel” because “budget numbers don’t match well” and to run estimate vs. actual comparisons for a set of jobs.
+- Explicit next steps / action items
+  - Move key reports to the server and secure the key to control the report files.
+  - Produce an Excel export of schedule and BOM data (version one) for client manipulation and provide mapping columns.
+  - Document archive locations (Mark’s folder, R: / J: drive references) and share links to procedures.
 
-NEXT STEPS SUMMARY (cross-topic highlights)
-- Reevaluate ROI and plan phased investments for automation and cross-system integration.
-- Complete wiring/nesting data, wire sizes, and spool quantities for nesting planning.
-- Validate time-tracking to Vista exports and cross-project reporting.
-- Implement Production Planner rollout and train aligned teams (e.g., Alan, others).
-- Finalize ERP upgrade documentation, PDE associations, and labeling standards.
-- Improve data governance around external inputs (Kiss files, external data) and standardize data flows between Tekla PowerFab and ERP systems.
+17) Training, User Adoption & Support Website
+- What was discussed / current state
+  - Training gaps identified: new estimators were unfamiliar with Tekla features; some staff “don’t even know how to use” the estimator tools. Ricky offered to lead or facilitate training.
+  - The consultant planned to produce a support website with chat boards and monthly “web hours” where clients can discuss ACPC and other topics; the site would host community discussions and support.
+- Explicit next steps / action items
+  - Provide estimation training exercises for new estimators (set up a short training session).
+  - Launch the support website and schedule the first monthly web hour; provide access and announce the support community.
 
-CLOSING STATEMENT
-- The session produced a broad set of actionable items across administrative, production control, estimating, and data integration domains. It highlighted concrete next steps to implement wire/nesting data, Production Planner rollout, time-tracking improvements, and ERP-related governance. The next session should focus on confirming ownership for action items, validating data flows, and starting phased implementations.
+18) Estimating Data Quality, Time Studies & Global Factors
+- What was discussed / current state
+  - The need for larger, validated samples for time studies was emphasised; for example, a single sample across different job sizes (40 h vs 4,000 h) was insufficient.
+  - Discussion of global factor alignment: add/adjust range bands (e.g., “add another 20 band”) and maintain global factors to benefit all projects.
+  - Start/stop station time‑studies were promoted as an “awesome way to do it” with appropriate safeguards against double counting.
+- Explicit next steps / action items
+  - Perform structured time studies (grouped by rule) and build the rule set into a central maintenance file.
+  - Implement spot checks and validation across multiple job sizes to converge on global factors.
 
-OPENING STATEMENT
-This session focused on evaluating data exchange, modeling approaches, and production/workflow considerations for Tekla PowerFab, including data import formats, Revit integration concepts, material/database standards, and shop routing implications. No final configurations were locked in; explicit next steps were identified where applicable.
+19) Miscellaneous Explicit Items Recorded (verbatim phrases)
+- Server / port tests (port 307), Oracle DB setup, SP1/SP2 notes (v2035), “start rebellion” default completion 98%, 75% target, employee number 39,000, wire purchase up to 3,000 ft, 30,000 ft referenced in one place, $700,000 spend on “selling our beams”, 65,000 sq ft new facility, 40 billion figure associated with data‑center skids, 5 ft/hour baseline, machine capacity ≈ 20 in/min or 22 in/min, 550 ft/hr equivalence for a quoted 10 in/min earlier, 96 × 240 table size, 40‑ft plates discussed, splice time = 12 hours, QC code example 011400, indirect labor job 1200, kit/PH final estimate practice, P1000 and R1/R2 references.
 
-PROJECT MANAGEMENT
-- Revit integration concept: Discussion of a Revit plug-in as a potential replacement/augmentation for existing workflows; comparison to Eco Structure capabilities for building families and repeatable structures.
-- Current setup: Described as "set up right" and "works great," with consideration of end-of-life for current tooling and a possible shift to a Revit plug-in to address broader issues.
-- Next steps: Explore end-of-life transition path and potential plug-in adoption with technical user assistance; consider cleanup of callouts to support one callout per item.
+20) Consolidated Action Items & Owners (as explicitly stated in transcript)
+- Configure the new Oracle database and integrate with the PowerFab environment. (Client / IT / Consultant)
+- Add wire sizes/gauges to the nesting library; keep metric consistent with round‑bar definitions. (Client / Consultant)
+- Begin pilot use of the Production Planner to test release‑work workflow (Consultant + Alan / Production team).
+- Review and adjust estimator settings (default completion percentage, rate limits) to align with the client’s target (75% where appropriate). (Estimating lead / Consultant)
+- Validate the Excel labor‑export process and mapping into Vista (confirm employee numbers, hours, phase codes). (Client / Consultant)
+- Confirm availability of consolidated daily/weekly labor report (PAM or equivalent) and arrange distribution to stakeholders (e.g., Sarah). (Client / Reporting)
+- Plan and schedule the server infrastructure overhaul and restore/clean database instance; obtain server key and move reports to server. (IT / Consultant)
+- Prepare and deliver a version‑one Excel export (schedule/BOM) for client manipulation; add requested columns (rod piece‑mark suffix, etc.). (Consultant)
+- Pull runtime reports from Land Tech and examine machine runtimes and burn data (Client / Production / Consultant).
+- Perform start/stop station time studies (spot checks) to validate cut/handling times and prevent double counting. (Shop supervisor / Consultant)
+- Review and clean up event breakdowns for splices and labor kit entries; ensure splice material & labor breakdowns are visible. (Estimating / Production)
+- Formalize QC sampling and link inspection reporting to assemblies and service‑prep flows (Quality lead / Consultant).
+- Implement asset checkout/return token workflow for carts/field assets and define cart rotation policy (Operations / Logistics).
+- Provide estimator training (cycling feature, FBA, base vs adjustment practice) and document procedures on shared drive (Training coordinator / Consultant).
+- Review coating cost per gallon values before final bids; confirm finished traveler output and inspection linkage (Estimating / Coatings lead).
 
-ESTIMATING
-- PowerFab estimation scope: Decision that estimating in PowerFab for this scope was unlikely; estimation would likely stay outside PowerFab (field-based input and long-term shop-throughput considerations).
-- Next steps: Acknowledge current stance on estimates; understand field-based estimation approaches and how they feed into project-planning timelines.
+21) Closing observations recorded in transcript
+- The session covered a broad set of topics; the recurring themes were: tighten documentation and procedures, align estimator defaults with production reality, clean up labor/category structures, automate manual Excel rework where possible, and rebuild server/database infrastructure to be more robust.
+- The transcript contained many conversational and personal remarks; the items summarized above are exclusively the explicit, project‑relevant statements from the transcript.
 
-DETAILING STANDARDS / DATA STRUCTURE
-- Data fields: Recommendation that only essential fields be required (drawing number, benchmark, piece mark, quality shape); support for flexible field usage beyond core identifiers.
-- Data mapping: Discussion about placing shape and dimension in the same field; core-type approach; potential mapping to P1000 and other identifiers.
-- Next steps: Implement the proposed field-setup; validate shape/dimension alignment; consider a pilot to verify single-callout-per-item approach and data consistency.
+If you want, I will:
+- Produce a prioritized, time‑phased workplan (with estimated owners and due dates) based solely on the action items above, or
+- Produce a concise checklist of the minimal server/database and Vista‑export steps to be implemented first.
 
-MATERIALS / IMPORT / EXPORT
-- Data exchange formats: KISS files, IFCS/IFC files discussed; PFXD file not yet supplied; exporting IFCs for Trimble/visualization; weekly IFC data revisions noted.
-- Data integration: Establish data mapping from Tekla to Excel BOM, correlation to P1000, and carry cut lengths; nesting/assembly tracking in Tekla for electrical prefab; ensure metadata preservation when moving data between Revit, IFC, and Tekla.
-- Next steps: Continue using IFCS/IFC data in Trimble; monitor PFXD file availability; align Excel exports with evolving data formats; develop a robust Excel-to-Tekla BOM mapping.
-
-QUALITY / QA / INSPECTIONS
-- Bechtel drawings: Noted open welds; QA/QC considerations acknowledged, though no corrective actions recorded in this session.
-- Data flow for QA: Inspections and service prep data referenced, with emphasis on ensuring consistency between submittals and QA data.
-
-IT SECURITY / DATA INTEGRATION
-- Port and server considerations: Port 307 connectivity; server restarts; handling of multiple database versions; licensing constraints and multi-site deployment considerations.
-- Data governance: Emphasis on consolidating data flows and ensuring security, access control, and version management across environments.
-
-NEXT STEPS
-- Schedule follow-up to validate Revit plug-in feasibility; continue exploring data-exchange options (IFCS, Kiss, Excel exports) and ensure metadata preservation across formats.
-- Validate data mappings and import/export formats with the technical team; plan a trial of the proposed data-exchange workflow.
-
-CLOSING SUMMARY
-- The session outlined a pathway toward a Revit-centric approach to data modeling and data exchange while maintaining awareness of current PowerFab work practices. The next steps focus on validating the Revit plug-in path, refining import/export formats, and ensuring metadata integrity during data transfers between design tools and PowerFab.
-
-DETAILED OBSERVATIONS OVERVIEW
-- MultipleTopics: This and the following sections describe cross-cutting topics (data exchange, Revit integration, material databases, nesting, and production routing) that influence future PowerFab workflows.
-- Actionable items: The session identified a set of concrete next steps around data mapping, import/export formats, and coordination with design tools to support future integration.
-
-OPERATIONAL NOTES
-- The overall theme across this and related sections is to enable more robust data exchange, better metadata preservation, and smoother integration between design tools (Revit/IFC) and Tekla PowerFab, allowing for more efficient nesting, assemblies, and fabrication planning.
-
-CLOSING STATEMENT
-- This session established a broad roadmap for integrating data exchange between Tekla PowerFab and adjacent design tools, with explicit next steps around data mapping, import formats, and validation of the Revit plug-in pathway. Further sessions are needed to finalize formats and confirm implementation readiness.
-
-INSPECTORIAL / QA / QC UPDATE
-- Bechtel drawings showed some open welds; QA/QC considerations noted but no actionable items finalized in this session.
-
-DATA INTEGRATION / IT INFRASTRUCTURE
-- IT connectivity and data integration were discussed, including port configurations, server stability, and cross-system data flows between Tekla PowerFab and external design tools.
-
-Note: The transcript includes a number of sessions with overlapping topics and numerous data-management, estimation, and production-control items. The bullets above capture explicit statements and next steps noted in the transcript, organized by topic as requested.
-
-If you’d like, I can convert these notes into a formal deliverable with a concise executive summary and a detailed action log with owners and dates.
+Which would you prefer as the next deliverable?

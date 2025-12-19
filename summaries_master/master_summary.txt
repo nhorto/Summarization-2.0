@@ -1,140 +1,135 @@
-Administrative Information / Administration
-- Friday: Reviewed reporting, estimating workflows, job-release process, and data/integration considerations within Tekla PowerFab, including cutting constraints and planning for expansion. Planned documentation control and standardization initiated via Tony’s case; noted a lag in documentation and plan to address it through formal standards development and exportable documentation. Dartmouth was referenced as an April milestone with scheduling relevance. Next steps included producing a follow-up report next week and refining planning approach (including Jira) to address workload ramp-up.
-- Monday: Focused on data management, scheduling, reporting, detailing workflows, and systems integration with Trimble Connect as a data bridge. Addressed governance of imports/grades and improving estimation/production alignment. Next steps included continuing planning and aligning on 2025 readiness; calendar invites and detailer upgrade were actions to pursue.
-- Thursday: Maintained governance and cross-tool integration emphasis (Jira, Trello, Bitbucket, Loom, MediRoute) and reviewed progress signals for production control. Next steps included continuing refinement of work packages, routing/triggers, and aligning inspections/reporting workflows with project data.
-- Tuesday: Acknowledged governance and data-management context with emphasis on audits (AI audit readiness) and cross-system data flows. Next steps included preparing for the AI audit, finalizing PO-finalization practices, and aligning Vista migration with cross-system governance.
-- Wednesday: Initiated setup for an Oracle database and discussed on-premises server integration; noted county software feed considerations. Next steps included setting up the new Oracle database, advancing on-premises IT alignment, and clarifying county software integration roles.
+Database, Server and Performance Issues
 
-Estimating
-- Labor Codes
-  - Explicit discussion of labor codes and a plan to create/open labor codes for estimating paths; the goal to store new labor operations in a new labor group and allocate time, determining display-only versus active use in estimation.
-  - Next steps included creating a labor operation for the estimating path, mapping to a new labor group, and ensuring there is an explicit labor code that calculates hours for change orders or similar kit work.
-- Carbon vs Stainless Sizing
-  - Finalize approach to carbon versus stainless sizing in estimates and production data, including how these are mapped and presented.
-  - Stainless conversion and weight calculations were discussed separately (see Stainless Conversion / Weight Calculations).
-- Stainless Conversion / Weight Calculations
-  - Stainless conversion is non-linear; tests across sizes are needed to form defensible factors; density values noted (stainless ~0.31; carbon ~0.289). A baseline size should be tested first, then 1–2 additional sizes to develop non-linear factors; document results and refine conversion factors iteratively.
-- Time Studies / Data-Definition
-  - Planned time studies for stainless materials to evaluate contamination reduction and equipment/consumables changes; finish size definitions for stainless materials (especially zero dimensions); evaluate extras (labor, wellness) and potential manual overrides; align carbon vs stainless handling in estimating workflow and production data.
-- Change Orders / Estimating Path
-  - Discussed how change orders (CO) or kit work should be represented in estimates; requirement to ensure change-order hours are calculable via a dedicated labor code; automated reporting considerations related to estimating data and CO impact.
-- Breakout Logic / Costing Structure
-  - Explicit next steps to break cost-out by intended breakout logic (organized by cost code and area); map open labor codes and allocate time; determine display-only versus active use in estimation.
+Over the week we spent considerable time working through server, database and SQL‑related performance problems that are directly impacting responsiveness and report generation. Multiple sessions recorded a duplicate of the production database in a separate environment that “explains why everything’s super slow,” and the duplication process “started the process last Thursday.” The environment in use was explicitly identified as running SQL 2019, and compatibility/version history was discussed (references to versions 8.43, 8.4 and 8.1 and a note that the application requires Windows Server 2025 as a base OS were captured verbatim). Attempts to obtain and apply a new SQL port number were underway — Ricky stated he was “waiting for them to give me the new port number” and had followed up that morning. Troubleshooting is constrained by access: it was noted that some personnel “don’t trust me with that,” and that SQL/remote service restarts cause broad workstation impact (a server restart was described as taking “about 1 minute” but forcing every computer to be manually restarted, with typical downtime near “about 20 minutes”).
 
-Project Management
-- Trimble Connect
-  - Discussed Trimble Connect as a data bridge between Tekla PowerFab and detailing/ABM workflows; submittals surfaced via connector; mismatches flagged to prompt changes; alignment with 2025 integration plans to share data (grades, shapes, finishes) with detailers.
-- Schedules and Tracking
-  - Scheduling values must be entered to enable scheduling activities; schedule items linked to contract for accurate billing; the tool supports displaying a complete schedule and tracking changes; standard reporting layout described.
-- Jira / Statuspage / Collaboration
-  - Jira referenced for task management; Statuspage and Jira used for status updates; ongoing effort to refine Jira usage and capture historical work; inputs tied to Dartmouth milestone.
-- Documentation / Governance
-  - Action Standards Document introduced; Tony’s case used to define documentation controls; plan to export standards and implement document-control practices; three-year historical data accessibility noted.
-- Next Steps Summary (from multiple days)
-  - Continue refining Jira for task management; input schedule values to support scheduling activities; align 2025 Trimble Connect integration with Structures detailing; plan to tighten ABM sharing; verify grade/shape data with detailers; begin Tony’s case as starting point for documentation controls; develop exportable standards and implement document control.
+Because the database and server work are central to many flows (inventory lists, imports, exports and UI responsiveness), the explicit next steps captured in the sessions were to obtain the new SQL port number, verify and document SQL server access rights, and coordinate restarts / port connectivity tests (examples: a proposed quick test to access port 307 and verify the new port). The Wednesday notes recorded a planned server infrastructure overhaul with a new on‑premise server room described as “a whole lot more beefy,” an Oracle database that was to be provisioned, and a stated intent to restore/clean a blank database instance. The consultant and client recorded action items to configure the new Oracle database, plan the server rebuild, obtain the required key and move server‑based reports to the server. These items are operationally high risk because multiple transcript excerpts recorded lost or destroyed custom settings during updates and slow IT responsiveness, and because the duplicate database activity is explicitly tied to system slowness and blocked imports/exports.
 
-Purchasing
-- SSPL / SSL / SSA Data and Purchasing Impacts
-  - SSPL/SSL/SSA designations discussed; mapping SSL to SSA via ASCII/text-file workflows; SSPL changes affect purchasing data and vendor payments; potential temporary PO impacts during SSPL updates; planned bulk/versioned data changes to SSPL with careful inclusion checks.
-  - Considered centralized purchasing, renaming/separating SSA/SSAL/SSL to preserve historical data, and aligning with Vista migration.
-- Centralized Purchasing / Governance
-  - Evaluate procurement governance changes; pursue centralized purchasing for leverage; ensure vendor communications remain controlled and auditable.
-- Finalization and Data Flows
-  - Ongoing transition to Vista-based PO management; duplication of data handling across systems during migration; open POs require finalization and alignment with receiving/shipping.
-- AI Audit Readiness
-  - Engaged key personnel to prepare for an AI audit and clarify audit scope/roles; align cross-system traceability with governance.
-- Next Steps (explicit)
-  - Add finalized PO workflow to process so that once receiving/shipping tasks are complete the PO is finalized; determine who has authority to approve/finalize; review Vista/Tecla integration to reflect PO data flow; locate information on the finalization method/tool; prepare for AI audit by engaging listed personnel.
+Inventory, Receiving, Purchase Orders and Procurement Consolidation
 
-Production Control / Inventory Management
-- Inventory Cleanup and Data Alignment
-  - Ongoing consolidation/standardization (umbrella loading) due to unfinalized data assets; large on-order weight (over 1,000,000 pounds) with on-order not reflecting cleanup; misalignment between stock and on-order data; batch overlapping areas with five acres of space discussed for bin-location planning.
-- Receiving / Finalization
-  - Attaching documents to items; open orders remain visible until finalization; finalization required to move items to inventory; examples noted where data is incomplete until finalization.
-- Weight and On-Order Projections
-  - Forecasts of large on-order quantities (e.g., 300 tons) and their impact on stock projections; receiving/finalization workflow to be refined before inventory finalization.
-- IT Automation and Tools
-  - Re-establish AutoHotKey automation and evaluate ChatGPT-generated scripts for automation in receiving/stock-tracking workflows.
-- Next Steps (explicit)
-  - Continue aligning stock vs. on-order data; monitor incoming POs and update stock projections; complete area-layout planning with Mark; refine receiving/finalization to ensure finalization prior to inventory history; re-establish automation tools.
-- Bin Location Planning / Warehouse
-  - Five acres of space for bin-location planning; implement overlays for whip bins and inventory locations; finalize area layout with Mark.
+Inventory cleanup and PO finalisation were recurring topics across multiple days. The Tuesday session captured on‑order and backlog figures with specific numeric values: Inventory had previously been “over 1,000,000 lb,” current “Weight on Order = 1,063,145 lb,” and a backlog described as “roughly half a million pounds” with a ±100,000 lb variance. A forecast of an additional 300 tons of steel (explicitly equated elsewhere as ≈600,000 lb) was discussed as incoming on new POs. The transcript noted a large single line‑item figure 241,927 (no unit specified in the transcript) and other inventory counts such as “10,100 fittings” and “40,000 of these.” These inventory values are important because the clean‑up was incomplete — after partial cleanup “the on‑order weight still reflects the same,” indicating reconciliation work remains.
 
-Warehouse Operations / Bin Location Planning
-- Space Utilization
-  - Emphasis on space-utilization optimization and bin-location overlays to support material tracking and forecasting; plan to discuss area-layout changes with Mark.
-- Next Steps (explicit)
-  - Complete area-layout planning and meet with Mark to discuss space utilization and material placement.
+Purchase‑order handling remains Vista‑centric in practice: Vista is the origin point for job numbers and POs, and the sessions explicitly recorded that a Vista PO number must exist before estimates or POs are loaded into Tekla. The current workflow requires manual PO creation in Vista, copying Vista PO numbers into Tekla, and occasionally duplicating entries — “You’re doing it twice…that sucks,” was stated verbatim. There was also explicit historic automation using scripts (AutoHotKey) that nightly finalized items; Ricky reported he had received videos of that tool and would email the provider to reinstate an expired download link. Explicit action items recorded: complete inventory clean‑up and confirm final weight totals (owner: Inventory team), locate the nightly auto‑finalisation routine and retrieve scripts (owner: Ricky), review and close open POs that are fully received according to the PO finalisation flow, and confirm PO number consistency across new purchase markets. Purchasing consolidation was discussed repeatedly; the consultant and client recorded an explicit purchasing action: the purchasing team will consolidate items across multiple jobs (four jobs scenario referenced) to gain buying power.
 
-Receiving / Finalization Process
-- Receiving and Finalization
-  - Attaching documents to items; items remain visible until finalization; finalization step critical for accurate stock visibility.
-- Next Steps (explicit)
-  - Refine finalization process to ensure line items finalize after receiving tasks are completed and necessary data fields are populated.
+Estimating, Quantity Take‑Off, Pricing and Estimate Configuration
 
-IT Automation / Data Integration
-- AutoHotKey and AI Automation
-  - AutoHotKey access and an executive-order-driven automation program; plan to restore; explore AI-assisted scripts for automation.
-- IT and Data Governance
-  - Data flows between Tekla PowerFab and external systems; Vista migration considerations; cross-system governance to avoid duplicate processes.
-- Next Steps (explicit)
-  - Re-establish AutoHotKey access; restore automation programs; evaluate scripts for automation; confirm governance alignment with Vista migration.
+Estimating workstreams and quantity take‑offs were reviewed in depth. The Friday session captured a category summary expectation for the project that explicitly listed total material weight = 16,000 t, labor hours = 12,000 hrs, an example monitor‑cost of $1,000,000 and a remainder/example total of $2,000,000. The transcript described take‑off practices — quantifying columns, braces, vertical beams and turbines — and demonstrated category columns showing single‑line summaries with full reports listing all columns and associated quantities. The consultant showed how to pull down columns to generate an aggregated piece‑mark list and suggested use of preferences/tags (e.g., Jira) to streamline column selection.
 
-Project Management / Audit & Compliance
-- Audit Readiness
-  - Emphasis on governance and traceability; AI audit planning; ongoing follow-ups to align processes; recording policies noted for governance.
-- Data Integrity and Cross-System Governance
-  - Ongoing need to consolidate data flows, align Vista/Tecla data, and ensure cross-system traceability.
-- Next Steps (explicit)
-  - Prepare for AI audit by engaging key personnel; locate tools/methods used for finalizing POs; ensure governance alignment with Vista migration.
+Estimate configuration details were preserved from the transcript: estimates contain separate cost and sell fields that must be edited via Base Setup; cost‑related fields appear in the lower portion of the estimate summary (“bottom colors”). Pricing examples and margin language were explicit: the client referenced a desired mark‑up of 35% and a target margin of 26%, and a market‑driven 40% increase was also mentioned. Multiple cost examples were captured verbatim: $6,500; $38,000; $1,000; totals of $62,000 and $62,100 were presented. The transcript recorded specific labor‑line examples used in the change‑order dialogue: 3.03 h @ $8/h → $48, and 85 h @ $100/h → $8,500; a proposed change‑order total of $5,000 was also explicitly cited.
 
-QA / QA/QC / Detailing Standards
-- QA/QC Data and Traceability
-  - Inspections, remark/heat-number tracking, and alignment with standards (AISC references); data-entry forms and traceability discussed; be aware of the integration of QA data with production data.
-- Detailing Standards
-  - SP-based standards design, coating routing, and data-entry form architecture; naming conventions; library/dictionary for Tekla naming; alignment with Trimble Connect sharing for 2025 data.
-- Next Steps (explicit)
-  - Implement updated detailing rules (end-prep, clip behavior); validate weld/clip configurations; migrate forms piece-by-piece; establish a naming standards library; ensure adherence to Tekla naming conventions; implement Trimble Connect-based sharing plan for 2025.
-- PowerFab Go
-  - PowerFab Go discussed in context of data capture (checks, inspections, attachments); prototype forms for environmental and paint logs; ensure attachments linked via document index.
-- Next Steps (explicit)
-  - Prototype environmental and paint-log forms in PowerFab; attach supporting pictures; verify alignment with customer reporting requirements; consider site-wide knowledge capture data.
+The sessions contained explicit action items tied to estimating: generate a category summary report showing total tons (16,000 t), labor hours (12,000 hrs), and monetary values ($1M monitor; $2M total) — owner: Estimating Team — deadline: end of week. The consultant was asked to document the current take‑off workflow and compare it with a recommended quick‑view method, with the consultant owning that deliverable for the next session. Also explicit: return to Base Setup to edit cost and sell fields as required, and validate margin calculations (35% mark‑up vs 26% margin).
 
-Nesting Integration
-- Nesting Module
-  - Nesting module integration discussed as part of a full integration plan; IT support for Nesting integration not necessarily available immediately; data integration implications noted for QA/inspection reporting.
-- Next Steps (explicit)
-  - Confirm IT support availability for Nesting integration; define scope and timeline; align Nesting integration with QA/inspection reporting.
+Labor Standards, Time Studies, Handling and Start/Stop Practices
 
-Materials Data Management / SSPL / SSL / SSA
-- Data Management
-  - SSPL/SSL/SSA designations; mapping SSL to SSA via ASCII/text-file workflows; SSPL inclusion changes impact purchasing, inventory, and payables; potential temporary PO impacts.
-  - Weight data conversions and density references discussed; weight changes propagate through production, inventory, and payables; differences between SSPL and existing data require versioning and bulk updates.
-- Data Mapping and Ingestion
-  - Planned text-file changes (SSL to SSA) with SSL/SSA selection; explored bulk replacement; version-rate approach recommended.
-- Next Steps (explicit)
-  - Complete SSPL inclusion checks; finalize text-file mapping; test SSA imports; implement version-rate approach; monitor conversion anomalies; coordinate with purchasing to manage procurement implications.
+Labor and handling workflows were a central thread across multiple sessions. The consultant demonstrated default and edited labor times: default unload/handling = 12 minutes, move = 12 minutes (with another reference to 18 minutes), cut time had been changed to 6 minutes in one example. Demonstrated PX edits showed increasing unload by 10% from 12 → 13.2 min, load from 14 → 16 min, and move from 18 → 19.8 min; a 10% handling adjustment was explicitly shown. The Friday session recorded a baseline cut time of 3.3 minutes for a specific task and an explicit client request to increase that baseline by “an additional three more minutes.”
 
-Materials / Weight Management / Production Impact
-- Weight Data for Estimating
-  - Weight data changes propagate across production, inventory, and payables; decision points on using zero or high-side weights; versioned approaches for weight changes.
-- Bulk Weight Updates
-  - Planned a bulk-weight update approach with versioning to minimize item-by-item edits.
-- Next Steps (explicit)
-  - Validate chosen weight strategy; implement bulk SSPL weight changes with proper versioning; communicate procurement implications.
+Extrapolation and labor standard logic discussed that times can grow or shrink by multipliers driven by attributes such as cross‑sectional area, length or weight. The Friday and Monday notes captured an intention to run time studies: the consultant offered time studies for stainless material (“I have some time studies… we can do some time studies for some stainless material”), and an explicit action item assigned the consultant to conduct stainless time‑studies and report findings back to estimating within two weeks. The transcript also documented the client practice of conducting spot checks and time studies to capture a distinct data set for each setup, with sampling approaches (sample representative items) discussed on Monday.
 
-Estimating (Stainless Conversion / Weight Calculations) — Cross-Topic Link
-- Time Studies, Size Definitions, and Extrapolation
-  - Time studies and cross-size updates drive extrapolation; ensure non-linear conversion logic; propagate updated times; verify alignment with SSPL/SSA changes and purchasing impacts.
+Start/Stop and timer capture behavior on tablets and the production floor was also described: Start records start, Stop ends the activity and Update registers quantity. The Tuesday notes stressed training floor staff on Start/Stop usage and batch workflows. Explicit action items included performing a labor‑code audit and updating times where defaults remain (owner: Client with consultant support) and planning/executing spot checks/time studies (owner: Client & Consultant).
 
-PowerFab Go
-- Go-Enabled Mobility
-  - Limited explicit actions; discussed licensing considerations and device provisioning; plan to schedule go-training and confirm device provisioning timelines; validate licensing implications for field use.
+Cut, Notch, “Cut & Clean” Operations and Burn Rates
 
-Data Integration / Reporting / Data Visibility
-- Data Consistency and Export
-  - Cross-project reporting, filtering by finishes, SP levels, and codes; concerns about data reliability and synchronization with external formats (Kiss files, Excel exports); consolidate into auditable workflows.
-- Next Steps (explicit)
-  - Test and finalize data-integration approaches (zero-cost labor entries; separate rate boards; global paint codes); validate reporting outputs per job/route/finish; prepare for integration discussions.
+The team reviewed cut and clean operations and how to model them in the system. Multiple sessions recorded that “cut” and “clean” activities can be separated into distinct operations and then flow into a single downstream operation: the description field will display “cut & clean” and the consultant stated no change to existing operation is required to implement the split. The Friday notes explicitly recorded actions to implement the cut & clean split and verify operation description displays correctly, and to apply the discussed time increases (baseline 3.3 min + additional three minutes) and validate.
 
-Nearing the end of the week, this report consolidates explicit topics and next steps from the daily summaries across administrative, estimating, project management, purchasing, production control, QA/QC, detailing standards, and PowerFab Go, with cross-cutting IT/data integration and nesting considerations.
+Cut/notch geometry and missing cut data were captured explicitly: cut data was missing for certain coats (“we have cuts not being here for coats”), notch dimension examples included “two inches and two inches… four inches,” and there were questions about flange width handling (examples: “scope of the width of the flange… 4‑H… it doesn’t really know how deep it’s going”). Machine and burn rate specifics were discussed elsewhere in the week: welding machine throughput examples were recorded as roughly 20 in/min for a two‑pass weld, another reference to 22 in/min, and estimates/assumptions for plasma/cutting speeds were discussed in detail on Wednesday. The consultant also captured the explicit client limit on cutting: “I can’t cut anything over 2030” (verbatim, no unit supplied).
+
+Explicit operational follow‑ups included verifying cut and notch data for coat‑related components (owner: Client manufacturing data team) and reviewing percentage impacts on identified project groups (percentages cited verbatim across sessions: 10%, 18%, 40%, 65%).
+
+Stainless & Carbon Size Data, Global Edit, Weights and Conversion
+
+Several sessions focused on stainless vs carbon data integrity and bulk population approaches. The Tuesday and Monday notes recorded that several stainless‑grade sizes in the database contained zero‑dimension values and were “not active,” and that carbon‑size definition was not being populated correctly when seamless‑grade cloth data were missing — the explicit client suggestion was to separate carbon and stainless data planes to avoid mixing. The Friday summary listed explicit action items to define and populate missing stainless size dimensions (owner: Client size data team) and to clarify carbon‑size population (owner: Client modeling team).
+
+Weight and density values were captured verbatim in multiple sessions: stainless density used in design software = 0.31, Harmony density = 0.28, Type 304 stainless weight ≈ 495 lb/ft³ (Ricky’s recollection), stainless quarter‑inch plate = 11.6 lb/ft², and quarter‑inch carbon plate ≈ 10.2 lb/ft² (values stated in transcript). Several inconsistent tube weight figures were preserved as spoken: 8.953, 9.9336, 8.81. The Global Edit workflow was demonstrated: the process of copying a carbon‑steel plate entry into stainless‑plate family (PL → SSPL) via Global Edit was recorded step‑by‑step and the consultant and client agreed to export current plate size data and perform a bulk convert in a sandbox prior to production rollout. Explicit action items were recorded: verify current SSPL weight values (owner: Client), export plate size data and perform bulk PL→SSPL convert using Global Editor (owner: Consultant), and conduct a sandbox test to observe impact on PAS, inventory and PO before production rollout (owner: Consultant & Client IT).
+
+Tools, Interfaces and Integrations (Trimble Connect, Connector, Statuspage, Bitbucket, Jira, Vista)
+
+A large set of integrations and tools were discussed and demonstrated across the week. Trimble Connect integration with Structures 2025 was shown as a bridge between estimating/modeling and detailers: shapes, grades and finishes can be shared via a Trimble Connect project and import pop‑ups will flag unrecognized shapes or grades; enabling that import‑screen pop‑up requires a “slight amount of set‑up” on the client side. The Connector feature was demonstrated as an automatic submittal retrieval tool that pulls files into a list view for import or rejection; rejection creates a log entry in “Tech Structures.” The consultant explicitly offered Connector videos for the team.
+
+Statuspage was used for drawing navigation but displayed inconsistent behavior where highlight/column display did not always show the correct column; an explicit action item was recorded to configure Statuspage filters so column pop‑ups display full lists instead of single lines (owner: IT/PowerFab Admin; deadline: immediate). Bitbucket base setup and key changes were discussed; an explicit action item recorded verification of Bitbucket base setup and key changes (client requested). Jira integration was discussed in multiple sessions, with a recurring statement that it was “not producing value” in the current setup; the client said they would provide a Jira plan describing how upcoming work will be tackled.
+
+Vista integration and PO/workflow interactions were documented: job numbers and POs originate from Vista in current practice and Tekla estimates cannot be loaded until a Vista job number exists; PO numbering was reconfigured to match Vista’s six‑digit scheme in the transcript examples. Explicit action items included validating export integrity and confirming PO synchronization procedures, and documenting the job creation sequence (Vista job → Tekla project).
+
+Several practical tool items were demonstrated: ASCII export/import workflow for shapes (SSL/SSA conversions), use of ChatGPT to clean CSV files (consultant used ChatGPT paid version to clean an angle CSV and offered to email the cleaned file), and a gate‑distance CSV workflow to remove a 0.25 value globally. Action items: provide connector videos (owner: Consultant), verify Trimble Connect pop‑up is active (owner: Client), and clarify/document the purpose of other “tool where you can make” items and identify/train users (owner: Consultant/Tool Owner; deadline within 5 days).
+
+Scheduling, Work Packages, Production Planner and Conferences
+
+Scheduling and production planning were discussed in both tactical and strategic terms. The organization is ramping up to handle many small and large tasks and the client stated an intent to produce “10 to the quarter” and would provide a Jira plan describing how the work will be tackled. Work packages needed to be visible on the schedule and were required to populate a Gantt‑chart view; Ricky committed to verify work package visibility immediately. The consultant noted that schedule values must be entered before running a schedule or setting up a conference; an explicit action item requested the Project Scheduler to populate schedule values for the New Jersey contract and schedule a conference to review the plan within 3 days. The consultant offered to set up conferences but a conference was not held during the sessions.
+
+Production Planner 2025 and related planner tools were demonstrated and the sessions captured an intent to pilot production planner usage and the need to integrate work packages with scheduling and forecasting. Explicit action items included establishing monthly automated reports (owner: Ricky within two weeks), populating schedule values for the New Jersey contract (owner: Project Scheduler within 3 days), and preparing the Jira plan (client stated they would provide).
+
+Change Orders, Contract Values and Billing
+
+The sessions covered contract recording and change‑order mechanics in the system. The client requested that the original contract value be recorded and kept visible; the system can show original contract value, current contract value and change‑order totals. At the time of the sessions no change orders had been approved: “No approved change orders to the contract.” The system’s change‑order dialog was demonstrated, with explicit numeric examples recorded in the transcript: proposed change‑order total $5,000; aggregate cost example $38,000; a 3.03 h @ $8/h example → $48; 85 h @ $100/h example → $8,500; additional cost line “6,500, Rovo, 14C” ($6,500); and totals of $62,000 and $62,100 were referenced as two cost totals. Pricing/margin language was explicit: client referenced 35% mark‑up and 26% target margin and a market‑driven 40% increase was mentioned.
+
+Action items explicitly captured: enter original contract value in the system; create and submit change orders using the change button and route for approval; validate cost breakdowns and hourly rates in change‑order screens (e.g., $100/hr); and generate a preliminary report showing original contract value, total approved change orders and projected costs for the next five months (action items stated).
+
+Quality Control, Rejection Reporting, NCRs and Inspection Checklists
+
+Quality assurance and rejection workflows were discussed in multiple sessions. The team sought to centralize inspection and rejection data into one format — one report to capture all rejections, including for new projects. The consultant planned to “look ahead to the rejection reports.” The transcript explicitly recorded NCR numbers and visibility issues: “Each NCR, so again 55 NCR is in 22, 22. We’ll one. 23, 39, 24, 41,” and the team noted “No one else is seeing NCR.” Drop‑down menus for entering reasons and well checks were discussed and the need to make required fields mandatory was captured. Video documentation and training videos were recommended for pass/fail workflows.
+
+Explicit action items included developing a unified rejection report template that aggregates inspection and rejection data across projects; setting up drop‑down controls for reject and well checks and making fields mandatory; ensuring NCR visibility for stakeholders (make NCRs 55, 23, 39, 24, 41 visible); and creating or updating video training demonstrating the pass/fail workflow and data entry steps.
+
+Tablets, HoloLens, Mobile Devices and Shop UI
+
+Device usage and workflow on tablets and headsets were covered with specific behaviors and device counts preserved in the transcripts. Tablet workflows (EPM Go / FabStation) were demonstrated with the Start → Stop → Update pattern for operations such as blasting and painting; tablets were described as iPad‑type devices in Otterbox cases, stylus support, with roughly 17 tablets on one site and a large charging station. The Monday and Thursday notes recorded adoption patterns (~80% adopt tablets immediately, 10–15% after weeks, ~5% never adopt), and the need to encode operators to specific tablets. The Thursday notes captured a HoloLens QC overlay workflow with magnets for alignment: the overlay accuracy was stated as “within 1⁄16 in” and a single intricate beam inspection was said to take about five minutes; Microsoft HoloLens hardware discontinuation and alternate vendors were mentioned, and a license cost reference of $2,500 was included verbatim.
+
+Explicit action items included validating tablet encoding and resolving hardware issues, preparing operator training for Start/Stop/Update workflows, and standardizing magnet placement and documenting the five‑minute HoloLens verification SOP.
+
+Welding Codes, Clips and Labor Formula Changes
+
+Several detailed weld and connection items were recorded. The transcript referenced a “Thunder, Target Welding Special Code” that the client wanted to “use on these jobs,” and the client discussed defining a “stand‑by time” field tied to welding codes. Clip and weld configurations were reviewed: standard clip expectations (four clips = two per side), shear tab welding examples (welding on the 4‑inch side), and a specific need to change calculation rules — e.g., change the burn calculation for angles to use perimeter instead of width. The team demonstrated creating a custom “no‑rate” weld type by moving weld entries into a zero‑rate category to avoid automated labor assignment on imports and showed how to convert weld lengths longer than 20 ft to arc welds.
+
+Explicit next steps included clarifying the exact definition and configuration of the “stand‑by time” field, modifying the angle labor‑code to reflect correct clip counts and perimeter‑based burn formula, removing weld entries from specific codes and creating zero‑rate weld types for imports, and testing re‑import of KISS/IFC files to verify zero‑time behavior on imported welds.
+
+Nesting, Pro‑Nest, Plate Inventory (Prodisk) and Cut Workflows
+
+Plate nesting and plate inventory were discussed in multiple sessions. The Thursday summary recorded an explicit Pro‑Nest workflow: select plates → Nest with Pro‑Nest → generate nesting file → import into PowerFab (via Progress integration) → Prodisk will control plate inventory. The transcript captured that plate inventory would then be controlled by Prodisk and that enabling Pro‑Nest and validating the flow into Prodisk were explicit next steps. The sessions also noted that macro‑nesting tools were not yet configured for certain wire or small items and that some cut‑list bundling remained manual.
+
+Action items recorded: enable Pro‑Nest and validate integration with Prodisk for plate inventory, and define paint inventory specs and create live paint items in the system (5‑gal pails etc.), since paint is not yet present in inventory according to the transcript.
+
+Personnel, Roles, Meetings and Training
+
+A number of people and role‑based follow‑ups were recorded explicitly: Steph (code review), Tom (QC comment), Ian, Bismarck, Ian Jackbud, Jay McPhee, Gilbert, J.R.S., Mr. Ryu (leading truck person), Gavin, Mark, Alan and Jared were mentioned as stakeholders or action owners in various items. Ricky was named as the consultant owner for a number of actions (send calendar invite to Jimmy; provide connector videos; export cleaned CSVs; perform Global Edit/SSPL conversion work). Explicit action items included Ricky sending a calendar invite to Jimmy before the next business day, performing the demo and walkthroughs, reviewing code with Steph to verify size‑based logic, and arranging follow‑up/catch‑up meetings. The Friday summary also recorded requests for additional demos, code reviews and specific stakeholder coordination meetings (for example, a meeting with Mark to resolve bin locations).
+
+Miscellaneous Equipment, Materials, Shipping and Yard
+
+Several operational and materials items were recorded verbatim. Saw types discussed included N20 saws, small saw (M20), and a previously used M40 saw. Machine components and shop equipment referenced LEDs, AC‑DC power supplies, lathes and trailers; the client discussed uploading a “standoff” as a case. Materials called out included stainless, nickel, silver, brass, bronze and aluminum and the market for these materials was described as “extremely high.” Shipping cadence was repeatedly stated: orders run on Tuesdays and Thursdays every week, and the team expressed a desire to “follow us in front of it” and track receipts. Explicit action items preserved: confirm PO number consistency across new purchase markets and validate receipt tracking and visibility for Tuesday/Thursday orders.
+
+Comprehensive Action Items (explicitly recorded in the transcripts)
+
+Across the week the sessions recorded a long list of explicit action items with owners and deadlines where provided. The following paragraph summarizes those actionable items exactly as they were stated in the transcripts and session tables:
+
+- Obtain new SQL port number and confirm configuration; verify and document SQL server access rights and restart/port connectivity tests (owner: Database admin / IT / Ricky).  
+- Configure the new Oracle database and integrate with PowerFab; plan and schedule the server infrastructure overhaul and obtain required server key to move reports to the server (owner: Client IT / Consultant).  
+- Complete inventory clean‑up and confirm final weight totals (owner: Inventory team; timeframe referenced as end of day in one session). Monitor incoming 300‑ton forecast and update once POs are received.  
+- Identify and retrieve the nightly auto‑finalisation script/program (AutoHotKey) used historically for PO finalisation; Ricky to email the provider to reinstate the expired download link.  
+- Verify Bitbucket base setup and key changes are correctly applied (client requested).  
+- Align drawing sheet page references with correct drawing numbers (including NA‑T and 18‑6); owner: Client/Document Control; deadline: next working day.  
+- Create a standardized method for linking page numbers to work areas (adopt a “standard” approach); owner: Consultant; deadline: end of week.  
+- Configure Statuspage filters so column pop‑ups display full lists (owner: IT/PowerFab Admin; deadline: immediate).  
+- Populate schedule values for the New Jersey contract and schedule a conference to review the plan (owner: Project Scheduler; deadline: within 3 days).  
+- Prepare a Jira plan describing upcoming work (client stated they will provide).  
+- Generate a category summary report showing total tons (16,000 t), labor hours (12,000 hrs), and monetary values ($1M monitor; $2M total); owner: Estimating Team; deadline: end of week.  
+- Document the current take‑off workflow (columns, braces, beams) and compare with recommended quick‑view method (owner: Consultant; deadline: next session).  
+- Clarify and document the “tool where you can make” items; identify and train users (owner: Consultant/Tool Owner; deadline: within 5 days).  
+- Enter original contract value in the system; create and submit change orders using the change button and route for approval; validate cost breakdowns and hourly rates in change‑order screens; generate a preliminary change‑order/contract report projecting next five months (owners: Client/Project Team as stated).  
+- Define and populate missing stainless size dimensions (owner: Client size data team); clarify and update carbon‑size population (owner: Client modeling team) — deadlines captured as “before next estimation cycle” and “immediate” where stated.  
+- Conduct time‑studies on stainless material and report findings back to estimating (owner: Consultant; deadline: within two weeks).  
+- Implement cut & clean split, apply time increases (baseline 3.3 min + 3 minutes) and verify operation description displays correctly (owner: Manufacturing / data teams; status: ongoing per transcript).  
+- Verify cut and notch data for coat‑related components and address missing entries (owner: Client manufacturing data team; deadline: ongoing, status update at next call).  
+- Create unified rejection report template aggregating inspection and rejection data across projects; set up reject and well‑check drop‑downs and mandatory fields; ensure NCR visibility for listed NCR numbers (owner: QC / IT teams).  
+- Confirm PO number consistency across new purchase markets and validate receipt tracking for Tuesday/Thursday order cadence (owner: Purchasing / Receiving teams).  
+- Send calendar invite to Jimmy for Tuesday/Wednesday meeting (owner: Ricky; target: before next business day).  
+- Verify Trimble Connect pop‑up/flagging is active to alert unrecognized shapes/grades and configure ABM sharing options (owner: Client detailers + Ricky; target: prior to next detailing cycle).  
+- Provide connector videos demonstrating automatic submittal retrieval and import/reject workflow (owner: Consultant).  
+- Export current plate size data and perform bulk Pl. → SSPL conversion using Global Editor; run sandbox test to validate impacts on PAS, inventory and PO before production rollout (owner: Consultant & Client IT).  
+- Add new channel sizes to estimating via Maintenance → Estimating so cut‑times populate (owner: Client; target: immediate).  
+- Edit HSS tube entries to replace zero‑hole counts, set standard clip hole count to two and repass the plan to populate time (owner: Client & Consultant; target: immediate).  
+- Perform labor‑code audit and propagate PX/time edits (examples shown in demos) and apply test handling adjustments such as 10% increases (owner: Client with Consultant guidance).  
+- Monitor post‑update lag/performance and report persistent issues to vendor (owner: Client; ongoing).  
+- Enable Pro‑Nest / added modules and validate integration with Prodisk for plate inventory (owner: Client / Consultant).  
+
+Each of the items above is reproduced from the session transcripts and retains the owner/deadline language as stated in the recordings.
+
+Concerns, Risks and Limitations (as explicitly recorded)
+
+Throughout the week the transcripts recorded a number of risks and limitations that remain open. A duplicate database process was explicitly tied to system slowness; missing SQL port information and restricted admin access were explicitly impeding troubleshooting. Inventory reconciliation was incomplete and “on‑order weight still reflects the same” after partial cleanup. Several stainless sizes had zero dimensions and inactive records, and carbon‑size population issues were explicitly preventing correct seamless‑grade identification. Statuspage and drawing navigation displayed inconsistent behavior, and Jira integration was described as “not producing value” in the current setup. The lack of real‑time integration between Tekla and Vista results in duplicate manual PO entry and potential transcription errors. QC hours are frequently missing from schedules unless manually applied — the transcripts flagged actual QC utilization as much higher in some cases (examples included observed QC totals of ≈140 hours when QC is included, versus expected ~5 hours for short checks). UI stability issues (spinning wheel, job‑site save crash) and hardware/network variability were recorded as sources of user friction and operational risk. All of these items were explicitly recorded in the session transcripts and are carried forward as constraints the teams must address in the actions listed above.
