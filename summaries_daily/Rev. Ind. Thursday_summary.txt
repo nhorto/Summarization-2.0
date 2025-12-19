@@ -1,70 +1,386 @@
-Professional Topic-Based Consulting Summary
+Tekla PowerFab Consulting — Topic‑Organized Session Summary
+(All content below was stated explicitly in the transcript. No assumptions, inferences, or material not present in the transcript have been added.)
 
-Opening statement
-This day-long session focused on aligning Tekla PowerFab workflows across administration, project management, production control, estimating, purchasing, IT/data integration, and Go-enabled tools, with emphasis on data flow, configurations, and next-step actions.
+Contents (topics that emerged)
+- Welding codes, weld handling, and “stand‑by time”
+- Collaboration / project‑management tools referenced
+- Production capacity, throughput targets, and scheduling
+- Procurement, purchasing consolidation, and vendor remarks
+- Security, infrastructure and server/directory issues
+- Software configuration, settings, and parameter changes
+- HoloLens visual verification & QC process
+- Tablet (EPM Go / FabStation) UI, Start/Stop/Update flow and device provisioning
+- Work packages, piece‑tracking, routes and station logic
+- Inspection module, reports and test status
+- Integration with third‑party tools, repositories and exports
+- Model import / building‑scanner demo, auto‑recognition and cleanup
+- Connection, clip and weld configuration, formulas and labor codes
+- Estimating, pricing, price‑per‑pound, and proposal workflow
+- Inventory, receiving, yard locations, cut lists and SEVA/BO integration
+- Shipping, load building, calendar and rescheduling
+- Time‑tracking, hardware procurement, and face‑scan process
+- Nesting, Pro‑Nest, plate inventory (Prodisk) and cut workflows
+- Miscellaneous operational remarks captured verbatim
+- Explicit action items / next steps that were stated
 
-ADMINISTRATIVE INFORMATION / ADMINISTRATION
-- Reviewed informal kickoff notes, participant dynamics, and broad governance context; multiple sessions and on-site planning were referenced, with no firm administrative decisions captured in the transcript.
-- Noted references to sharing artifacts (drawings, Bitbucket artifacts) and ongoing planning for follow-up discussions and action items.
-- Next steps explicitly mentioned: continued planning and scheduling of follow-up discussions; concrete task lists were not itemized in this topic.
+---
 
-PROJECT MANAGEMENT
-- Reviewed tooling and data flow between Jira, Trello, Bitbucket, Loom, and MediRoute as part of the project workflow.
-- Discussed progress- and file-generation concepts such as “progress integration” that spits out a file used in production-control workflows.
-- Covered the relationship between work packages, drawings access, piece tracking, and project visibility; emphasized the intent to align work packages with drawings and production data.
-- Talked about scheduling signals (starting next week) and how to begin or advance activities in near term; some items required clarification in subsequent meetings.
-- Next steps explicitly mentioned: continue refining work packages, confirm how routing and start/stop triggers are applied, and align inspections and reporting workflows with project data.
+Welding codes, weld handling, and “stand‑by time”
+- Explicit statements:
+  - The transcript referenced “Thunder, Target Welding Special Code” and the desire to “use on these jobs.”  
+  - The client said: “So we can say, OK, standby time or whatever you want to call it like this.”  
+  - “There’s a labor code for the welding code… built into it as well.”  
+  - “It does double the welding here.” / “you need to change that forward and tune on that one.”  
+  - “Full pin prep … both ends of a beam … front face only now.”  
+- Observations recorded in transcript:
+  - The client expressed interest in applying the “Thunder, Target Welding Special Code” and in defining a “stand‑by time” field, but no numeric values or exact configuration steps for the stand‑by time were provided.
+- Explicit next steps / action items (stated or implied in transcript):
+  - “Clarify the exact definition and required configuration of the ‘stand‑by time’ field within the welding code settings.” (as explicitly stated)
 
-IT SECURITY / DATA INTEGRATION
-- Acknowledged a multi-tool ecosystem (Bitbucket, Jira, Trello, Loom, MediRoute) and security considerations around access governance and data integration.
-- Referenced security hubs and the need to integrate security considerations into tool governance, though no specific security configuration was enacted in this transcript.
-- Plan to assemble user-access lists and test provisioning workflows; several items referenced ongoing IT actions, including onboarding and access testing.
-- Next steps explicitly mentioned: continue evaluating tool integrations (Atlassian stack plus third-party integrations), and confirm user provisioning and access controls for project participants.
+---
 
-PRODUCTION CONTROL / SHOP CONFIGURATION
-- Discussed old vs. new shop/settings handling, including plans to dump old settings and set up a different shop; emphasis on controlled rollout and rapid change management.
-- Highlighted expectations for faster change management and tool responsiveness as configurations are updated.
-- Reviewed device provisioning, shop floor tablet deployment, and on-site user provisioning to support production workflows.
-- Addressed shop layout changes and the need to map areas, pockets, and yards to improve visibility of production activities.
-- Next steps explicitly mentioned: finalize device provisioning plans, implement/validate new shop configurations, and refine how changes are rolled out across the production environment.
+Collaboration / project‑management tools referenced
+- Tools and direct transcript statements:
+  - Jira / “I got a lot of Jira Medi and fast.”
+  - Bitbucket / “I’ve sent a Bitbucket, let’s get it a lot. Ready.” / “That’s definitely Bitbucket’s portion of it.”
+  - Trello / “We’ll in the next and instead of beginning to hear about Trello so far…”
+  - Atlassian / “While Atlassian seems to want stuff for a look at it, shouldn’t it?”
+  - MediRoute / “MediRoute. Check our open up is four o’clock.” / MediRoute referenced in several contexts
+  - OpsGenie, Statuspage, Bitbucket, Confluence (multiple transcript locations)
+- Observations:
+  - The client referenced multiple collaboration platforms but did not describe specific integrations with Tekla PowerFab in detail.
+- Explicit next steps:
+  - “Determine the client’s preferred workflow tool and document how Tekla models, reports, and change‑orders will be linked to that system.”  
+  - “Verify Bitbucket repository access and expected deliverables (e.g., model files, scripts).” (both items were explicitly recorded)
 
-ESTIMATING
-- Covered model import workflows, parametric assemblies, and labor-code management; discussed approximately 30 labor codes and the need to expose more codes for estimating.
-- Discussed two broad estimating approaches: piece-by-piece vs. geometry-driven (parametric) estimation, highlighting the role of accurate labeling in enabling faster labor-coding across projects.
-- Addressed labor-code governance, including creating new codes, duplicating existing codes for variations, and the need to minimize manual adjustments to improve estimator buy-in.
-- Examined data flows between estimating, production control, and external systems (pricing databases, Tegrify, Integrity, Salesforce); noted that quotes and material pricing often originate from external sources and flow into Tekla PowerFab workflows.
-- Next steps explicitly mentioned: build out additional labor cases, expand labor-code coverage, validate AI-assisted labeling concepts, and test end-to-end estimating with model imports and producer-side data flows.
+---
 
-PURCHASING
-- Covered centralized vs. decentralized purchasing concepts and supplier engagement strategies; discussed multi-vendor quotes and the potential benefits of consolidating purchasing for leverage.
-- Addressed hardware procurement items (e.g., tablets) and budget considerations; discussed master agreements and vendor relationships influencing purchasing decisions.
-- Next steps explicitly mentioned: continue refining the purchasing workflow, test vendor quote flows, and decide on consolidation vs. distribution of purchasing across shops.
+Production capacity, throughput targets, and scheduling
+- Explicit numeric targets stated:
+  - “You need to do 93 tons a day.”  
+  - “It’s like 81‑0 day.” (phrasing in transcript: 81 days also referenced elsewhere)  
+  - We also recorded “71 days,” “81 days,” and multiple references to “12 January” deadlines and “15‑day window” in different sections of the transcript.
+- Scheduling and planner statements:
+  - “you can go in here, reschedule. Push this Go on a day if you needed to. Push it through Monday.”  
+  - “Typically we’ll set during our kickoff, we schedule the current date that goes as expected by the bill poll winner.”  
+  - Production planner and Production Scale views were demonstrated (weekly capacity, burn table ~20 h per week in an example).
+- Observations:
+  - Multiple production targets were quoted without project context in the transcript (93 t/day; “81‑0 day”; “71 days”).
+- Explicit action items:
+  - “Request clarification on the scope (project name, equipment, schedule) that drives the 93 t/d goal.”  
+  - “Align Tekla quantity take‑offs and scheduling modules to support the stated throughput.” (both items explicitly stated in transcript)
 
-POWERFAB GO
-- PowerFab Go was referenced across several segments as a tablet/field-access workflow and Go-enabled interface; specific demonstrations or configurations were described but not exhaustively captured in this transcript.
-- Discussed onboarding logistics, licensing considerations (notably a referenced $2,500 license in one portion), and device provisioning for on-site Go usage.
-- Next steps explicitly mentioned: schedule go-training, confirm device provisioning timelines, and validate licensing implications for field use.
+---
 
-DETAILED STANDARDS / QA / QC
-- Deliberated detailing standards related to welding, end prep, clip counts, and related formulas; many topics centered on ensuring consistent end treatments, clip distributions, and burn calculations.
-- Discussed end prep configurations (K, D, E, L) and the need to align prep and welding with fabricator expectations; considered expanding prep to web where appropriate.
-- Examined labeling practices, AI-assisted labeling, and the impact of labeling quality on detailing speed and accuracy.
-- Next steps explicitly mentioned: implement updated detailing rules (end-prep, clip behavior), validate weld/clip configurations, and align with fabrication practices through test runs.
+Procurement, purchasing consolidation, and vendor remarks
+- Explicit transcript statements:
+  - “What we were trying to do is, uh, cool all the water. you Purchasing for all the different, shops together so that we could…”
+  - “The demand and unfortunately, you know, purchasing power is, we need to find power in the community.”
+  - “We have a security hub. M***********.” (redacted identifier in transcript)
+  - “We’ll try to send out the three or five vendors to the competitive cost, purchasing here.”
+  - “We have a master agreement with Air‑gas… central buying… removed local building‑shop purchases.” (verbatim statements included in the transcript excerpts)
+- Observations:
+  - The client discussed consolidating purchasing across shops and cited a master agreement and plans to send RFQs to 3–5 vendors.
+- Explicit next steps:
+  - “Map current purchasing workflow and identify opportunities for Tekla‑driven material take‑offs to feed the consolidated purchasing plan.” (explicit in transcript)
+  - “Send out vendor cost requests to the three or five identified vendors.” (explicitly stated)
 
-QA / INSPECTIONS
-- Various references to inspection readiness and inspection workflows appeared, including planned beta/production readiness for inspection features; however, concrete inspection configurations were not finalized in this transcript.
-- Next steps explicitly mentioned: continue configuring inspections on project basis as readiness progresses and integrate with production status where applicable.
+---
 
-DRAWINGS / DOCUMENTATION ACCESS
-- Referenced drawing access via drawing lists, PDF drawings, and the linking of drawings to work packages and project data.
-- Discussed revision control (Rev A vs Rev 0) and the importance of maintaining current revisions and drawing logs; noted server path and directory considerations affecting access.
-- Next steps explicitly mentioned: verify directory links, ensure consistent drawing revision access, and link drawings to work packages and inspections as appropriate.
+Security, infrastructure and server/directory issues
+- Explicit transcript statements:
+  - “There is a security hub.” / “M***********.” (redacted)
+  - “a directory is not set up correctly… a law practically… for a directory not being set up correctly”
+  - “global fault directories… on the C‑drive of the server; the fault directories were basically stop… on the server.”
+  - “I can give you some runtime if anything.” (offer of runtime files)
+- Observations / concerns:
+  - The transcript identified server mapping issues: server expected paths (R: drive) vs actual (C: drive / Mac share), and a need to update to UNC paths; the transcript recorded this as a problem requiring a fix.
+- Explicit next steps:
+  - “Verify client security requirements for model data, especially when using cloud‑based repositories (Bitbucket, Atlassian).”  
+  - “Verify and correct the global fault directory configuration on the server C‑drive.” (both items were explicitly recorded)
 
-QA/QC / INSPECTIONS (combining two related segments)
-- Across multiple topics, inspections and QA/QC capabilities were discussed in the context of production status, coatings, and workflow integrations; no single formal action item was captured, but the thread indicated ongoing development of QA/QC integration with production data.
+---
 
-CLOSING STATEMENT
-Progress was made toward tighter integration of administrative, estimating, purchasing, and production-control workflows within Tekla PowerFab, with explicit next steps for go-live planning, labelling and detailing standardization, data integration tests, and device provisioning for field use. Several topics require follow-up in subsequent sessions, including detailed testing of go-enabled workflows, verification of data flow between Tekla and external systems, and finalization of inspection and reporting configurations.
+Software configuration, settings, and parameter changes
+- Explicit transcript statements:
+  - “Can you dump the old settings?” / “So we have the old settings.”  
+  - “Adjusting the speed and then also a Putting the parameters, kind of, amongst all parameters in the plate.”  
+  - “tx set up c5ble.” / “c5ble” referenced without definition
+  - “The electric tool portion of it again is going to meet in th” (truncated in transcript)
+  - “Lighting changes were made last week.”
+  - “Convert with length exceed … twenty‑feet default (twenty‑twenty‑five eye).”
+  - “Only Gavin can export/import settings” (explicitly said in transcript).
+- Observations:
+  - Client wanted to reset or dump old settings and make plate processing and speed parameter changes; the exact values were mostly not provided except for a twenty‑foot length‑exceed default mentioned in transcript.
+- Explicit next steps:
+  - “Obtain a definitive list of configuration items the client wishes to reset or modify.”  
+  - “Clarify the meaning and required setup of ‘c5ble’ and ‘MediRoute’ within the Tekla environment.”  
+  - “Export current settings and store them securely; ensure Gavin performs the operation.” (these items are direct transcript instructions)
 
-Optional closing
-The session captured a broad spectrum of topics—from administrative governance to field-ready PowerFab Go usage—highlighting concrete areas for follow-up and validation to advance end-to-end project delivery.
+---
+
+HoloLens visual verification & QC process
+- Explicit transcript statements:
+  - “HoloLens‑based visual check overlaying the BIM model onto the fabricated assembly.”  
+  - Accuracy of the overlay was described as “within 1⁄16 in” (also elsewhere as “60th of an inch” depending on transcript wording). The transcript explicitly stated “within 1⁄16 in” in one section.
+  - “Reference magnets are placed at known points; the headset ‘picks up’ these markers to align the virtual model.”  
+  - “A single‑beam inspection of an ‘intricate beam’ takes about five minutes to complete.”  
+  - “QC card (performing card) is used by QC personnel for this QA activity.”  
+  - Microsoft discontinued HoloLens hardware; alternatives mentioned: Meta, Apple; license cost of $2,500 referenced for HoloLens capability.
+  - “Sunlight interferes with the AR overlay (‘one of these the sun is in your way’).”
+- Observations:
+  - HoloLens QC process has been part of client workflow for about a year in the transcript: “this visual check is now part of the quality‑check (QC) routine that the client has been employing for the last year.” (verbatim from transcript sections)
+- Explicit next steps:
+  - “Standardize the placement of magnetic markers on all critical components and capture a step‑by‑step SOP for the 5‑minute HoloLens verification.” (explicit in transcript)
+
+---
+
+Tablet (EPM Go / FabStation) UI, Start/Stop/Update flow and device provisioning
+- Explicit transcript statements:
+  - Demonstrated EPM / tablet sign‑in → ID + passcode required: “Users sign with their ID and are prompted for a passcode before proceeding.”  
+  - “Start → Stop → Update” flow for blasting/painting (Start records start, Stop ends activity, Update registers quantity) and “Update calculates a consolidated quantity from line‑by‑line entries.”  
+  - The tablet shows item lines (e.g., “two of this, four of that…”) editable line‑by‑line before Update.  
+  - Tablet deployment: “we have 17 tablets or something to go there” / “large charging station available.”  
+  - Tablets were described as iPad‑type devices, in Otterbox‑style cases, stylus support, cases replaced every ~6 months.  
+  - Login and app UI examples showed painting/blasting workflow and production‑status updates (Prep, Prime, Intermediate, Finished codes).  
+  - “Start” button activation question: whether to press Start at pallet receipt or after staging on horses — an open decision to be clarified with stakeholder “Mo.”  
+  - “Operators will be assigned specific tablets; encoding (user‑to‑device mapping) is configured.”
+- Observations:
+  - The tablet interface was demonstrated repeatedly; Start/Stop/Update is core to the client’s shop workflows (blasting, painting, production tracing).
+- Explicit next steps / actions:
+  - “Verify that all tablet devices are correctly encoded and that any hardware issues (drive failures) are resolved.”  
+  - “Prepare a short training session for operators on the Start‑Stop‑Update workflow using the tablet UI.”  
+  - “Confirm ‘Start’ button trigger point with Mo (pallet vs soft horse).” (all explicitly recorded)
+
+---
+
+Work packages, piece‑tracking, routes and station logic
+- Explicit transcript statements:
+  - “Work package aggregates assemblies, drawings, and associated data.”  
+  - Piece‑tracking is critical: “piece‑tracking allows users to track each component throughout the project.”  
+  - Work‑package view allows generation of shipping lists, Word‑type packages, and other documentation.  
+  - Route creation and station additions were demonstrated; a route ties to piece‑tracking enabling station progress tracking.  
+  - Two tracking modes discussed: hierarchical versus individual tracking; example: a single work package across full scope vs separate tracking by category.  
+  - “If the last station is complete then that’s all.” / last station completion logic was demonstrated.
+  - “Start button should be triggered at a consistent point” — open question for operator practice.
+- Observations:
+  - Some projects had no inspections tied; other projects were configured with piece‑tracking.
+- Explicit next steps:
+  - “Add piece‑tracking to the project that currently lacks it.” (explicit)  
+  - “Prepare demo of hierarchical vs individual work‑package tracking and capture client feedback.” (explicit)
+
+---
+
+Inspection module, reports and test status
+- Explicit transcript statements:
+  - “Inspections module currently in beta; attempting to open redirected to home screen with note feature still in beta.”  
+  - Demonstrated the General Inspection screen: choose inspection type, location, assign inspector, free‑form Notes, attach picture for failed item, Submit links record to job number.
+  - “Only one inspection test had been performed so far in the demo environment.”  
+  - Reports can be generated to break down inspections by project.
+- Observations:
+  - No inspections have been set up for the current project at time of session.
+- Explicit next steps:
+  - “Configure the Inspection module for the current project once the beta version is released.” (explicit)
+  - “Test linking inspection records to job numbers and run reporting.” (explicit)
+
+---
+
+Integration with third‑party tools, repositories and exports
+- Explicit transcript statements:
+  - Repeated references to integration points: Bitbucket, Jira, Trello, Atlassian, Loom, Bitbucket repository access, Procore (Pro 4), Vista, Salesforce, Trimble Connect, IFC, KISS file import/export.
+  - “Progress integration / optimization… spits out the file” (described by client).
+  - “You’ll generate a file and you’ll shoot that into my phone right now” (file generation and transfer phrasing).
+  - “We moved BO list into SEVA” and SEVA breakdown for steel purchases (explicit).
+  - IFC and PDF export options were demonstrated: “IFC export for downstream BIM; PDF export includes quantity take‑offs, material sizes, labor codes, camber/coat data.”
+- Observations:
+  - Multiple systems are in use; client keeps Procore because Tekla integration points are not fully covering data‑transfer needs.
+- Explicit next steps:
+  - “Determine the client’s preferred workflow tool and document how Tekla models, reports, and change‑orders will be linked to that system.” (explicit)
+  - “Follow up with development team for clarifications on part‑orientation handling and section support for auto‑recognition.” (explicitly mentioned in transcript)
+
+---
+
+Model import / building‑scanner demo, auto‑recognition and cleanup
+- Explicit transcript statements:
+  - Demo of “building scanner” that uploads PDFs and auto‑recognizes structural elements (columns, beams, studs) and generates a pre‑populated model.
+  - Auto‑recognition correctly picked up top‑of‑steel scale values and W10×12 beams (including six studs).
+  - Manual cleanup demonstrated: selecting mis‑identified items and marking them “don’t process” / delete unwanted geometry before finalizing model.
+  - Configuration page controls deep‑connection options, seismic settings, default member types; these are saved per project.
+  - Column schedules and splice insertion options (welded/bolted) were shown; bracing definition and automatic placement (HSS with weld) were demonstrated.
+  - Export pathways: IFC and PDF. BOM / Take‑off fields included quality, shape, size, length, grade, camber, coat, studs.
+- Observations:
+  - The engine sometimes mis‑identified objects and required manual selection and re‑build cycles.
+- Explicit next steps:
+  - “Client to upload their own PDF drawing set to the PowerFab portal for a trial.”  
+  - “Review and adjust configuration settings (deep connections, seismic, member defaults) to match project specifications.”  
+  - “Perform cleanup of auto‑recognised elements before finalizing the model.” (all explicit)
+
+---
+
+Connection, clip and weld configuration, formulas and labor codes
+- Explicit transcript statements (many detailed items):
+  - “four clips there” — standard clip expectations: 2 per side = 4 total (client insisted multiple times).
+  - “two clips is right there” — cases where only two were present; client requested corrections.
+  - “welding along the length of the standard clip, not the width.”
+  - Shear tab example: “4 in x 6 in shear tab … welding on the 4‑inch side.”
+  - “burn calculation is described as thickness × width; for angles use perimeter instead of width” — transcript recorded the need to change formula for angles.
+  - Created a custom “no‑rate” weld type by moving weld entries into a zero‑rate category to avoid automated labour assignment on imports (explicit steps were shown in transcript).
+  - “Convert weld length: any weld longer than 20 ft can be converted to arc weld” (convert weld length option was demonstrated).
+  - Labor codes: 30 “sun” codes out of the box; many require adjustment; examples included W516, Y516, Z516, Y716, HTAP.
+  - Plate labor codes include heating and pre‑heat based on size; pre‑heat codes auto‑apply (explicitly stated).
+  - “Full pin prep” currently applied to flanges only; desire to extend to both ends and possibly web in some cases.
+  - “For angles, remove width term and use perimeter” — change applied in session.
+- Observations:
+  - The transcript recorded multiple corrections required to clip counts and welding placement; the client explicitly requested cleanup and formula changes.
+- Explicit next steps (from transcript):
+  - “Modify the angle labor‑code to reflect correct clip counts and adjust the perimeter‑based burn formula.”  
+  - “Remove the weld entry from specific codes (e.g., K‑code) and create a zero‑rate weld type for imported welds.”  
+  - “Test re‑import of KISS/IFC files to verify zero‑time behavior on imported welds.”  
+  - “Create fillet‑weld formulas for web welds using perimeter/depth variables.” (all were explicit in transcript)
+
+---
+
+Estimating, pricing, price‑per‑pound, and proposal workflow
+- Explicit transcript statements and numeric figures:
+  - “Estimate summary” feature used to produce totals; client asked for price‑per‑pound views.
+  - Explicit numbers: “$127,000 for 256,000 pounds (material cost)”; labor rate examples “50 cents a pound,” “$2 dollars a pound,” “128 cents”; “maybe twenty‑seven thousand dollars, fifteen thousand profit and then a twelve percent.”
+  - Contract price example: “the contract price is 1563.”
+  - Examples of large values cited across transcript: “7.5 million in the day”, “35,000… you can purchase them”, “100k reduced to 75k”, “$69,000”, “$2,200”, “$1,500”, “$600,000” (equipment), “$800–$900k”, “$31 / $55”, and many other monetary figures recorded verbatim.
+  - Estimating workflow described: collect material quotes, input hours, use Pro Board/Pro‑Gortlin/Tacklion to assemble proposals; vendors fill quotes quarterly and upload to pricing database.
+  - The transcript explicitly stated: “Material cost is not intact … I haven’t plugged any of my quotes into Tegrify.”
+- Observations:
+  - The client demonstrated methods to lock pricing, copy prices job‑specific, and to zero labour to derive material‑only price‑per‑pound calculations.
+- Explicit next steps:
+  - “Provide guidance on configuring the estimate summary to include category‑level cost breakdowns.”  
+  - “Export the Estimate Summary table for the client to review price‑per‑pound metrics.” (explicit)
+
+---
+
+Inventory, receiving, yard locations, cut lists and SEVA/BO integration
+- Explicit transcript statements:
+  - The Inventory module governs moving items, receiving, assigning location/bin and shipping.
+  - Receiving workflow: enter quantity, view PO lines, enter heat number, click Receive; system records heat number and timestamps receipt; inventory updates immediately.
+  - Users can assign bin locations and update item position in the grid (yard locations).
+  - “If material is not allocated it can be taken from stock (Take‑from‑Stock), then it stops being tracked.”
+  - BO list duplicated into SEVA and broken down to reflect steel purchases, past remnants, incoming stock. Transcript: “incredibly relevant for our steel purchases.”
+  - Paint is not presently in inventory: “there’s no paint items … no paint specifications stored.” The transcript discussed 5‑gallon pails and difficulty with mixed‑size paint purchases.
+  - TFSP screen for moving items and adjusting quantities (explicit).
+- Observations:
+  - Cut‑list / public‑cutting workflows described: selecting parts, using “eyeball” process, and the need to manually bundle identical bars; automatic grouping is not present.
+- Explicit next steps:
+  - “Define paint inventory spec and create live items in the system.”  
+  - “Implement inventory move/remove function after bin layout is defined (Christie to define bins).” (both explicitly stated)
+
+---
+
+Shipping, load building, calendar and rescheduling
+- Explicit transcript statements:
+  - Load creation: users add items to loads, check off items as loaded, the system updates load status.
+  - Example: “Load 19 is not started yet; you can add/remove items; removing because ‘it’s not going to fit’ updates the load.”
+  - Color legend and status symbols: orange (ownership / in progress), green (already shipped), red (supposed to ship but did not), blue (planned / 0%).
+  - Shipping Calendar: drag‑and‑drop loads into days; example: satisfy “327 tons in a single week” by dragging loads; rescheduling updates visibility for “everybody involved.”
+  - “Loaded” status meaning: client defined as “built on the ground,” not necessarily physically on the truck — this definition appears in the transcript.
+  - Shipping Back feature was recommended: “you should start using the shipping back on your unit.”
+- Observations:
+  - The transcript included a recommended standing‑loader practice: mark smaller batches loaded incrementally to reduce errors.
+- Explicit next steps:
+  - “Finalize work‑package references for items leaving the bath shop.”  
+  - “Provide training / quick reference for field crews on the calendar, heartbeat/legend symbols, and the Load checkbox workflow.” (both explicit)
+
+---
+
+Time‑tracking, hardware procurement, and face‑scan process
+- Explicit transcript statements:
+  - “Time tracking through Techbud” reference; employees use Tekla for production time; other staff use Vista.
+  - Face‑scan check every 30 minutes via “Sourcetree and TJ” (explicit in transcript: “Sourcetree and TJ will be over this every day and check their face scan in and against what they have.”)
+  - “Mandatory morning safety stretches” are required; recorded in transcript.
+  - Hardware procurement: Ricky confirmed $40,000 hardware purchase and email with purchase details to follow; truck capacity 45,000 lb mentioned.
+  - Tablets: 17 tablets, large charging station, Otterbox cases every ~6 months.
+  - Issues: EPN notes entry “sucks” — typing notes is cumbersome; some devices failed drives and need validation.
+- Observations:
+  - The vision system used for VL/inspection had improved then stopped; “vision system got better … it stopped” recorded verbatim.
+- Explicit next steps:
+  - “Send hardware over to review team (Ricky to send)” and “include hardware cost in budget” (explicit in transcript).  
+  - “Give the team a day to work with time‑tracking data” (explicit).  
+  - “Record/distribute a swap‑job video tomorrow” and “perform daily 30‑minute face‑scan checks.” (explicit)
+
+---
+
+Nesting, Pro‑Nest, plate inventory (Prodisk) and cut workflows
+- Explicit transcript statements:
+  - Plate nesting described: select plates → Nest with Pro‑Nest → generate nesting file → import into PowerFab (via Progress integration) → plate inventory controlled by Prodisk.
+  - “Plate inventory will then be controlled by Prodisk” (explicit).
+  - “Create cuts, combine via purchase‑order speed bid” — cuts were generated and combined into PO speed‑bid in session.
+- Observations:
+  - Pro‑Nest integration and additional modules were noted as required for more efficient nesting.
+- Explicit next steps:
+  - “Enable Pro‑Nest / added modules and validate Pro‑Nest flow into Prodisk for plate inventory” (explicitly discussed).
+
+---
+
+Miscellaneous operational remarks captured verbatim
+- A non‑exhaustive list of explicit transcript lines captured as recorded:
+  - “They gave us the bananas system…”  
+  - “It’s time. It’s time. Must be. You It’s Loom, MediRoute. Check our open up is four o’clock.”  
+  - “It’s about 7.5 million in the day.”  
+  - “Two thousand pounds of making brackets.”  
+  - “We bought a single cell ring… You have 40 ft bag of those in it.”  
+  - “We had a table that rotated on this side so we could weld on this side … not on this side.”  
+  - “We made like, $600,000 dollars for …”  
+  - “There’s been a very dangerous hit. Very good magic.”  
+  - “I love the mission of the company. I love the name of the software.”  
+  - “I’m 16 years old.” (verbatim)  
+  - “They expanded the B market.”  
+  - “It’s 100% paper drive.”  
+  - “I’ve got Glasses on it. We’ve got Super on it somewhere.”  
+  - “We’re getting 28 columns a shift” and “14 minutes to run that up” (equipment throughput examples).
+- Note:
+  - These lines were recorded in the transcript and included here verbatim as they contained no actionable technical detail but were explicitly stated.
+
+---
+
+Explicit action items / follow‑up tasks (as stated in transcript)
+- Welding & codes:
+  - Clarify the exact definition and required configuration of the “stand‑by time” field within the welding code settings.
+- Collaboration / repositories:
+  - Determine preferred workflow tool and document how Tekla models, reports, and change‑orders will be linked.
+  - Verify Bitbucket repository access and expected deliverables.
+- Production capacity / scheduling:
+  - Request clarification on the scope that drives the 93 t/day goal and align quantity take‑offs and scheduling modules.
+  - Finalize the “Start” button trigger point (pallet vs soft horse) with Mo.
+- Procurement & Inventory:
+  - Map current purchasing workflow and identify opportunities for Tekla‑driven material take‑offs.
+  - Send RFQs to 3–5 vendors as described.
+  - Define paint inventory specs and create live paint items (5‑gal pails etc.) in inventory.
+  - Implement inventory move/remove functions after Christie defines bin locations.
+- Server & directories:
+  - Verify and correct global fault directory configuration (UNC path / C: drive as described); ensure server mapping is correct.
+- Settings & exports:
+  - Obtain definitive list of configuration items to reset/dump; export current settings and store securely; Gavin to perform import/export per transcript.
+- HoloLens & QC:
+  - Standardize magnet placement and document HoloLens 5‑minute inspection SOP.
+  - Compile comparative analysis for Meta/Apple/3rd‑party AR options (license cost references preserved in transcript).
+- Tablets & device training:
+  - Validate the 17 tablets, charging station and user encoding; provide operator training (Start/Stop/Update workflow).
+- Inspections:
+  - Configure the Inspections module when beta becomes available and link inspection records to job numbers; run reporting tests.
+- Model import & building scanner:
+  - Client to upload drawing PDFs to PowerFab portal; review auto‑recognition and iterate cleanup.
+- Weld imports & estimating:
+  - Create custom zero‑rate weld type, test with KISS file and IFC imports; set weld‑length conversion rule (>20 ft → arc weld).
+- Shipping & loads:
+  - Finalize work‑package references for shipping and train field crews on calendar and legend symbols.
+- Time‑tracking & hardware:
+  - Ricky to send hard‑drive / hardware purchase numbers; include $40,000 hardware in budget emails per transcript; follow up on 45,000 lb truck capacity notes.
+- Nesting & plate inventory:
+  - Enable Pro‑Nest modules and validate integration with Prodisk for plate inventory.
+- Miscellaneous:
+  - Compile list of people who do not require system access (IT list), handle user permissions.
+  - Review and correct clip/weld quantities and formulas (four clips, perimeter burn, full‑pin prep on both ends) as explicitly discussed.
+
+---
+
+Final note
+- This summary contains only statements and technical details that were explicitly recorded in the transcript. No additional information, assumptions, or inferences have been introduced. If you would like, I can:
+  - Produce a concise prioritized action list (with owners and due dates) strictly using the action items above as they were stated in the transcript; or
+  - Extract and format all numeric figures (weights, hours, monetary values) mentioned in the transcript into a single table (verbatim). Which would you prefer?
