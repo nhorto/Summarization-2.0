@@ -1,0 +1,140 @@
+Administrative Information / Administration
+- Friday: Reviewed reporting, estimating workflows, job-release process, and data/integration considerations within Tekla PowerFab, including cutting constraints and planning for expansion. Planned documentation control and standardization initiated via Tony’s case; noted a lag in documentation and plan to address it through formal standards development and exportable documentation. Dartmouth was referenced as an April milestone with scheduling relevance. Next steps included producing a follow-up report next week and refining planning approach (including Jira) to address workload ramp-up.
+- Monday: Focused on data management, scheduling, reporting, detailing workflows, and systems integration with Trimble Connect as a data bridge. Addressed governance of imports/grades and improving estimation/production alignment. Next steps included continuing planning and aligning on 2025 readiness; calendar invites and detailer upgrade were actions to pursue.
+- Thursday: Maintained governance and cross-tool integration emphasis (Jira, Trello, Bitbucket, Loom, MediRoute) and reviewed progress signals for production control. Next steps included continuing refinement of work packages, routing/triggers, and aligning inspections/reporting workflows with project data.
+- Tuesday: Acknowledged governance and data-management context with emphasis on audits (AI audit readiness) and cross-system data flows. Next steps included preparing for the AI audit, finalizing PO-finalization practices, and aligning Vista migration with cross-system governance.
+- Wednesday: Initiated setup for an Oracle database and discussed on-premises server integration; noted county software feed considerations. Next steps included setting up the new Oracle database, advancing on-premises IT alignment, and clarifying county software integration roles.
+
+Estimating
+- Labor Codes
+  - Explicit discussion of labor codes and a plan to create/open labor codes for estimating paths; the goal to store new labor operations in a new labor group and allocate time, determining display-only versus active use in estimation.
+  - Next steps included creating a labor operation for the estimating path, mapping to a new labor group, and ensuring there is an explicit labor code that calculates hours for change orders or similar kit work.
+- Carbon vs Stainless Sizing
+  - Finalize approach to carbon versus stainless sizing in estimates and production data, including how these are mapped and presented.
+  - Stainless conversion and weight calculations were discussed separately (see Stainless Conversion / Weight Calculations).
+- Stainless Conversion / Weight Calculations
+  - Stainless conversion is non-linear; tests across sizes are needed to form defensible factors; density values noted (stainless ~0.31; carbon ~0.289). A baseline size should be tested first, then 1–2 additional sizes to develop non-linear factors; document results and refine conversion factors iteratively.
+- Time Studies / Data-Definition
+  - Planned time studies for stainless materials to evaluate contamination reduction and equipment/consumables changes; finish size definitions for stainless materials (especially zero dimensions); evaluate extras (labor, wellness) and potential manual overrides; align carbon vs stainless handling in estimating workflow and production data.
+- Change Orders / Estimating Path
+  - Discussed how change orders (CO) or kit work should be represented in estimates; requirement to ensure change-order hours are calculable via a dedicated labor code; automated reporting considerations related to estimating data and CO impact.
+- Breakout Logic / Costing Structure
+  - Explicit next steps to break cost-out by intended breakout logic (organized by cost code and area); map open labor codes and allocate time; determine display-only versus active use in estimation.
+
+Project Management
+- Trimble Connect
+  - Discussed Trimble Connect as a data bridge between Tekla PowerFab and detailing/ABM workflows; submittals surfaced via connector; mismatches flagged to prompt changes; alignment with 2025 integration plans to share data (grades, shapes, finishes) with detailers.
+- Schedules and Tracking
+  - Scheduling values must be entered to enable scheduling activities; schedule items linked to contract for accurate billing; the tool supports displaying a complete schedule and tracking changes; standard reporting layout described.
+- Jira / Statuspage / Collaboration
+  - Jira referenced for task management; Statuspage and Jira used for status updates; ongoing effort to refine Jira usage and capture historical work; inputs tied to Dartmouth milestone.
+- Documentation / Governance
+  - Action Standards Document introduced; Tony’s case used to define documentation controls; plan to export standards and implement document-control practices; three-year historical data accessibility noted.
+- Next Steps Summary (from multiple days)
+  - Continue refining Jira for task management; input schedule values to support scheduling activities; align 2025 Trimble Connect integration with Structures detailing; plan to tighten ABM sharing; verify grade/shape data with detailers; begin Tony’s case as starting point for documentation controls; develop exportable standards and implement document control.
+
+Purchasing
+- SSPL / SSL / SSA Data and Purchasing Impacts
+  - SSPL/SSL/SSA designations discussed; mapping SSL to SSA via ASCII/text-file workflows; SSPL changes affect purchasing data and vendor payments; potential temporary PO impacts during SSPL updates; planned bulk/versioned data changes to SSPL with careful inclusion checks.
+  - Considered centralized purchasing, renaming/separating SSA/SSAL/SSL to preserve historical data, and aligning with Vista migration.
+- Centralized Purchasing / Governance
+  - Evaluate procurement governance changes; pursue centralized purchasing for leverage; ensure vendor communications remain controlled and auditable.
+- Finalization and Data Flows
+  - Ongoing transition to Vista-based PO management; duplication of data handling across systems during migration; open POs require finalization and alignment with receiving/shipping.
+- AI Audit Readiness
+  - Engaged key personnel to prepare for an AI audit and clarify audit scope/roles; align cross-system traceability with governance.
+- Next Steps (explicit)
+  - Add finalized PO workflow to process so that once receiving/shipping tasks are complete the PO is finalized; determine who has authority to approve/finalize; review Vista/Tecla integration to reflect PO data flow; locate information on the finalization method/tool; prepare for AI audit by engaging listed personnel.
+
+Production Control / Inventory Management
+- Inventory Cleanup and Data Alignment
+  - Ongoing consolidation/standardization (umbrella loading) due to unfinalized data assets; large on-order weight (over 1,000,000 pounds) with on-order not reflecting cleanup; misalignment between stock and on-order data; batch overlapping areas with five acres of space discussed for bin-location planning.
+- Receiving / Finalization
+  - Attaching documents to items; open orders remain visible until finalization; finalization required to move items to inventory; examples noted where data is incomplete until finalization.
+- Weight and On-Order Projections
+  - Forecasts of large on-order quantities (e.g., 300 tons) and their impact on stock projections; receiving/finalization workflow to be refined before inventory finalization.
+- IT Automation and Tools
+  - Re-establish AutoHotKey automation and evaluate ChatGPT-generated scripts for automation in receiving/stock-tracking workflows.
+- Next Steps (explicit)
+  - Continue aligning stock vs. on-order data; monitor incoming POs and update stock projections; complete area-layout planning with Mark; refine receiving/finalization to ensure finalization prior to inventory history; re-establish automation tools.
+- Bin Location Planning / Warehouse
+  - Five acres of space for bin-location planning; implement overlays for whip bins and inventory locations; finalize area layout with Mark.
+
+Warehouse Operations / Bin Location Planning
+- Space Utilization
+  - Emphasis on space-utilization optimization and bin-location overlays to support material tracking and forecasting; plan to discuss area-layout changes with Mark.
+- Next Steps (explicit)
+  - Complete area-layout planning and meet with Mark to discuss space utilization and material placement.
+
+Receiving / Finalization Process
+- Receiving and Finalization
+  - Attaching documents to items; items remain visible until finalization; finalization step critical for accurate stock visibility.
+- Next Steps (explicit)
+  - Refine finalization process to ensure line items finalize after receiving tasks are completed and necessary data fields are populated.
+
+IT Automation / Data Integration
+- AutoHotKey and AI Automation
+  - AutoHotKey access and an executive-order-driven automation program; plan to restore; explore AI-assisted scripts for automation.
+- IT and Data Governance
+  - Data flows between Tekla PowerFab and external systems; Vista migration considerations; cross-system governance to avoid duplicate processes.
+- Next Steps (explicit)
+  - Re-establish AutoHotKey access; restore automation programs; evaluate scripts for automation; confirm governance alignment with Vista migration.
+
+Project Management / Audit & Compliance
+- Audit Readiness
+  - Emphasis on governance and traceability; AI audit planning; ongoing follow-ups to align processes; recording policies noted for governance.
+- Data Integrity and Cross-System Governance
+  - Ongoing need to consolidate data flows, align Vista/Tecla data, and ensure cross-system traceability.
+- Next Steps (explicit)
+  - Prepare for AI audit by engaging key personnel; locate tools/methods used for finalizing POs; ensure governance alignment with Vista migration.
+
+QA / QA/QC / Detailing Standards
+- QA/QC Data and Traceability
+  - Inspections, remark/heat-number tracking, and alignment with standards (AISC references); data-entry forms and traceability discussed; be aware of the integration of QA data with production data.
+- Detailing Standards
+  - SP-based standards design, coating routing, and data-entry form architecture; naming conventions; library/dictionary for Tekla naming; alignment with Trimble Connect sharing for 2025 data.
+- Next Steps (explicit)
+  - Implement updated detailing rules (end-prep, clip behavior); validate weld/clip configurations; migrate forms piece-by-piece; establish a naming standards library; ensure adherence to Tekla naming conventions; implement Trimble Connect-based sharing plan for 2025.
+- PowerFab Go
+  - PowerFab Go discussed in context of data capture (checks, inspections, attachments); prototype forms for environmental and paint logs; ensure attachments linked via document index.
+- Next Steps (explicit)
+  - Prototype environmental and paint-log forms in PowerFab; attach supporting pictures; verify alignment with customer reporting requirements; consider site-wide knowledge capture data.
+
+Nesting Integration
+- Nesting Module
+  - Nesting module integration discussed as part of a full integration plan; IT support for Nesting integration not necessarily available immediately; data integration implications noted for QA/inspection reporting.
+- Next Steps (explicit)
+  - Confirm IT support availability for Nesting integration; define scope and timeline; align Nesting integration with QA/inspection reporting.
+
+Materials Data Management / SSPL / SSL / SSA
+- Data Management
+  - SSPL/SSL/SSA designations; mapping SSL to SSA via ASCII/text-file workflows; SSPL inclusion changes impact purchasing, inventory, and payables; potential temporary PO impacts.
+  - Weight data conversions and density references discussed; weight changes propagate through production, inventory, and payables; differences between SSPL and existing data require versioning and bulk updates.
+- Data Mapping and Ingestion
+  - Planned text-file changes (SSL to SSA) with SSL/SSA selection; explored bulk replacement; version-rate approach recommended.
+- Next Steps (explicit)
+  - Complete SSPL inclusion checks; finalize text-file mapping; test SSA imports; implement version-rate approach; monitor conversion anomalies; coordinate with purchasing to manage procurement implications.
+
+Materials / Weight Management / Production Impact
+- Weight Data for Estimating
+  - Weight data changes propagate across production, inventory, and payables; decision points on using zero or high-side weights; versioned approaches for weight changes.
+- Bulk Weight Updates
+  - Planned a bulk-weight update approach with versioning to minimize item-by-item edits.
+- Next Steps (explicit)
+  - Validate chosen weight strategy; implement bulk SSPL weight changes with proper versioning; communicate procurement implications.
+
+Estimating (Stainless Conversion / Weight Calculations) — Cross-Topic Link
+- Time Studies, Size Definitions, and Extrapolation
+  - Time studies and cross-size updates drive extrapolation; ensure non-linear conversion logic; propagate updated times; verify alignment with SSPL/SSA changes and purchasing impacts.
+
+PowerFab Go
+- Go-Enabled Mobility
+  - Limited explicit actions; discussed licensing considerations and device provisioning; plan to schedule go-training and confirm device provisioning timelines; validate licensing implications for field use.
+
+Data Integration / Reporting / Data Visibility
+- Data Consistency and Export
+  - Cross-project reporting, filtering by finishes, SP levels, and codes; concerns about data reliability and synchronization with external formats (Kiss files, Excel exports); consolidate into auditable workflows.
+- Next Steps (explicit)
+  - Test and finalize data-integration approaches (zero-cost labor entries; separate rate boards; global paint codes); validate reporting outputs per job/route/finish; prepare for integration discussions.
+
+Nearing the end of the week, this report consolidates explicit topics and next steps from the daily summaries across administrative, estimating, project management, purchasing, production control, QA/QC, detailing standards, and PowerFab Go, with cross-cutting IT/data integration and nesting considerations.

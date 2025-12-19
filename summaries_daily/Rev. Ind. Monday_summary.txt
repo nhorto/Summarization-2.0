@@ -1,0 +1,203 @@
+Opening statement
+This session comprised a comprehensive review of data management, scheduling, reporting, detailing workflows, and systems integration in Tekla PowerFab, with emphasis on Trimble Connect as a data bridge, governance of imports/grades, and improving estimation and production alignment through structured processes.
+
+ADMINISTRATION
+- What was reviewed / covered
+  - Meeting logistics and calendar planning, including whether to send a meeting time so participants’ calendars would reflect attendance.
+  - Agenda distribution concerns: who should receive the agenda and what components should be requested, including whether a previously discussed item had been sent to a participant.
+- Key findings / observations
+  - There were questions about calendar invites and how agenda items should be shared among participants.
+  - Update status discussions noted issues with the 2025 release, including service packs and lag in updates; some customers were experiencing update delays.
+  - Clients were described as being “already where you need to be” regarding 2025 readiness, but detailers would need to be upgraded to 2025.
+- Configurations / changes implemented
+  - A plan to send calendar invites and distribute agenda items was established as a concrete administrative action.
+- Decisions reached or recommendations
+  - Proceed with calendar invites to ensure participant visibility; continue monitoring 2025 readiness and communicate new or missing items back to the consultant.
+- Next steps
+  - Calendar invites to be created/distributed; maintain ongoing alignment on 2025 readiness and detailer upgrade; report back if new/missing items surface.
+
+PROJECT MANAGEMENT
+- What was reviewed / covered
+  - Trim Connect as a bridge between PowerFab packages; sharing of shapes, grades, finishes, and ABM settings; submittals surfaced via the connector; automated import from submittal lists; mismatch flagging when shapes/grades aren’t recognized.
+  - Status of 2025 integration and training plans for internal estimators, with emphasis on preconstruction involvement and knowledge transfer.
+- Key findings / observations
+  - The connector reduces email/data transfers by surfacing submittals in a list for import; mismatches are flagged to prompt changes before proceeding.
+  - There was emphasis on training internal estimators (and transferring knowledge from senior staff) to sustain accuracy after staffing changes.
+- Configurations / changes implemented
+  - Demonstrated a connector-driven workflow to surface submittals and enable import directly from the submittal list; discussed ABM parameter sharing via the connector.
+- Decisions / recommendations
+  - Push detailers to adopt the connector workflow to improve cross-team communication.
+  - Align 2025 Trimble Connect integration with Structures detailing to enable shared data (grades, shapes, finishes) with detailers.
+- Next steps
+  - Plan to tighten ABM sharing across teams; ensure 2025 Trimble Connect integration supports shared data; verify grade/shape sharing and finish data with detailers.
+
+PRODUCTION CONTROL
+- What was reviewed / covered
+  - Use of queues to track items through processes; reporting workflows (top ships, maintenance dropdown, 08 report by shapes); size list cross-sectional data and its limitations (no exceptions shown).
+  - Process around cross-sectional data to scan for dimensions (cross-sectional area, flange widths) and how reports align with collected data; automation and monthly distribution considerations.
+  - Validation and alignment of reporting outputs with data collection; automation for monthly distribution; auditing needs for size list and cross-section data.
+- Key findings / observations
+  - Reports can list relevant items and be automated for monthly alerts; some reports provide comprehensive data but don’t show exceptions.
+  - Cross-sectional data can be scanned for dimensions across pieces; some data outputs are comprehensive but lack exception visibility.
+- Configurations / changes implemented
+  - Recognized the need to formalize reporting workflows and establish automation for periodic distribution; plan to validate cross-sectional data against auditing needs.
+- Decisions / recommendations
+  - Formalize the top ships/maintenance/08 reporting workflow; implement automation for monthly distribution; ensure size list and cross-sectional data meet auditing expectations.
+- Next steps
+  - Formalize and automate the specified reporting workflows; verify data alignment and auditing readiness; ensure monthly distribution is established.
+
+DATA INTEGRATION / IT SECURITY
+- What was reviewed / covered
+  - Import permissions review; risk of adding grades or sizes on the fly during imports; discussion of training and controls to prevent improper changes.
+  - Trimble Connect data bridge as the data integration mechanism between PowerFab and the detailing/ABM workflows; 2025 capabilities to flag grade differences; review of access controls and data governance.
+- Key findings / observations
+  - On-the-fly data additions could introduce data integrity risks; unique grades to shapes and cross-linking between ASTM/ASME data were noted as possible concerns.
+  - Trimble Connect is central to sharing data with detailers; 2025 capabilities will enable more integrated data sharing and flagging of grade mismatches.
+- Configurations / changes implemented
+  - Initiated plans to tighten import permissions; prepared for 2025 Trimble Connect sharing and the data bridge between PowerFab and the detailer.
+- Decisions / recommendations
+  - Tighten import permissions; train users to manage grades/sizes properly; implement 2025 Trimble Connect data-sharing capabilities and the grade-difference flagging feature.
+- Next steps
+  - Review and strengthen import controls; finalize the 2025 Trimble Connect integration plan; validate grade mismatch flag setup.
+
+DETAILING STANDARDS
+- What was reviewed / covered
+  - Detailing configuration with Structures; sharing of grades/shapes via Trimble Connect; ensuring grades remain unique to shapes; examples of adding a grade to a callout and propagating to related shapes.
+  - Data organization and naming conventions; differences between plating vs material-range conventions; ability to share ABM settings via data exchange.
+- Key findings / observations
+  - The 2025 Structures workflow via Trimble Connect would allow sharing grades/shapes with detailers; ABM settings are reusable across teams; grades are unique to shapes and may require adding to other related shapes for consistency.
+  - There was emphasis on standardizing naming conventions and using a library/dictionary for naming (Tekla conventions) to maintain consistency.
+- Configurations / changes implemented
+  - Considered aligning Structures detailing with Trimble Connect for 2025 data sharing; discussed ABM parameter sharing as part of data exchange.
+- Decisions / recommendations
+  - Align 2025 Trimble Connect integration with Structures detailing; maintain grade uniqueness to shapes and ensure related shapes are updated consistently when changes occur.
+- Next steps
+  - Establish a naming standards library; ensure adherence to Tekla naming conventions; implement the Trimble Connect-based sharing plan for 2025.
+
+QA/QC / INSPECTIONS
+- What was reviewed / covered
+  - Logging of import/flagging events (rejections) to support auditability; cross-package mismatches and missing drawings trigger logs.
+  - QA data flow from labor and work packages into a QC-signed-off database; alignment with ISO/quality manual requirements.
+- Key findings / observations
+  - The import/flagging workflow provides traceability; gaps in QA data and the need to reduce manual reporting were noted.
+- Configurations / changes implemented
+  - Recognized the need to improve QA data integration and traceability within a centralized system; plan to streamline QA data capture.
+- Decisions / recommendations
+  - Continue improving data integrity by ensuring QA data is captured centrally and visible; consider reducing manual reporting burden.
+- Next steps
+  - Validate QA data integration, ensure QC time is properly represented in totals, and align with the master reporting views.
+
+MATERIALS DATA MANAGEMENT / SSPL / SSL / SSA
+- What was reviewed / covered
+  - SSPL/SSL/SSA as data designations; mapping SSL to SSA via ASCII/text-file workflows; SSPL inclusion and the risk of changing weight data across production, inventory, and payables.
+  - The SSPL/SSP data mapping in the context of purchasing and invoicing; potential temporary PO impacts during SSPL data changes.
+- Key findings / observations
+  - SSPL weight changes propagate through production, inventory, and purchasing/payables; weight data can alter many downstream records.
+  - The K value in text exports may be unused; potential workaround is to remove the K value from the export if not used.
+  - Differences between SSPL and existing data (e.g., carbon vs stainless) require careful versioning and possibly a bulk update approach rather than item-by-item changes.
+  - Weight data may vary by grade and supplier; density references (stainless ~0.31, carbon ~0.289 pounds per cubic inch) were discussed as inputs for conversions.
+- Configurations / changes implemented
+  - Planned text-file changes (SSL to SSA) and importing with SSL/SSA selection; explored bulk replacement, and discussed potential data-conversion workflows.
+- Decisions / recommendations
+  - Use a version-rate approach to apply SSPL changes efficiently; verify SSPL inclusion before bulk replacement; determine whether to standardize on a single weight metric and how to propagate changes across modules.
+- Next steps
+  - Complete SSPL inclusion checks; finalize the text-file mapping Pl. to SSPL; test SSA imports; implement the version-rate approach; monitor for conversion anomalies; coordinate with purchasing to manage procurement implications.
+
+ESTIMATING (STAINLESS CONVERSION / WEIGHT CALCULATIONS)
+- What was reviewed / covered
+  - Stainless conversion planning, starting from a baseline size and testing additional sizes to establish non-linear factors; density references for stainless and carbon; use of AI-assisted calculations (ChatGPT) as an aid.
+- Key findings / observations
+  - Stainless conversion is non-linear; multiple size tests are needed to form a defensible ballpark; density values are critical inputs (stainless ~0.31, carbon ~0.289 lb/in3).
+  - AI-assisted calculations can help but baselines must be preserved; a measured base size is recommended before expanding tests.
+  - Weight variability exists by grade and supplier; conversions must account for non-uniform factors.
+- Configurations / changes implemented
+  - Agreed to begin with one baseline size and extend tests to other sizes; plan to apply non-linear factors and document each tested size’s factor.
+- Decisions / recommendations
+  - Use density values as ground truth for weight conversions; avoid locking in a single linear factor; maintain a living library of conversion factors by size.
+- Next steps
+  - Execute baseline size test, add 1–2 more sizes for non-linear factor development, document results, and refine conversion factors iteratively.
+
+MATERIALS / WEIGHT MANAGEMENT / PRODUCTION IMPACT
+- What was reviewed / covered
+  - Weight-driven estimation considerations; variability in weight by material supplier/grade; strategies to set weights (keep as-is, zero, or high-side approach).
+  - Impacts on PO values, invoicing, and procurement when weight data changes; potential temporary PO changes during SSPL updates.
+- Key findings / observations
+  - Weight data changes propagate across production, inventory, and payables; inconsistent weight values can cause data integrity issues.
+  - Some shops may rely on high-side weight values to stabilize estimates during transitions; weight changes should be carefully versioned.
+- Configurations / changes implemented
+  - Planned a bulk-weight update approach (version-based) to minimize item-by-item edits.
+- Decisions / recommendations
+  - Decide whether to set weights to zero or to a high value; establish a version-rate approach; coordinate with purchasing and finance for temporary impacts.
+- Next steps
+  - Validate the chosen weight strategy; implement bulk SSPL weight changes with proper versioning; communicate procurement implications to stakeholders.
+
+ESTIMATING
+- What was reviewed / covered
+  - Employment of macro-level adjustments, weight-based extrapolations, and data consolidation across sizes; discussion of density-based inputs for weight calculations.
+- Key findings / observations
+  - Time studies and weight/size properties drive extrapolation; cross-sectional properties determine labor-time contributions; updating sizes may require recalibration of times.
+- Configurations / changes implemented
+  - Initiated data consolidation efforts, global edits, and extrapolation adjustments; planned to propagate updates via bulk conversions.
+- Decisions / recommendations
+  - Maintain non-linear conversion logic; ensure data completeness for each size; verify that weights propagate to estimating and labor standards accurately.
+- Next steps
+  - Complete the data validation and propagate updated times; test across multiple sizes; align with SSPL/SSA changes and purchasing impacts.
+
+PURCHASING
+- What was reviewed / covered
+  - Material data impacts on purchasing and payables; SSPL imports affecting purchasing data; potential temporary PO changes; vendor pricing dynamics and centralization ideas.
+- Key findings / observations
+  - SSPL changes affect purchasing data and vendor payments; moving to a centralized purchasing model could improve pricing leverage.
+  - There was discussion of consolidating purchasing with one buyer; price competition among vendors was viewed as beneficial.
+- Configurations / changes implemented
+  - Considered renaming or separating SSA/SSAL/SSL designations to preserve historical data while adopting SSPL going forward.
+- Decisions / recommendations
+  - Evaluate procurement governance changes; pursue centralized purchasing; ensure vendor communications remain controlled and auditable.
+- Next steps
+  - Coordinate with procurement to implement centralized purchasing if beneficial; monitor PO changes and ensure alignment with SSPL data updates.
+
+IT SECURITY / DATA INTEGRATION (summary of key points)
+- Data governance and integration were repeatedly emphasized: tighten permissions; plan 2025 Trimble Connect integration; flag grade mismatches; ensure SSPL inclusion; consider data mapping between SSPL/SSL/SSA and procurement/ERP.
+
+POWERFAB GO
+- The transcript contained limited explicit content specific to PowerFab Go beyond mobility discussions; a distinct PowerFab Go topic was not elaborated with concrete actions in this day’s sessions.
+
+SCHEDULING / CAPACITY
+- What was reviewed / covered
+  - Scheduling discipline, master schedules, and capacity planning; locking the current week while keeping following weeks flexible; dead time to protect the overall plan; integration of project planning with shop/field execution.
+- Key findings / observations
+  - Scheduling discipline was stressed to front-load information and reveal staffing/throughput gaps earlier; there were concerns about “dead time” and the need to protect the schedule.
+- Configurations / changes implemented
+  - Proposed locking the current week and maintaining flexibility for future weeks; plans to integrate master schedule with work packages.
+- Decisions / recommendations
+  - Emphasize master schedule as the planning reference; maintain dead time as a protective measure; ensure field/sh shop data flow feeds the schedule accurately.
+- Next steps
+  - Continue refining the locked-week approach; monitor staffing impacts on throughput; keep the master schedule as the primary planning reference.
+
+SCHEDULING / CAPACITY (second related session)
+- This topic echoed a similar focus on daily planning, field vs. shop data alignment, and ensuring scheduling reflects real-time throughput and staffing realities.
+
+IT INFRASTRUCTURE / NETWORK
+- What was reviewed / covered
+  - On-site IT readiness, wifi extension considerations, device management (tablets), camera/printing requirements, and on-site IT resource planning.
+  - Past IT limitations (downtime, paper-dependent processes) contrasted with current capabilities (facial recognition for safety checks; digital workflows).
+- Key findings / observations
+  - There was a need for on-site IT support and a plan to compile an IT issues list; concerns about network reliability during migration were raised.
+- Configurations / changes implemented
+  - Plans to deploy an on-site IT resource and to address device management and network stability.
+- Decisions / recommendations
+  - Prioritize on-site IT support; address connectivity risks (e.g., consider Starlink as a contingency); standardize devices (iPads/Android) and improve charging/storage logistics.
+- Next steps
+  - Assign an on-site IT resource; finalize the IT issues list; implement summer adjustments (device housing, charging) and shop displays (TVs) for real-time status.
+
+QA / INSPECTIONS (summary)
+- QA/QC topics focused on logging, traceability, and alignment between QA time and overall estimates; no explicit new QA/QC process changes were enacted, but the need to reconcile QA time within totals and reporting was highlighted.
+
+DETAILING STANDARDS / ADDITIONAL NOTES
+- Several notes emphasized the balance between standardization and customization; the need to document decisions and deviations; and the importance of a unified data backbone to reduce miscommunication.
+
+CLOSING SUMMARY
+- The day produced a comprehensive map of active topics: Trimble Connect as a cross-package data bridge; formalizing reporting and automation; tightening import permissions; aligning detailing with 2025 capabilities; weight/SSPL/SSL/SSA data governance; and strengthening scheduling, data ownership, and shop/field alignment. Explicit next steps across topics included setting up calendar invites, formalizing reporting and automation, planning 2025 Trimble Connect integration, implementing SSPL-related data changes with proper versioning, validating weight conversion approaches, and ensuring on-site IT readiness. The session underscored a path toward tighter data governance, more automated workflows, and closer coordination among administration, project management, production control, detailing, and purchasing.
+
+Optional closing note
+- The session presented a broad, action-oriented agenda to advance Trimble Connect integration, data stewardship, and cross-functional workflow improvements within Tekla PowerFab, while maintaining a clear focus on concrete next steps and owner responsibilities.

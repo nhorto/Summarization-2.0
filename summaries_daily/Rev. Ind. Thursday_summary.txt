@@ -1,0 +1,70 @@
+Professional Topic-Based Consulting Summary
+
+Opening statement
+This day-long session focused on aligning Tekla PowerFab workflows across administration, project management, production control, estimating, purchasing, IT/data integration, and Go-enabled tools, with emphasis on data flow, configurations, and next-step actions.
+
+ADMINISTRATIVE INFORMATION / ADMINISTRATION
+- Reviewed informal kickoff notes, participant dynamics, and broad governance context; multiple sessions and on-site planning were referenced, with no firm administrative decisions captured in the transcript.
+- Noted references to sharing artifacts (drawings, Bitbucket artifacts) and ongoing planning for follow-up discussions and action items.
+- Next steps explicitly mentioned: continued planning and scheduling of follow-up discussions; concrete task lists were not itemized in this topic.
+
+PROJECT MANAGEMENT
+- Reviewed tooling and data flow between Jira, Trello, Bitbucket, Loom, and MediRoute as part of the project workflow.
+- Discussed progress- and file-generation concepts such as “progress integration” that spits out a file used in production-control workflows.
+- Covered the relationship between work packages, drawings access, piece tracking, and project visibility; emphasized the intent to align work packages with drawings and production data.
+- Talked about scheduling signals (starting next week) and how to begin or advance activities in near term; some items required clarification in subsequent meetings.
+- Next steps explicitly mentioned: continue refining work packages, confirm how routing and start/stop triggers are applied, and align inspections and reporting workflows with project data.
+
+IT SECURITY / DATA INTEGRATION
+- Acknowledged a multi-tool ecosystem (Bitbucket, Jira, Trello, Loom, MediRoute) and security considerations around access governance and data integration.
+- Referenced security hubs and the need to integrate security considerations into tool governance, though no specific security configuration was enacted in this transcript.
+- Plan to assemble user-access lists and test provisioning workflows; several items referenced ongoing IT actions, including onboarding and access testing.
+- Next steps explicitly mentioned: continue evaluating tool integrations (Atlassian stack plus third-party integrations), and confirm user provisioning and access controls for project participants.
+
+PRODUCTION CONTROL / SHOP CONFIGURATION
+- Discussed old vs. new shop/settings handling, including plans to dump old settings and set up a different shop; emphasis on controlled rollout and rapid change management.
+- Highlighted expectations for faster change management and tool responsiveness as configurations are updated.
+- Reviewed device provisioning, shop floor tablet deployment, and on-site user provisioning to support production workflows.
+- Addressed shop layout changes and the need to map areas, pockets, and yards to improve visibility of production activities.
+- Next steps explicitly mentioned: finalize device provisioning plans, implement/validate new shop configurations, and refine how changes are rolled out across the production environment.
+
+ESTIMATING
+- Covered model import workflows, parametric assemblies, and labor-code management; discussed approximately 30 labor codes and the need to expose more codes for estimating.
+- Discussed two broad estimating approaches: piece-by-piece vs. geometry-driven (parametric) estimation, highlighting the role of accurate labeling in enabling faster labor-coding across projects.
+- Addressed labor-code governance, including creating new codes, duplicating existing codes for variations, and the need to minimize manual adjustments to improve estimator buy-in.
+- Examined data flows between estimating, production control, and external systems (pricing databases, Tegrify, Integrity, Salesforce); noted that quotes and material pricing often originate from external sources and flow into Tekla PowerFab workflows.
+- Next steps explicitly mentioned: build out additional labor cases, expand labor-code coverage, validate AI-assisted labeling concepts, and test end-to-end estimating with model imports and producer-side data flows.
+
+PURCHASING
+- Covered centralized vs. decentralized purchasing concepts and supplier engagement strategies; discussed multi-vendor quotes and the potential benefits of consolidating purchasing for leverage.
+- Addressed hardware procurement items (e.g., tablets) and budget considerations; discussed master agreements and vendor relationships influencing purchasing decisions.
+- Next steps explicitly mentioned: continue refining the purchasing workflow, test vendor quote flows, and decide on consolidation vs. distribution of purchasing across shops.
+
+POWERFAB GO
+- PowerFab Go was referenced across several segments as a tablet/field-access workflow and Go-enabled interface; specific demonstrations or configurations were described but not exhaustively captured in this transcript.
+- Discussed onboarding logistics, licensing considerations (notably a referenced $2,500 license in one portion), and device provisioning for on-site Go usage.
+- Next steps explicitly mentioned: schedule go-training, confirm device provisioning timelines, and validate licensing implications for field use.
+
+DETAILED STANDARDS / QA / QC
+- Deliberated detailing standards related to welding, end prep, clip counts, and related formulas; many topics centered on ensuring consistent end treatments, clip distributions, and burn calculations.
+- Discussed end prep configurations (K, D, E, L) and the need to align prep and welding with fabricator expectations; considered expanding prep to web where appropriate.
+- Examined labeling practices, AI-assisted labeling, and the impact of labeling quality on detailing speed and accuracy.
+- Next steps explicitly mentioned: implement updated detailing rules (end-prep, clip behavior), validate weld/clip configurations, and align with fabrication practices through test runs.
+
+QA / INSPECTIONS
+- Various references to inspection readiness and inspection workflows appeared, including planned beta/production readiness for inspection features; however, concrete inspection configurations were not finalized in this transcript.
+- Next steps explicitly mentioned: continue configuring inspections on project basis as readiness progresses and integrate with production status where applicable.
+
+DRAWINGS / DOCUMENTATION ACCESS
+- Referenced drawing access via drawing lists, PDF drawings, and the linking of drawings to work packages and project data.
+- Discussed revision control (Rev A vs Rev 0) and the importance of maintaining current revisions and drawing logs; noted server path and directory considerations affecting access.
+- Next steps explicitly mentioned: verify directory links, ensure consistent drawing revision access, and link drawings to work packages and inspections as appropriate.
+
+QA/QC / INSPECTIONS (combining two related segments)
+- Across multiple topics, inspections and QA/QC capabilities were discussed in the context of production status, coatings, and workflow integrations; no single formal action item was captured, but the thread indicated ongoing development of QA/QC integration with production data.
+
+CLOSING STATEMENT
+Progress was made toward tighter integration of administrative, estimating, purchasing, and production-control workflows within Tekla PowerFab, with explicit next steps for go-live planning, labelling and detailing standardization, data integration tests, and device provisioning for field use. Several topics require follow-up in subsequent sessions, including detailed testing of go-enabled workflows, verification of data flow between Tekla and external systems, and finalization of inspection and reporting configurations.
+
+Optional closing
+The session captured a broad spectrum of topics—from administrative governance to field-ready PowerFab Go usage—highlighting concrete areas for follow-up and validation to advance end-to-end project delivery.

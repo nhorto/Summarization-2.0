@@ -1,0 +1,130 @@
+Opening statement
+This session focused on reviewing reporting, estimating workflows, the job-release process, and surrounding data/integration considerations within Tekla PowerFab, with an emphasis on cutting constraints and upcoming planning for expansion.
+
+ADMINISTRATIVE INFORMATION / ADMINISTRATION
+- Reviewed the process used to filter a report for a specific plate size and a subset labeled “guests,” and to place the results into a job order chosen for release.
+- Observed that the released job was intended to carry the complete information from the report, including PO and key-number references used to pull data into the job.
+- Discussed constraints around releasing a job before a cutter is created, including the idea of redlining a cutter and keeping it inactive until the related work is completed.
+- REM references and the need to pull from the PO-linked job were noted but no formal changes were committed during this session.
+- The session included planning for documentation control and standardization efforts, initiating Tony’s case as a starting point, and recognizing a lag in documentation with a plan to address it through formal standards development and exportable documentation.
+- Dartmouth was referenced as a milestone with timing noted as end of April, suggesting a schedule checkpoint relevant to the project.
+- Next steps mentioned: produce a follow-up report next week and continue refining the planning approach (including use of Jira) to address upcoming workload and ramp-up needs.
+
+ESTIMATING
+- The team noted two sizes in the program referred to as estimated dimensions and discussed how these are presented on screen, their relation to model visibility, and first-screen visibility; no specific numeric changes were mandated.
+- There was acknowledgment of cost fields and sell fields in estimates and that fixes to these fields would require returning to the base setup.
+- Labor rates were discussed with examples like $85–$100 per hour to reflect desired pricing; bottom-line figures included references to a 35% markup and a 26% margin in some contexts.
+- The relationship between cost versus sell (margin) and how these are calculated and displayed was explored, acknowledging variability in budgeting and pricing.
+- The process of extracting or moving change orders out of the main estimate and how those changes should be represented in the estimate was discussed.
+- Automated reporting as a goal or consideration related to estimating data and change-order impact was mentioned.
+- Explicit next steps:
+  - Break cost-out by the intended breakout logic to keep items organized by cost code and area.
+  - Open an open labor code and create a labor operation for the identified estimating path; store it within the new labor group and allocate time, deciding whether it should be display-only or actively used in estimation.
+  - Ensure there is an explicit labor code that calculates hours for change orders (CO) or similar kit work and that it is available for estimates.
+  - Finalize the approach to carbon vs stainless sizing in estimates and production data, including how these are mapped and presented.
+
+- Additional time-study, material-size, and data-definition items mentioned (to be pursued as next steps within Estimating):
+  - Perform time studies for stainless materials to evaluate contamination reduction and equipment/consumables changes.
+  - Finish size definitions for stainless materials (especially those with zero dimensions).
+  - Evaluate and potentially add extras to estimates (additional labor, wellness adjustments) and consider manual overrides.
+  - Align carbon vs stainless handling in the estimating workflow and production data.
+
+PROJECT MANAGEMENT
+- Jira was referenced as a planning/workflow tool to outline how items would be tackled, with a note on how tasks would be captured in Jira.
+- Chris had already issued a report; there was an expectation of additional requests if a robust history is maintained.
+- The plan for next steps included producing a report next week and aligning on a practical path to address upcoming workload, with a general ramp-up and prioritization of manageable tasks to demonstrate progress.
+- Status monitoring and collaboration tools were cited, including Statuspage and Jira, indicating a workflow that relies on these tools for status updates and issue tracking.
+- Dartmouth’s end-of-April milestone and the need to input scheduling values to enable scheduling-related activities were discussed as key timing references.
+- Next steps (explicit or implied): continue refining the use of Jira for task management and ensure schedule values are entered to support scheduling activities; no specific action owners were named in the transcript for this topic.
+
+PRODUCTION CONTROL / CUTTING PROCESS
+- The conversation centered on the constraint that a cutter cannot be created until material is cut, with the idea of pre-creating a cutter or marking it inactive until the operation is completed.
+- Mention of a potential REM (related to the cutter) and the implication that controls or indicators might be needed to prevent premature activity.
+- References to reprogramming to load or throw in information related to adjusting the process flow to accommodate planning before the actual cut; no concrete reprogramming steps were executed during the session.
+- The broader workflow around how parts are associated with plates and how cutting status affects downstream activities was discussed.
+- In a later section, two-step operation structures were reviewed (cut and clean as separate operations feeding into one output), with discussion of labeling/description alignment to reflect timing.
+- A configuration option was reviewed to split activities outside the main cut-times while still consolidating results into a single downstream output.
+- Agreement existed to describe the process as “cut and clean,” with both operations contributing to the same downstream item; descriptions and time fields were noted to influence displayed timing.
+- Next steps: no explicit action items were documented for this specific topic in this session; attendees acknowledged the approach and moved on to related topics.
+- Material handling and related controls (tags, finish codes, and frame/type designations) were discussed as part of broader production data management, including a dimensional threshold (anything above 23 inches high) used to define treatment or processing rules; editing code to implement changes was described as possible but rare, with shop setup adjustments typically used to effect changes.
+- X4 export/import workflow and shop setup adjustments were discussed as part of pursuing more efficient wiring/production and labor pacing based on shop setup.
+
+IT / DATA INTEGRATION / TOOLS
+- Bitbucket was referenced in the context of base setup and versioning, with notes that the base setup needed completion.
+- Transmittals and drawings management, including uploading or organizing items within the workflow, were discussed.
+- Tablet/mobile elements were touched on, including configuring the system to work with handheld devices and associated data.
+- Chris’s input was acknowledged as aligning with integration considerations, though no explicit configuration changes were committed.
+- There were broader discussions of cross-system data flows, including plans to connect workflows between Tekla PowerFab and other platforms (transmittals, drawings, etc.).
+- Some timeframes (e.g., two months) were discussed for advancing integration efforts.
+
+FACILITY / EQUIPMENT
+- The facility referenced included the M20 saw and the smaller saw setup, with comparisons to an M40 arrangement and general capacity considerations.
+- Technical aspects such as LED indicators and standoff components were discussed in the context of equipment readiness.
+- Emphasis was placed on ensuring equipment and programming readiness prior to proceeding with production steps.
+
+STAFFING / RESOURCE PLANNING
+- The group discussed the need to bring in additional people to support growing activity and to handle forthcoming tasks.
+- There was mention of aligning with a broader plan and preparing for increased demand, including providing questions or guidance to new or existing team members as part of onboarding or knowledge sharing.
+- Several informal statements referenced collaboration and practical assistance to move tasks forward, with emphasis on tackling practical, easier items first.
+
+STANDARDS & DOCUMENTATION / POWERFAB GO
+- Action Standards Document was introduced, starting with Tony’s case as a basis for figure-out/document-control needs.
+- There was agreement to lay out standards and to put them into the system, with acknowledgment that a formal written standard would be helpful.
+- There was a recognized lack of records in the system, signaling a documentation gap to address, and a plan to export standards and produce a written standard as a deliverable.
+- Data is stored on a drive with a need to pull historical data (three years) when needed.
+- The group planned to begin with Tony’s case and to refine how document control will be implemented, including what gets documented and how it is maintained.
+- Discussed exporting standards and creating portable, shareable standards outside the live system; discussions included data export/import and shop setup adjustments to support workflow changes.
+- Next steps:
+  - Begin Tony’s case as the starting point for documentation controls.
+  - Develop exportable standards and implement document control practices.
+  - Ensure historical data accessibility (three years) and consider shop setup adjustments to support ongoing standardization.
+
+CONTRACT MANAGEMENT / CHANGE ORDERS
+- The New Jersey contract was a primary focus, with discussion on how contract items relate to scheduling and events, and on tracking original contract value, current contract value, and total budget as changes occur.
+- Explored how change orders feed into contract value and how the system reflects current change orders versus the original contract; noted the need to present change orders in a breakdown (labor, material) and potentially by time period.
+- The system was described as capable of showing both current contract value and change orders, with change orders enterable and viewable within the contract framework.
+- There were no approved change orders or invoices at the time of discussion, indicating an ongoing review/approval workflow.
+- A “change button” capability to manage change orders and show how changes affect contract value was discussed.
+- Explicit next steps were not clearly stated; the session remained focused on understanding process and capabilities.
+
+SCHEDULING & COSTING
+- Schedule values must be entered before generating or executing the schedule and related events.
+- The need to tie schedule line items to the contract was emphasized; billing would involve the line item linked to the schedule.
+- The system could display a complete schedule and support whether changes are approved or not; it also supports linking line items to the schedule for accurate billing.
+- The ability to review the schedule’s financial impact by comparing original contract value, change orders, and current contract value was described.
+- The reporting layout (first page, second page) presented standard information for a contract schedule, with notes that the tool is designed to avoid breaking a spreadsheet when updating data.
+- Next steps were not explicitly defined beyond the described capabilities; scheduling values and their integration with the contract were the primary focus.
+
+PRODUCTION CONTROL (CONSOLIDATED VIEW)
+- The session described a two-step cut/clean workflow where cut and clean are separate operations feeding into a single downstream item; labeling and description were aligned to reflect timing.
+- There was interest in a configuration to split activities outside the main cut-times while still bringing both cut and clean results into one consolidated step.
+- No explicit changes to existing operations were mandated, though the discussion framed potential routing and naming changes.
+- The packaging/bar description and operation descriptions influenced the time displayed, underscoring the need to keep terminology aligned with time fields.
+
+QA/QC / INSPECTIONS
+- Inspections and data capture were reviewed with emphasis on displaying reasons/statuses via dropdowns and standardizing naming (e.g., machine vs. fabrication vs. detail).
+- Consideration of inspector data structures, including country-specific columns (e.g., Canadian), to organize inspection data, was discussed.
+- Revision control for drawings and ensuring access to the latest drawings per project was highlighted.
+- There was mention of NCRs and the need to track non-conformant activity; counts and distribution across items were reviewed.
+- Plan to attach supporting artifacts (pictures, tables) to inspection/record sets and set up cohesive attachments was discussed.
+- Next steps included configuring inspector data structures with dropdowns, ensuring access to latest drawings, attaching supporting documents to records, evaluating tooling replacements (e.g., KTA) if needed, establishing two-pass stations for shot-related items, and considering OpsGenie for alerting.
+
+NESTING INTEGRATION
+- Nesting module integration was discussed as part of the plan, with references to full integration and status tracking.
+- IT support for the Nestin integration and status tracking might not be available immediately.
+- Data integration implications were noted as part of broader plans to unify workflows (including inspection/rejection data) across systems.
+- Next steps:
+  - Confirm IT support availability for Nestin integration.
+  - Define scope and timeline for Nestin module deployment and status tracking.
+  - Align Nestin integration with QA/inspection reporting approaches described.
+
+NEXT STEPS SUMMARY (explicit mentions across topics)
+- ESTIMATING: create a labor operation for the identified estimating path; map to a new labor group; assign time and decide display; locate/open an open labor code for CO or kit work; finalize carbon vs stainless sizing approach; perform stainless time studies; finish stainless size definitions; evaluate extras and manual overrides.
+- STANDARDS / DOCUMENTATION: begin Tony’s case; develop exportable standards; implement document control; ensure three-year data accessibility; plan shop setup changes and data export/import.
+- NESTING INTEGRATION: confirm IT support; define scope/timeline; align with QA/inspection reporting.
+- IT / DATA INTEGRATION: continue using Jira/Bitbucket/Loom ecosystem; address base setup and transmittal/drawing management; evaluate handheld device configurations.
+- PRODUCTION CONTROL: maintain two-step cut/clean setup with clear timing labeling; consider routing/naming changes; ensure alignment of time fields with descriptions.
+- QA/QC: configure inspector data structures; implement dropdowns; ensure latest drawings access; attach supporting artifacts; evaluate tooling replacements if needed; plan for two-pass stations and OpsGenie alerting.
+
+CLOSING
+The day yielded a comprehensive set of topics around estimating, page-to-area mapping, standard detailing, scheduling, and cross-system data integration for Tekla PowerFab, with a clear emphasis on standardization, data governance, and preparing for future growth. Explicit next steps centered on advancing labor- and cost-code structures, establishing documentation controls, exploring Nesting integration, and continuing cross-functional collaboration through Jira and related tools. Further sessions were planned to validate progress and refine the approaches described.

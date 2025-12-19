@@ -1,0 +1,140 @@
+The day’s sessions focused on aligning Tekla PowerFab workflows around estimating, purchasing, inventory/receiving, production control, routing, QA/QC, detailing standards, and related data-integration activities. The material covered current practices, observed data gaps, and explicit next steps to improve accuracy, traceability, and governance as multiple Vista/Tecla and automation initiatives proceed.
+
+ADMINISTRATIVE INFORMATION / ADMINISTRATION
+- What was reviewed / covered
+  - The session opened with acknowledgment of the meeting, discussed recording policy (described as an extra meeting with restrictions in certain seasons), and noted the involvement of key personnel for upcoming audits.
+  - References indicated there had been prior discussions and a need to recall who chaired certain items in earlier meetings; there was continuity with yesterday’s session.
+  - Minutes for current or prior discussions were not available or created during this session.
+- Key findings / observations
+  - There was emphasis on continuity and governance, but documentation (minutes) was not produced in this session.
+- Next steps (explicitly mentioned)
+  - No explicit action items documented within this topic beyond noting prior discussion continuity; the broader sessions later identified actions connected to governance and data management.
+
+IT SECURITY / DATA INTEGRATION
+- What was reviewed / covered
+  - Access to the SQL server was discussed; Ricky requested access and was informed that server access was available to him.
+  - Port-number work and network-access follow-up were described; Ricky had been awaiting a new port number, which had not been completed yet.
+  - The plugin was described as “admin,” indicating a focus on admin-level capabilities for a plugin and associated privileges.
+  - SQL service management and naming inconsistencies within the SQL service manager were noted, as part of ongoing configuration.
+  - There was acknowledgement of Vista migration’s impact on data structures (e.g., not breaking out line items as previously done) and references to duplication and governance flows.
+- Key findings / observations
+  - Access provisioning and network-port issues were active; migration to Vista was affecting data-itemization and governance.
+- Next steps (explicitly mentioned)
+  - Follow up on the new port number for SQL access and complete server-access setup if not finalized.
+  - Re-establish or confirm SQL access and review the SQL service management naming issues.
+  - Re-establish administrative privileges for relevant plugins and review Vista/Tecla data-flow governance to avoid duplicate processes.
+
+PURCHASING
+- What was reviewed / covered
+  - The morning objective centered on inventory cleanup and stock-taking; multiple open POs needed finalization or formal approval.
+  - Clarified what “fully received” meant for closing POs; one PO was identified as fully received with remaining “buy items” unassociated and outside finalized status.
+  - The PO data flow involved closing POs as fully received, removing related line items from the open-order view, and then approving the PO to complete the workflow.
+  - Historical context described a shift from a different system to Vista for PO management; the current process duplicated data handling to support Vista’s itemization.
+  - Vista’s changes altered how line items were broken out and managed, implying updated itemization compared with prior practices.
+- Key findings / observations
+  - There was ongoing transition to Vista-based PO management, with duplication of processes during the transition.
+  - There were open POs and a need to finalize and align fulfillment with receiving/shipments.
+- Next steps (explicitly mentioned)
+  - PURCHASING: Add the finalized PO workflow to the process so that, after receiving and completing shipping/receiving tasks, the PO is finalized; determine who has authority to approve/finalize (Ricky and Tom or shipping).
+  - PURCHASING: Review and align Vista/Tecla integration to reflect PO data flow and ensure proper cross-system synchronization.
+  - PURCHASING: Locate information about the specific method or tool used for finalization if not clearly documented in this session.
+  - PURCHASING: Prepare for AI audit by engaging identified key personnel and clarifying audit scope and roles (connected to governance and cross-system traceability).
+
+PRODUCTION CONTROL / INVENTORY MANAGEMENT
+- What was reviewed / covered
+  - The day’s main objective was inventory cleanup and stocktaking; substantial cleanup work was in progress with consolidation/standardization (umbrella loading) due to unfinalized data assets.
+  - A large inventory weight (over 1,000,000 pounds) was discussed, with on-order weight not yet reflecting cleanup, creating misalignment between stock and on-order data.
+  - Ongoing cleanup efforts aimed to maintain accurate inventory records as items were finalized and moved through the system.
+  - There were discussions of overlays and bin-location planning (e.g., whip bins) to improve material tracking; five acres of space were referenced for bin-location planning and material placement.
+  - Receiving/finalization processes were described: attaching documents to items, visibility of open orders until finalization, and an example where a line item showed as not finalized (e.g., 22 gauge with weight not yet in the system).
+- Key findings / observations
+  - There existed a misalignment between on-order data and stock records, requiring ongoing reconciliation; large on-order quantities and future arrivals were forecast (e.g., 300 tons projected in the system but not yet received).
+  - Yard vs. warehouse organization and space utilization were critical; overlays and bin-location planning were planned to improve tracking and space efficiency.
+- Next steps (explicitly mentioned)
+  - INVENTORY MANAGEMENT: Continue aligning stock vs. on-order data; work toward ensuring on-order quantities, stock levels, and backlog reflect the same reality; monitor incoming POs (e.g., 300 tons) and update stock projections; consider implementing bin-location overlays for improved tracking.
+  - BIN LOCATION PLANNING: Complete the area layout and meet with Mark to discuss the impact on space utilization and material placement.
+  - RECEIVING / FINALIZATION: Continue refining the receiving/finalization workflow and ensure orders are finalized before they move to inventory history or inventory.
+  - IT AUTOMATION: Re-establish access to automation tools (AutoHotKey), restore executive-order-driven automation, and evaluate scripts for automation (e.g., ChatGPT-generated scripts).
+
+WAREHOUSE OPERATIONS / BIN LOCATION PLANNING
+- What was reviewed / covered
+  - Five acres of space were discussed for bin-location planning; intent to implement overlays of whip bins and inventory locations to improve material tracking; plan to discuss area-layout changes with Mark.
+- Key findings / observations
+  - There was a clear emphasis on space-utilization optimization and bin-location overlays to support material tracking and forecasting.
+- Next steps (explicitly mentioned)
+  - Complete area-layout planning and meet with Mark to discuss impact on space utilization and material placement.
+
+RECEIVING / FINALIZATION PROCESS
+- What was reviewed / covered
+  - Receiving attaches documents to items; items are not removed from delete-order until finalization; orders remain visible if not finalized; an example line item showed data incomplete until finalization.
+- Key findings / observations
+  - The finalization step is essential to move items from open/receiving status to completed inventory status; data completeness at the item/line-item level directly affects stock visibility.
+- Next steps (explicitly mentioned)
+  - Continue refining the finalization process to ensure line items finalize after receiving tasks are completed and associated data (weights, data fields) are populated.
+
+IT AUTOMATION / DATA INTEGRATION
+- What was reviewed / covered
+  - AutoHotKey was discussed as a tool; access prerequisites and an executive-order-driven automation program were described, including an expired executive order to be restored.
+  - Scripts via AI assistance (e.g., ChatGPT) were suggested as a potential automation path, subject to access/version considerations.
+- Key findings / observations
+  - There was active interest in re-establishing automation for PO receiving/stock-tracking workflows and for automating data-entry tasks.
+- Next steps (explicitly mentioned)
+  - Re-establish access to AutoHotKey; restore the executive-order-driven program; evaluate available scripts (including AI-generated) for automation.
+
+PROJECT MANAGEMENT / AUDIT & COMPLIANCE
+- What was reviewed / covered
+  - An explicit audit orientation was mentioned, including an AI audit involving key personnel; recording policies were reiterated for governance and traceability.
+  - There were discussions around data-processing practices, duplication with Vista/Tecla, and ongoing follow-ups to align processes.
+- Key findings / observations
+  - Governance and traceability were emphasized; formal documentation and audit readiness were ongoing considerations.
+- Next steps (explicitly mentioned)
+  - Prepare for the AI audit by engaging identified key personnel and clarifying audit scope and roles.
+  - Locate information about exact tools/methods used for finalizing POs and data-flow governance.
+  - Ensure governance alignment with Vista migration and cross-system data flows.
+
+QA / QA/QC / DETAILING STANDARDS
+- What was reviewed / covered
+  - Several sessions addressed QA/QC controls within receiving, inventory, coatings, and routing; examples included dual approvals, line-item heat-number tracking, and AISC references.
+  - There were discussions around the use of remarks, heats, and location-based tracking; operators assigned remarks to items.
+  - The interaction between QA/QC and data-entry forms, inspections, and traceability was explored.
+- Key findings / observations
+  - There was a focus on traceability of QA/QC data with heat-number tracking, remarks linked to items, and alignment to standards (e.g., AISC references).
+- Next steps (explicitly mentioned)
+  - No single concrete QA/QC action item; several sessions indicated continuing use of remark/heat-number tracking and alignment with standards. In other topics, there were explicit QA/QC form-design actions (see Detailing Standards).
+
+DETAILING STANDARDS
+- What was reviewed / covered
+  - The detailing team was described as active in specific workstreams (e.g., Arizona water tank) and coordinating with fabrication processes.
+  - There was a plan to design forms and data entry around SP-based standards (SP2/SP3/SP6/SP10, SP13 later) and to align coatings with fabrication routes.
+  - Discussions included labeling conventions (flag plates) and standardization of data entry for detailing tasks.
+- Key findings / observations
+  - SP-based standardization and coatings-related routing were central to detailing discussions; form architecture and data-fields were being considered to support traceability.
+- Next steps (explicitly mentioned)
+  - Finalize first-field design for SP-based standards (which SPs to expose as dropdowns, which fields are checkboxes, etc.).
+  - Validate SP-based logic for galvanizing scenarios and coatings-related inspections.
+  - Decide on the categorization structure (site docs vs environmental vs other) and begin migrating forms piece-by-piece.
+
+POWERFAB GO
+- What was reviewed / covered
+  - Several mentions addressed how PowerFab Go would handle data capture (checks, inspections, attachments) and how forms and evidence could be created inside PowerFab for real-time updates.
+  - Considerations included whether data would populate PowerFab (checks, inspections, documentation) and how attachments (pictures) would be stored/referenced.
+- Key findings / observations
+  - There was a clear drive to model inspections, environmental/paint data, and KC (knowledge capture) within PowerFab, with attachments linked via a document index rather than embedded in the database.
+- Next steps (explicitly mentioned)
+  - Prototype environmental and paint-log forms within PowerFab; attach supporting pictures; verify alignment with customer reporting requirements; consider site-wide KC data capture.
+
+DATA INTEGRATION / REPORTING / DATA VISIBILITY
+- What was reviewed / covered
+  - Cross-project reporting capabilities and filtering by finishes, SP levels, and codes; the desire to pull data by path/route and show square footage by route or station; discussions of Excel-based exports and pivot-table analyses.
+  - There were concerns about the reliability of data populations, and the need to validate data-import processes (e.g., Kiss file, Excel imports) and to synchronize with reporting outputs.
+- Key findings / observations
+  - Reporting and data visibility were emphasized; there was ongoing tension between data in PowerFab and externally sourced data (Excel, Kiss files) and the need to consolidate into a single, auditable workflow.
+- Next steps (explicitly mentioned)
+  - Test and finalize new data-integration approaches (zero-cost labor entries; separate rate boards; global paint code) and validate reporting outputs (per job, per route, per finish) prior to broader deployment.
+  - Prepare for integration discussions (tomorrow) and bring supporting text/data to the session.
+
+CLOSING REMARKS (overall)
+- The day yielded a broad set of explicit next steps across topics, with concrete actions such as finalizing PO workflows, aligning Vista/Tecla data flows, continuing inventory/bin-location enhancements, prototyping environmentals/paint-logs in PowerFab, and testing automation scripts. The transcripts also highlighted governance, data-standardization needs, and the importance of real-time visibility and auditable workflows as Vista/Tecla and automation initiatives progress.
+
+Optional closing note
+- If you’d like, I can convert these topic-based notes into a formal action-item list with owners and due dates, or expand any topic with inline quotes from the transcript for traceability.
